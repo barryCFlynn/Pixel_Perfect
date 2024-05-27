@@ -6,6 +6,7 @@ features
 carouseld of high rated and sale items
 cookie popup
 rating system so calculates new rating and writes it
+with pillow when have 3 backgrounds that will overlay the poster onto when loading the product detail
 
 main site for inspiration and images displate.com, email send to them on 27/05/24 requesting permission to use site assets
 
