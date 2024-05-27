@@ -1,12 +1,22 @@
 
 This is a migration from an old project that i am re using, i will be updated as the projects is worked on and ref to WatchBidCentral will be changed to PixelPerfect
+
+
+features
+carouseld of high rated and sale items
+cookie popup
+rating system so calculates new rating and writes it
+
+main site for inspiration and images displate.com, email send to them on 27/05/24 requesting permission to use site assets
+
+
 # Pixel Perfect
 
-'WatchBidCentral' is an exclusive digital haven tailored for the aficionados of timekeeping, offering a marketplace that celebrates the art and craft of luxury watches. This platform is not just a website; it's a dynamic community for both sellers and buyers to engage in the passionate exchange of exquisite timepieces. From vintage classics to contemporary marvels, WatchBidCentral is dedicated to connecting watch enthusiasts around the globe.
+Pixel Perfect is an exclusive digital haven tailored for the aficionados of game franchises, offering a marketplace that celebrates the art and craft of high-quality posters. This platform is not just a website; it's a dynamic community for both sellers and buyers to engage in the passionate exchange of exquisite game-themed artwork. From vintage classics to contemporary marvels, Pixel Perfect is dedicated to connecting art enthusiasts around the globe.
 
-Here, users can craft listings for their cherished watches, bid on a diverse collection from esteemed manufacturers, and immerse in a realm where precision meets elegance. WatchBidCentral prides itself on ensuring a secure, transparent, and straightforward experience, making it the premier destination for acquiring and distributing luxury watches.
+Here, users can craft listings for their cherished posters, purchase a diverse collection from esteemed artists, and immerse themselves in a realm where creativity meets fandom. Pixel Perfect prides itself on ensuring a secure, transparent, and straightforward experience, making it the premier destination for acquiring and distributing luxury posters.
 
-Embracing the legacy and innovation of the watchmaking tradition, WatchBidCentral is a confluence of history, artistry, and technology. It's a community where every tick, design, and story behind the watch matters, offering a unique space for enthusiasts to share, discover, and elevate their passion for watches. Join the journey at WatchBidCentral, where every second is a celebration of time's endless dance.
+Embracing the legacy and innovation of game art, Pixel Perfect is a confluence of history, artistry, and technology. It's a community where every design, print, and story behind the artwork matters, offering a unique space for enthusiasts to share, discover, and elevate their passion for game-inspired posters. Join the journey at Pixel Perfect, where every piece is a celebration of artistic expression and gaming culture.
 
 <center> 
 
@@ -81,28 +91,29 @@ Developer: [Barry Flynn](https://github.com/barryCFlynn/) <br>
 
 ---
 
-# Project Goals 
+# Project Goals
+Pixel Perfect is a Django-based web application dedicated to game franchise enthusiasts and collectors, offering a sophisticated platform for the buying and selling of high-quality posters. The main goals of the project include:
 
-WatchBidCentral is a Django-based web application dedicated to watch enthusiasts and collectors, offering a sophisticated platform for the buying and selling of luxury watches. The main goals of the project include:
+1. Create a Secure and User-Friendly Marketplace: Develop a platform where users can list their game-themed posters for sale and purchase a diverse range of artwork in a safe and user-friendly environment.
 
-To create a secure and user-friendly marketplace where users can list their watches for sale and participate in bidding on a wide range of luxury timepieces.
-To foster a community of watch enthusiasts who can share their passion, knowledge, and experiences related to various brands and models.
-To implement a transparent and trustworthy verification process ensuring the authenticity and quality of the watches listed on the platform.
-To provide comprehensive user profiles that allow sellers to showcase their collections and buyers to express their preferences and watch interests.
-To enable a seamless and intuitive user experience from listing watches to placing bids, with a focus on high-quality images and detailed descriptions.
+2. Foster a Community of Enthusiasts: Build a community where poster and game art enthusiasts can share their passion, knowledge, and experiences related to various game franchises and artwork styles.
+
+3. Implement a Transparent Verification Process: Ensure the authenticity and quality of posters listed on the platform through a clear and trustworthy verification process.
+
+4. Provide Comprehensive User Profiles: Offer detailed user profiles that allow sellers to showcase their collections and buyers to express their preferences and interests in game-themed art.
+
+5. Enable a Seamless User Experience: Focus on providing a smooth and intuitive user experience from listing posters to making purchases, with an emphasis on high-quality images and detailed descriptions.
 
 ### User Goals
-
-- To discover a wide selection of luxury watches from reputable sellers and verified listings.
-- To find a specialized platform that caters exclusively to the needs and interests of watch collectors and enthusiasts.
-- To safely buy and sell luxury watches within a community that values authenticity, quality, and the finer details of horology.
-- To connect with other users, share insights, and gain knowledge about different watches and their historical significance.
+- Discover a Wide Selection of Game-Themed Posters: Explore an extensive collection of high-quality posters from reputable sellers and verified listings.
+- Find a Specialized Platform: Utilize a platform that caters exclusively to the needs and interests of game franchise enthusiasts and art collectors.
+- Safely Buy and Sell Posters: Engage in buying and selling posters within a secure community that values authenticity, quality, and the artistic elements of game franchises.
+- Connect with Other Enthusiasts: Connect with fellow users to share insights, exchange knowledge, and discuss the historical and artistic significance of various game-themed artworks.
 
 ### Site Owner Goals
-
-- To establish WatchBidCentral as a premier online destination for luxury watch transactions, recognized for its commitment to quality, authenticity, and community engagement.
-- To create a sustainable business model that attracts a global audience of watch lovers and collectors, providing them with a reliable platform for their buying and selling needs.
-- To continuously improve the platform based on user feedback and technological advancements, ensuring a state-of-the-art experience for all community members.
+- Establish Pixel Perfect as a Premier Destination: Position Pixel Perfect as the leading online platform for buying and selling high-quality game-themed posters, recognized for its commitment to quality, authenticity, and community engagement.
+- Create a Sustainable Business Model: Develop a business model that attracts a global audience of game art lovers and collectors, providing them with a reliable platform for their buying and selling needs.
+- Continuously Improve the Platform: Enhance the platform based on user feedback and technological advancements, ensuring a state-of-the-art experience for all community members.
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
@@ -111,24 +122,21 @@ To enable a seamless and intuitive user experience from listing watches to placi
 # User Experience
 
 ### Target Audience
+Pixel Perfect is tailored for the following target audience:
 
-WatchBidCentral is tailored for the following target audience:
-
-- Watch enthusiasts and collectors seeking a dedicated platform to buy and sell luxury timepieces.
-- Individuals interested in learning about horology and connecting with a community that shares their passion for high-quality watches.
-- Sellers looking for a trustworthy marketplace to list their luxury watches and reach a global audience of potential buyers.
-- Buyers in search of a secure and user-friendly environment to discover authentic luxury watches from reputable sellers.
-
+- Game franchise enthusiasts and collectors seeking a dedicated platform to buy and sell high-quality game-themed posters.
+- Individuals interested in learning about game art and connecting with a community that shares their passion for high-quality game-themed artwork.
+- Sellers looking for a trustworthy marketplace to list their game-themed posters and reach a global audience of potential buyers.
+- Buyers in search of a secure and user-friendly environment to discover authentic, high-quality game-themed posters from reputable sellers.
 
 ### User Requirements and Expectations
+When using Pixel Perfect, users can expect the following features and characteristics to fulfill their needs:
 
-When using WatchBidCentral, users can expect the following features and characteristics to fulfill their needs:
-
-- A visually appealing and easy-to-navigate interface that enhances the experience of buying and selling watches.
+- A visually appealing and easy-to-navigate interface that enhances the experience of buying and selling game-themed posters.
 - A secure registration and login process, safeguarding user data and transactions.
-- Interactive features such as the ability to place bids, create listings, and engage with other users through comments.
-- A personalized user profile where sellers can showcase their watches and buyers can manage their bids and watchlist.
-- Access to a curated selection of luxury watches, with detailed information and images to ensure authenticity and quality.
+- Interactive features such as the ability to create listings, purchase posters, and engage with other users through comments and reviews.
+- A personalized user profile where sellers can showcase their posters and buyers can manage their purchases and wishlists.
+- Access to a curated selection of high-quality game-themed posters, with detailed information and images to ensure authenticity and quality.
 
 
 
@@ -137,16 +145,7 @@ When using WatchBidCentral, users can expect the following features and characte
 User stories and tasks Grouped below.
 
 - [As a Site Admin, I can create, edit, and delete advertisements - complete](https://github.com/barryCFlynn/WatchBidCentral/issues/1)
-- [As a Seller, I can place offers on advertisements and manage my own listings - Partially complete](https://github.com/barryCFlynn/WatchBidCentral/issues/2)
-- [As a Buyer, I can bid on advertisements, leave comments, and reply to comments - complete](https://github.com/barryCFlynn/WatchBidCentral/issues/3)
-- [Paginated list of posts - complete](https://github.com/barryCFlynn/WatchBidCentral/issues/4)
-- [Carousel of most liked listings - Partially complete](https://github.com/barryCFlynn/WatchBidCentral/issues/5)
-- [Open a Listed Item - complete](https://github.com/barryCFlynn/WatchBidCentral/issues/6)
-- [Comments and Comments on comments - Partially complete](https://github.com/barryCFlynn/WatchBidCentral/issues/7)
-- [View Notifications - Partially complete](https://github.com/barryCFlynn/WatchBidCentral/issues/8)
-- [About Page - complete](https://github.com/barryCFlynn/WatchBidCentral/issues/9)
-- [Account Registration - complete](https://github.com/barryCFlynn/WatchBidCentral/issues/10)
-- [Comment on a Listing - complete](https://github.com/barryCFlynn/WatchBidCentral/issues/11)
+
 
 
 <br>
