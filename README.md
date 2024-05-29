@@ -189,6 +189,42 @@ This database schema outlines the structure for WatchBidCentral, enabling user e
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
 ---
+# Models
+
+## Models Description
+
+### Size Model
+The `Size` model defines various size options for the posters, each with an associated price. This model allows for flexible pricing based on the size of the poster and is a Many to Many field.
+
+- **Fields:**
+  - `size`: A character field with choices for 'Small', 'Medium', and 'Large'.
+  - `price`: A decimal field that stores the price for each size option.
+
+### Product Model
+The `Product` model represents individual posters in the inventory. This model includes comprehensive details about each product and utilizes a `ManyToManyField` to link to multiple `Size` entries. This setup enables each product to have various size and price options.
+
+- **Fields:**
+  - `title`: The name of the product.
+  - `description`: A detailed description of the product.
+  - `artist`: The name of the artist who created the poster.
+  - `rating`: A decimal field to store product ratings.
+  - `keywords`: A text field for comma-separated keywords to facilitate search functionality.
+  - `category`: A foreign key linking to the `Category` model.
+  - `franchise`: A foreign key linking to the `Franchise` model.
+  - `sizes`: A many-to-many field linking to the `Size` model, allowing for multiple size and price options per product.
+  - `stock`: The quantity of the product available in stock.
+  - `available`: A boolean field indicating if the product is available for sale.
+  - `created`: The timestamp when the product was created.
+  - `updated`: The timestamp when the product was last updated.
+  - `image`: An image field to store the product image.
+
+This structure provides a robust framework for managing the inventory, supporting detailed product information, and flexible pricing based on size.
+
+<br>
+
+<p align="right">(<a href="#table-of-content">back to top</a>)</p>
+
+---
 
 # Design
 
