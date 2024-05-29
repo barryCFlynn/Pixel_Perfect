@@ -17,6 +17,9 @@ class Category(models.Model):
 
 
 class Franchise(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Franchises'
   
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
