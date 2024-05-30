@@ -189,6 +189,28 @@ This database schema outlines the structure for WatchBidCentral, enabling user e
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
 ---
+# Features
+
+### Using Keywords to Enhance Search Functionality
+#### Overview
+In our inventory system, each inventory item can have a set of keywords associated with it. These keywords play a crucial role in improving the searchability of items, allowing users to quickly find what they are looking for based on specific terms related to the product. Keywords can include various descriptors such as genre, style, color, theme, and other relevant attributes.
+
+How It Works
+Keyword Field in Inventory Item Model:
+Each inventory item includes a keywords field where multiple keywords can be stored. These keywords are typically comma-separated strings that describe the item in various ways.
+
+User Experience:
+Users can enter terms related to their interests or needs into the search bar. The system will then look for these terms within the keywords, name, and description fields of inventory items, providing a comprehensive set of results that are more likely to match user expectations.
+
+Benefits
+Improved Search Accuracy: By leveraging keywords, the search functionality becomes more accurate and relevant, as it considers various aspects of an item beyond its name and description.
+Enhanced User Experience: Users can find items more easily, making their interaction with the platform more enjoyable and efficient.
+Flexible Categorization: Keywords allow for flexible and dynamic categorization of items, which can adapt to various search patterns and user preferences.
+Example
+For an inventory item representing a poster of a popular game franchise, keywords might include terms like "fantasy", "dragon", "RPG", and "adventure". This allows users searching for any of these terms to find the poster even if these terms are not explicitly mentioned in the item's name or description.
+
+By integrating keywords into the search functionality, we enhance the discoverability of inventory items and provide users with a more powerful and intuitive search experience.
+
 # Models
 
 ## Models Description

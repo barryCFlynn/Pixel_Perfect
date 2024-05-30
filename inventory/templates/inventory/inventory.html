@@ -30,7 +30,7 @@
                                     <img class="card-img-top img-fluid" src="{{ inventoryitem.image.url }}" alt="{{ inventoryitems.name }}">
                                 </a>
                                 {% else %}
-                                <a href="">
+                                <a href="{% url 'inventory_detail' inventoryitem.id %}">
                                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ inventoryitems.name }}">
                                 </a>
                                 {% endif %}
