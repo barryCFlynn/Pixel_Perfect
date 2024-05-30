@@ -60,3 +60,7 @@ class InventoryItem(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_min_price(self):
+        min_price = self.sizes.aggregate(models.Min('price'))['price__min']
+        return f"{min_price:.2f}" if min_price is not None else "0.00"
