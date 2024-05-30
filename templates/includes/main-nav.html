@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Inventory
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
@@ -14,12 +14,37 @@
         </li>
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Special Offers
+                Category
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">New Arrivals</a>
-                <a href="" class="dropdown-item">Deals</a>
-                <a href="" class="dropdown-item">All Specials</a>
+                <a href="{% url 'inventoryitems' %}?category=Post-Apocalyptic" class="dropdown-item">Post-Apocalyptic</a>
+                <a href="{% url 'inventoryitems' %}?category=Modern-Day" class="dropdown-item">Modern-Day</a>
+                <a href="{% url 'inventoryitems' %}?category=Fantasy" class="dropdown-item">Fantasy</a>
+                <a href="{% url 'inventoryitems' %}?category=Science-Fiction" class="dropdown-item">Science-Fiction</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Franchise
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
+                <a href="{% url 'inventoryitems' %}?franchise=Fallout" class="dropdown-item">Fallout</a>
+                <a href="{% url 'inventoryitems' %}?franchise=Half Life" class="dropdown-item">Half Life</a>
+                <a href="{% url 'inventoryitems' %}?franchise=Halo" class="dropdown-item">Halo</a>
+                <a href="{% url 'inventoryitems' %}?franchise=Helldivers 2" class="dropdown-item">Helldivers 2</a>
+                <a href="{% url 'inventoryitems' %}?franchise=Left for Dead 2" class="dropdown-item">Left for Dead 2</a>
+                <a href="{% url 'inventoryitems' %}?franchise=Mass Effect" class="dropdown-item">Mass Effect</a>
+                <a href="{% url 'inventoryitems' %}?franchise=Sanctum 2" class="dropdown-item">Sanctum 2</a>
+                <a href="{% url 'inventoryitems' %}?franchise=World of Warcraft" class="dropdown-item">World of Warcraft</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Latest
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
+                <a href="{% url 'inventoryitems' %}?category=New Arrival" class="dropdown-item">New Arrivals</a>
+                <a href="{% url 'inventoryitems' %}?category=Sale" class="dropdown-item">Sale</a>
             </div>
         </li>
     </ul>
