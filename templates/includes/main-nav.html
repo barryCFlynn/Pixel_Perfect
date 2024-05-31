@@ -8,7 +8,7 @@
                 <a href="{% url 'inventoryitems' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'inventoryitems' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
                 <a href="{% url 'inventoryitems' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
-                <a href="{% url 'inventoryitems' %}?sort=franchise&direction=asc" class="dropdown-item ">By Franchise</a>
+                <a href="{% url 'inventoryitems' %}?sort=franchise&direction=" class="dropdown-item ">By Franchise</a>
                 <a href="{% url 'inventoryitems' %}" class="dropdown-item">All Inventory</a>
             </div>
         </li>
@@ -21,6 +21,7 @@
                 <a href="{% url 'inventoryitems' %}?category=Modern-Day" class="dropdown-item">Modern-Day</a>
                 <a href="{% url 'inventoryitems' %}?category=Fantasy" class="dropdown-item">Fantasy</a>
                 <a href="{% url 'inventoryitems' %}?category=Science-Fiction" class="dropdown-item">Science-Fiction</a>
+                <a href="{% url 'inventoryitems' %}?category=Science-Fiction,Fantasy,Modern-Day,Post-Apocalyptic" class="dropdown-item">All Categories</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -36,6 +37,7 @@
                 <a href="{% url 'inventoryitems' %}?franchise=Mass Effect" class="dropdown-item">Mass Effect</a>
                 <a href="{% url 'inventoryitems' %}?franchise=Sanctum 2" class="dropdown-item">Sanctum 2</a>
                 <a href="{% url 'inventoryitems' %}?franchise=World of Warcraft" class="dropdown-item">World of Warcraft</a>
+                <a href="{% url 'inventoryitems' %}?franchise=World of Warcraft,Sanctum 2,Mass Effect,Left for Dead 2,Helldivers 2,Halo,Half Life,Fallout" class="dropdown-item">All Franchises</a>
             </div>
         </li>
         <li class="nav-item dropdown">

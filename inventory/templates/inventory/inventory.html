@@ -15,6 +15,16 @@
         <div class="row">
             <div class="col text-center mt-3">
                 <h2 class="logo-font">Inventory</h2>
+                {% for c in current_categories %}
+                    <a class="category-badge text-decoration-none" href="{% url 'inventoryitems' %}?category={{ c.friendly_name }}">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ c.friendly_name }}</span>
+                    </a>
+                {% endfor %}
+                {% for f in current_franchises %}
+                    <a class="category-badge text-decoration-none" href="{% url 'inventoryitems' %}?franchise={{ f.friendly_name }}">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ f.friendly_name }}</span>
+                    </a>
+                {% endfor %}
                 <hr class="w-50 mb-1">
             </div>
         </div>
@@ -35,14 +45,26 @@
                                 </a>
                                 {% endif %}
                                 <div class="card-body pb-0">
-                                    <p class="mb-0">Title: {{ inventoryitem.name }}</p>
-                                    <p class="mb-0">Franchise: {{ inventoryitem.franchise.friendly_name }}</p>
-                                    <p class="mb-0">Category: {{ inventoryitem.category.friendly_name }}</p>
+                                    <p class="mb-0">{{ inventoryitem.name }}</p>
                                 </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-left mt-1">
                                     <div class="row">
                                         <div class="col">
                                             <p class="lead mb-0 text-left font-weight-bold">From: ${{ inventoryitem.get_min_price }}</p>
+                                            {% if inventoryitem.franchise %}
+                                            <P class="small mt-1 mb-0">
+                                                <a class="text-muted" href="{% url 'inventoryitems' %}?franchise={{  inventoryitem.franchise.friendly_name }}">
+                                                    <i class="fas fa-archive mr-1"></i>{{ inventoryitem.franchise.friendly_name }}
+                                                </a>
+                                            </P>
+                                            {% endif %}
+                                            {% if inventoryitem.category %}
+                                            <P class="small mt-1 mb-0">
+                                                <a class="text-muted" href="{% url 'inventoryitems' %}?category={{  inventoryitem.category.friendly_name }}">
+                                                    <i class="fas fa-tag mr-1"></i>{{ inventoryitem.category.friendly_name }}
+                                                </a>
+                                            </P>
+                                            {% endif %}
                                             {% if inventoryitem.rating %}
                                                 <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ inventoryitem.rating }} / 5</small>
                                             {% else %}
