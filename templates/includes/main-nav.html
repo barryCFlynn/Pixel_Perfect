@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="all-products-link" aria-haspopup="true" aria-expanded="false">
                 All Inventory
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
@@ -13,10 +13,10 @@
             </div>
         </li>
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="category-link" aria-haspopup="true" aria-expanded="false">
                 Category
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
+            <div class="dropdown-menu border-0" aria-labelledby="category-link">
                 <a href="{% url 'inventoryitems' %}?category=Post-Apocalyptic" class="dropdown-item">Post-Apocalyptic</a>
                 <a href="{% url 'inventoryitems' %}?category=Modern-Day" class="dropdown-item">Modern-Day</a>
                 <a href="{% url 'inventoryitems' %}?category=Fantasy" class="dropdown-item">Fantasy</a>
@@ -25,10 +25,10 @@
             </div>
         </li>
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="franchise-link" aria-haspopup="true" aria-expanded="false">
                 Franchise
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
+            <div class="dropdown-menu border-0" aria-labelledby="franchise-link">
                 <a href="{% url 'inventoryitems' %}?franchise=Fallout" class="dropdown-item">Fallout</a>
                 <a href="{% url 'inventoryitems' %}?franchise=Half Life" class="dropdown-item">Half Life</a>
                 <a href="{% url 'inventoryitems' %}?franchise=Halo" class="dropdown-item">Halo</a>
@@ -41,7 +41,7 @@
             </div>
         </li>
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" aria-haspopup="true" aria-expanded="false">
                 Latest
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
@@ -51,3 +51,19 @@
         </li>
     </ul>
 </div>
+
+<!-- Custom JS to prevent click to open dropdown -->
+<script>
+    $(document).ready(function(){
+        $('.nav-item.dropdown').hover(function() {
+            $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(200);
+        }, function() {
+            $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(200);
+        });
+
+        $('.nav-item.dropdown > a').click(function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+        });
+    });
+</script>

@@ -41,6 +41,8 @@
                                 <option value="{% url 'inventoryitems' %}?sort=rating&direction=desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
                                 <option value="{% url 'inventoryitems' %}?sort=name&direction=asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
                                 <option value="{% url 'inventoryitems' %}?sort=name&direction=desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                                <option value="{% url 'inventoryitems' %}?sort=franchise&direction=asc" {% if current_sorting == 'franchise' %}selected{% endif %}>Franchise (A-Z)</option>
+                                <option value="{% url 'inventoryitems' %}?sort=franchise&direction=desc" {% if current_sorting == 'franchise' %}selected{% endif %}>Franchise (Z-A)</option>
                                 <option value="{% url 'inventoryitems' %}?sort=category&direction=asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
                                 <option value="{% url 'inventoryitems' %}?sort=category&direction=desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
                             </select>
