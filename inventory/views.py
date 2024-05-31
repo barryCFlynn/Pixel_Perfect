@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.db.models import Q
+from django.db.models import Q, Min
 from django.db.models.functions import Lower
 from .models import InventoryItem, Category, Franchise
 
 def inventory_items(request):
     """ A view to return the inventory page, including sorting and search queries """
 
-    inventoryitems = InventoryItem.objects.all()
+    inventoryitems = InventoryItem.objects.all().annotate(min_price=Min('sizes__price'))
     query = None
     categories = None
     franchises = None
@@ -28,6 +28,8 @@ def inventory_items(request):
                 sortkey = 'franchise__friendly_name'
             if sortkey == 'artist':
                 sortkey = 'artist'
+            if sortkey == 'price':
+                sortkey = 'min_price'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':

@@ -35,7 +35,9 @@
                                 </a>
                                 {% endif %}
                                 <div class="card-body pb-0">
-                                    <p class="mb-0">{{ inventoryitem.name }}</p>
+                                    <p class="mb-0">Title: {{ inventoryitem.name }}</p>
+                                    <p class="mb-0">Franchise: {{ inventoryitem.franchise.friendly_name }}</p>
+                                    <p class="mb-0">Category: {{ inventoryitem.category.friendly_name }}</p>
                                 </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-left mt-1">
                                     <div class="row">
