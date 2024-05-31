@@ -75,10 +75,14 @@ a.category-badge > span.badge:hover {
     color: #fff !important;
 }
 
-/* Custom CSS to trigger dropdown on hover */
+.btt-link {
+    cursor: pointer;
+}
+
+
 .navbar-nav .dropdown:hover .dropdown-menu {
     display: block;
-    margin-top: 0; /* Adjust as needed */
+    margin-top: 0;
 }
 
 .navbar-nav .dropdown-menu {
