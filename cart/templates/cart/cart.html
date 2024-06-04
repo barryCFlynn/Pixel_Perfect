@@ -38,7 +38,9 @@
                             {% for item in cart_items %}
                                 <tr>
                                     <td class="p-3 w-25">
-                                        <img class="img-fluid rounded" src="{{ item.inventory_item.image.url }}">
+                                        <a href="{{ item.inventory_item.image.url }}" target="_blank">
+                                            <img class="img-fluid img-thumbnail w-50" src="{{ item.inventory_item.image.url }}">
+                                        </a>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">
