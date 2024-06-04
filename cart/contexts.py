@@ -19,7 +19,7 @@ def cart_contents(request):
                 inventory_item_count += quantity
                 cart_items.append({
                     'item_id': item_id,
-                    'size': size_id,
+                    'size': size.get_size_display(),
                     'quantity': quantity,
                     'inventory_item': inventory_item,
                     'size_price': size.price,
