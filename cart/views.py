@@ -4,10 +4,12 @@ from inventory.models import InventoryItem, Size
 
 # Create your views here.
 
+
 def view_cart(request):
     """ A view to return the cart page """
 
     return render(request, 'cart/cart.html')
+
 
 def add_to_cart(request, item_id):
     """ Add a quantity of the specified product to the shopping cart """
@@ -18,7 +20,6 @@ def add_to_cart(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
 
-    # Ensure the item is stored as a dictionary with items_by_size key
     if item_id in cart:
         if not isinstance(cart[item_id], dict):
             cart[item_id] = {'items_by_size': {}}

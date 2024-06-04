@@ -14,7 +14,8 @@ def cart_contents(request):
         if isinstance(item_data, dict) and 'items_by_size' in item_data:
             for size_id, quantity in item_data['items_by_size'].items():
                 size = get_object_or_404(Size, pk=size_id)
-                total += quantity * size.price
+                total_price = quantity * size.price
+                total += total_price
                 inventory_item_count += quantity
                 cart_items.append({
                     'item_id': item_id,
@@ -22,15 +23,15 @@ def cart_contents(request):
                     'quantity': quantity,
                     'inventory_item': inventory_item,
                     'size_price': size.price,
+                    'total_price': total_price,
                 })
         else:
-            # If no size is associated, default to a price if applicable
             cart_items.append({
                 'item_id': item_id,
                 'size': None,
                 'quantity': item_data,
                 'inventory_item': inventory_item,
-                'size_price': 0,  # Default to 0 or some logic to handle non-size items
+                'size_price': 0,
             })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
