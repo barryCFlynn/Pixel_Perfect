@@ -32,6 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
                 '8000-barrycflynn-pixelperfec-l2vi9tav0ah.ws-eu114.gitpod.io',
+                '8000-barrycflynn-pixelperfec-txa16ud0xsf.ws-eu114.gitpod.io',
                 ]
 
 

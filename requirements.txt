@@ -2,6 +2,7 @@ asgiref==3.8.1
 Django==3.2.25
 django-allauth==0.57.2
 oauthlib==3.2.2
+pillow==10.3.0
 PyJWT==2.8.0
 python-dotenv==1.0.1
 python3-openid==3.2.0
