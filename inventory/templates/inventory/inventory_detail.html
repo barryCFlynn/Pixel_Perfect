@@ -55,7 +55,6 @@
                 {% endif %}
                 <p class="mb-0">Keywords: {{ inventoryitem.keywords }}</p>
                 <p class="mb-0">Stock: {{ inventoryitem.stock }}</p>
-                <p class="lead mb-0 text-left font-weight-bold">${{ inventoryitem.get_min_price }}</p>
                 {% if inventoryitem.rating %}
                 <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ inventoryitem.rating }} / 5</small>
                 {% else %}
@@ -77,6 +76,9 @@
                         </div>
                         <div class="col-12">
                             <p class="mt-3"><strong>Size:</strong></p>
+                            {% if has_sale_size %}
+                            <p class="text-success">Save 25% on any size!</p>
+                            {% endif %}
                             <div class="form-group w-50">
                                 <select class="form-control" name="size">
                                     {% for size in inventoryitem.sizes.all %}

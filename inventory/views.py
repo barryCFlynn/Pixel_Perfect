@@ -3,10 +3,18 @@ from django.contrib import messages
 from django.db.models import Q, Min
 from django.db.models.functions import Lower
 from .models import InventoryItem, Category, Franchise
+from decimal import Decimal
 
 def inventory_items(request):
-    """ A view to return the inventory page, including sorting and search queries """
+    """
+    Display the inventory page with sorting and search functionality.
 
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered inventory page.
+    """
     inventoryitems = InventoryItem.objects.all().annotate(min_price=Min('sizes__price'))
     query = None
     categories = None
@@ -81,12 +89,24 @@ def inventory_items(request):
     return render(request, 'inventory/inventory.html', context)
 
 def inventory_detail(request, inventoryitem_id):
-    """ A view to show individual inventory item details """
+    """
+    Display the details of a specific inventory item.
 
+    Args:
+        request (HttpRequest): The HTTP request object.
+        inventoryitem_id (int): The ID of the InventoryItem to display.
+
+    Returns:
+        HttpResponse: The rendered inventory item detail page.
+    """
     inventoryitem = get_object_or_404(InventoryItem, pk=inventoryitem_id)
+    sizes = inventoryitem.sizes.all()
+    # Check if any size contains 'Sale'
+    has_sale_size = any('Sale' in size.get_size_display() for size in sizes)
 
     context = {
         'inventoryitem': inventoryitem,
+        'has_sale_size': has_sale_size,
     }
 
     return render(request, 'inventory/inventory_detail.html', context)

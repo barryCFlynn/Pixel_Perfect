@@ -2,7 +2,13 @@ from django.db import models
 
 
 class Category(models.Model):
+    """
+    Represents a category for inventory items.
 
+    Attributes:
+        name (str): The name of the category.
+        friendly_name (str): The user-friendly name of the category.
+    """
     class Meta:
         verbose_name_plural = 'Categories'
         
@@ -13,11 +19,23 @@ class Category(models.Model):
         return self.name
 
     def get_friendly_name(self):
+        """
+        Returns the friendly name of the category.
+
+        Returns:
+            str: The friendly name of the category.
+        """
         return self.friendly_name
 
 
 class Franchise(models.Model):
+    """
+    Represents a franchise for inventory items.
 
+    Attributes:
+        name (str): The name of the franchise.
+        friendly_name (str): The user-friendly name of the franchise.
+    """
     class Meta:
         verbose_name_plural = 'Franchises'
   
@@ -28,16 +46,32 @@ class Franchise(models.Model):
         return self.name
 
     def get_friendly_name(self):
+        """
+        Returns the friendly name of the franchise.
+
+        Returns:
+            str: The friendly name of the franchise.
+        """
         return self.friendly_name
 
 
 class Size(models.Model):
+    """
+    Represents the size and price of an inventory item.
+
+    Attributes:
+        size (str): The size identifier ('S', 'M', 'L').
+        price (Decimal): The price of the item for the given size.
+    """
     SIZE_CHOICES = [
         ('S', 'Small'),
         ('M', 'Medium'),
         ('L', 'Large'),
+        ('SS', 'Small Sale'),
+        ('MS', 'Medium Sale'),
+        ('LS', 'Large Sale'),
     ]
-    size = models.CharField(max_length=1, choices=SIZE_CHOICES, unique=True)
+    size = models.CharField(max_length=2, choices=SIZE_CHOICES, unique=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
@@ -45,6 +79,23 @@ class Size(models.Model):
 
 
 class InventoryItem(models.Model):
+    """
+    Represents an inventory item available for purchase.
+
+    Attributes:
+        name (str): The name of the inventory item.
+        sku (str): The SKU of the item.
+        description (str): A description of the item.
+        category (ForeignKey): The category the item belongs to.
+        franchise (ForeignKey): The franchise the item belongs to.
+        artist (str): The artist of the item.
+        keywords (str): Comma-separated keywords for search.
+        sizes (ManyToManyField): Available sizes for the item.
+        stock (int): The stock quantity of the item.
+        available (bool): Availability status of the item.
+        rating (Decimal): Rating of the item.
+        image (ImageField): Image of the item.
+    """
     name = models.CharField(max_length=254)
     sku = models.CharField(max_length=254, null=True, blank=True)
     description = models.TextField()
@@ -62,5 +113,11 @@ class InventoryItem(models.Model):
         return self.name
 
     def get_min_price(self):
+        """
+        Returns the minimum price among available sizes for the item.
+
+        Returns:
+            str: The minimum price formatted to two decimal places.
+        """
         min_price = self.sizes.aggregate(models.Min('price'))['price__min']
         return f"{min_price:.2f}" if min_price is not None else "0.00"

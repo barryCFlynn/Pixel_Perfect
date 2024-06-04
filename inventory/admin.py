@@ -38,6 +38,9 @@ class SizeAdmin(admin.ModelAdmin):
         'size',
         'price',
     )
+    list_filter = ('size',)
+    search_fields = ('size',)
+
 admin.site.register(InventoryItem, IventoryAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Franchise, FranchiseAdmin)
