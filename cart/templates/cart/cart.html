@@ -41,7 +41,13 @@
                                         <img class="img-fluid rounded" src="{{ item.inventory_item.image.url }}">
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0"><strong>{{ item.inventory_item.name }}</strong></p>
+                                        <p class="my-0">
+                                            <strong>
+                                                <a class="text-decoration-none text-body" href="{% url 'inventory_detail' item.inventory_item.id %}">
+                                                    {{ item.inventory_item.name }}
+                                                </a>
+                                            </strong>
+                                        </p>
                                         <p class="my-0 small text-muted">SKU: {{ item.inventory_item.sku|upper }}</p>
                                         <p class="my-0 small text-muted">Size: {{ item.size }}</p>
                                     </td>
