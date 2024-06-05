@@ -57,7 +57,7 @@
                                         <p class="my-0">${{ item.size_price|floatformat:2 }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <form class="form update-form" method="POST" action="">
+                                        <form class="form update-form" method="POST" action="{% url 'update_cart' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <div class="input-group">
@@ -118,6 +118,12 @@
                                             <i class="fas fa-lock"></i>
                                         </span>
                                     </a>
+                                    <a href="{% url 'clear_cart' %}" class="btn btn-black rounded-0 btn-lg">
+                                        <span class="text-uppercase">Clear Cart</span>
+                                        <span class="icon">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                    </a>
                                 </td>
                             </tr>
                         </table>
@@ -143,16 +149,19 @@
 <script type="text/javascript">
     // Update quantity on click
     $('.update-link').click(function(e) {
-        var form = $(this).prev('.update-form');
+        e.preventDefault();
+        var form = $(this).closest('.update-form');
         form.submit();
     });
 
     // Remove item and reload on click
     $('.remove-item').click(function(e) {
+        e.preventDefault();
         var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/cart/remove/${itemId}`;
-        var data = {'csrfmiddlewaretoken': csrfToken};
+        var itemId = parseInt($(this).attr('id').split('remove_')[1]);
+        var sizeId = $(this).data('size'); // Ensure sizeId is captured correctly
+        var url = `/cart/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken, 'size': sizeId};
 
         $.post(url, data)
          .done(function() {
