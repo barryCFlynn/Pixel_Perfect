@@ -17,7 +17,7 @@
             <div class="image-container my-5">
                 {% if inventoryitem.image %}
                 <a href="{{ inventoryitem.image.url }}" target="_blank">
-                    <img class="card-img-top img-fluid" src="{{ inventoryitem.image.url }}"
+                    <img class="card-img-top img-fluid w-75" src="{{ inventoryitem.image.url }}"
                         alt="{{ inventoryitem.name }}">
                 </a>
                 {% else %}

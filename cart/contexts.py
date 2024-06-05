@@ -24,7 +24,7 @@ def cart_contents(request):
                     'inventory_item': inventory_item,
                     'size_price': size.price,
                     'total_price': total_price,
-                })
+            })
         else:
             cart_items.append({
                 'item_id': item_id,
