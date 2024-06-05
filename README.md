@@ -2,13 +2,16 @@
 This is a migration from an old project that i am re using, i will be updated as the projects is worked on and ref to WatchBidCentral will be changed to PixelPerfect
 
 
-features
+todo features
 carouseld of high rated and sale items
 cookie popup
-rating system so calculates new rating and writes it
 with pillow when have 3 backgrounds that will overlay the poster onto when loading the product detail
 
 main site for inspiration and images displate.com, email send to them on 27/05/24 requesting permission to use site assets
+
+might have features
+stock item reduced after sale confirmed
+rating system so calculates new rating and writes it
 
 
 # Pixel Perfect
@@ -210,6 +213,25 @@ Example
 For an inventory item representing a poster of a popular game franchise, keywords might include terms like "fantasy", "dragon", "RPG", and "adventure". This allows users searching for any of these terms to find the poster even if these terms are not explicitly mentioned in the item's name or description.
 
 By integrating keywords into the search functionality, we enhance the discoverability of inventory items and provide users with a more powerful and intuitive search experience.
+
+### Discount Notification Feature
+#### Overview
+The discount notification feature is designed to inform users when a product has sizes available at a discounted price. This feature ensures that customers are aware of any ongoing sales and can take advantage of the reduced prices.
+
+Implementation Details
+The feature works by checking if any of the available sizes for an inventory item includes the term "Sale." If a sale size is detected, a message indicating the discount is displayed on the product detail page.
+
+How It Works
+Inventory Detail View Update:
+The view function inventory_detail is updated to include a check for sale sizes. It iterates through all the sizes of an inventory item and sets a flag (has_sale_size) if any size contains the term "Sale."
+
+Template Update:
+The template inventory_detail.html is updated to conditionally display a message if the has_sale_size flag is set. This informs users that a 25% discount is available on any size.
+
+Benefits
+Increased Awareness: Customers are immediately informed of any ongoing discounts, which can lead to increased sales.
+User-Friendly: The notification is prominently displayed, ensuring that users do not miss out on any potential savings.
+By incorporating this feature, the platform enhances user experience and promotes sales by clearly communicating discounts to potential buyers.
 
 # Models
 

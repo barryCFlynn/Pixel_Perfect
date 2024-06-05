@@ -2,8 +2,6 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
 from inventory.models import InventoryItem, Size
 
-# Create your views here.
-
 
 def view_cart(request):
     """ A view to return the cart page """
@@ -12,7 +10,19 @@ def view_cart(request):
 
 
 def add_to_cart(request, item_id):
-    """ Add a quantity of the specified product to the shopping cart """
+    """
+    Add a specified quantity of a product, including its selected size, to the shopping cart.
+
+    Args:
+        request (HttpRequest): The HTTP request object containing POST data with 'quantity', 'size', and 'redirect_url'.
+        item_id (int): The ID of the InventoryItem to add to the cart.
+
+    Returns:
+        HttpResponseRedirect: Redirects to the URL specified in 'redirect_url'.
+
+    Raises:
+        Http404: If the specified InventoryItem or Size does not exist.
+    """
     inventory_item = get_object_or_404(InventoryItem, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     size_id = request.POST.get('size')

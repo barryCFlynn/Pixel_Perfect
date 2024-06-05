@@ -4,6 +4,23 @@ from django.shortcuts import get_object_or_404
 from inventory.models import InventoryItem, Size
 
 def cart_contents(request):
+    """
+    Retrieves the shopping cart contents from the session, calculates totals and delivery costs, 
+    and prepares context data for templates.
+
+    Args:
+        request (HttpRequest): The HTTP request object containing session data.
+
+    Returns:
+        dict: A dictionary with cart details including:
+            - cart_items (list): List of cart items with details.
+            - total (Decimal): Total cost of items.
+            - inventory_item_count (int): Total number of items.
+            - delivery (Decimal): Delivery cost.
+            - free_delivery_delta (Decimal): Amount needed for free delivery.
+            - free_delivery_threshold (Decimal): Free delivery threshold.
+            - grand_total (Decimal): Total cost including delivery.
+    """
     cart_items = []
     total = 0
     inventory_item_count = 0
