@@ -32,9 +32,10 @@ def add_to_cart(request, item_id):
     size = get_object_or_404(Size, pk=size_id)
     cart = request.session.get('cart', {})
 
-    # Print the cart structure before adding
-    print(f"view add_to_cart: Cart before adding: {cart}")
+    # item_id = int(item_id)
+    # size_id = int(size_id)
 
+    
     if item_id in cart:
         if not isinstance(cart[item_id], dict):
             cart[item_id] = {'items_by_size': {}}
@@ -46,7 +47,7 @@ def add_to_cart(request, item_id):
         cart[item_id] = {'items_by_size': {size_id: quantity}}
 
     # Print the cart structure after adding
-    print(f"view add_to_cart: Cart after adding: {cart}")
+    print(f"Received add request - Item ID ({type(item_id).__name__}): {item_id}, Size ID ({type(size_id).__name__}): {size_id}")
 
     request.session['cart'] = cart
 
@@ -64,8 +65,11 @@ def update_cart(request, item_id):
     size = get_object_or_404(Size, pk=size_id)
     cart = request.session.get('cart', {})
 
+    # item_id = int(item_id)
+    # size_id = int(size_id)
+
     # Log form data
-    print(f"Item ID: {item_id}, Quantity: {quantity}, Size ID: {size_id}")
+    print(f"Received update request - Item ID ({type(item_id).__name__}): {item_id}, Size ID ({type(size_id).__name__}): {size_id}")
 
     if item_id in cart:
         if size_id in cart[item_id]['items_by_size']:
@@ -88,6 +92,41 @@ def update_cart(request, item_id):
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
 
+def remove_from_cart(request, item_id):
+    """Remove the item from the shopping cart."""
+    try:
+        # Log start of the process
+        print("Starting remove_from_cart process")
+
+        size_id = request.POST.get('size')
+
+        size = get_object_or_404(Size, pk=size_id)
+        cart = request.session.get('cart', {})
+
+        item_id = str(item_id)
+
+        # Log received data
+        print(f"Received remove request - Item ID ({type(item_id).__name__}): {item_id}, Size ID ({type(size_id).__name__}): {size_id}")
+
+        if item_id in cart:
+            if size_id in cart[item_id]['items_by_size']:
+                del cart[item_id]['items_by_size'][size_id]
+                if not cart[item_id]['items_by_size']:
+                    cart.pop(item_id)
+                messages.success(request, f'Removed {size.get_size_display()} item from your cart')
+            else:
+                raise ValueError(f"Size ID {size_id} not found in cart for item ID {item_id}")
+        else:
+            raise ValueError(f"Item ID {item_id} not found in cart")
+
+        request.session['cart'] = cart
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        messages.error(request, f'Error removing item {item_id}: {e}')
+        # Log the error
+        print(f"Error removing item {item_id}: {e}")
+        return HttpResponse(status=500)
 
 def clear_cart(request):
     """Clear all items from the cart"""
