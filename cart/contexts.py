@@ -27,41 +27,28 @@ def cart_contents(request):
     inventory_item_count = 0
     cart = request.session.get('cart', {})
 
-    logging.debug(f"Cart Session Data: {cart}")
-
     for item_id, item_data in cart.items():
-        try:
-            inventory_item = get_object_or_404(InventoryItem, pk=item_id)
-            logging.debug(f"Processing item: {item_id} - {item_data}")
-        except ValueError:
-            logging.error(f"Invalid item_id: {item_id}")
-            continue
-
+        inventory_item = get_object_or_404(InventoryItem, pk=item_id)
         if isinstance(item_data, dict) and 'items_by_size' in item_data:
             for size_id, quantity in item_data['items_by_size'].items():
-                if size_id is None:
-                    logging.error(f"Invalid size_id: {size_id}")
-                    continue
-                try:
-                    size_id = int(size_id)  # Ensure size_id is an integer
+                if size_id:
                     size = get_object_or_404(Size, pk=size_id)
                     total_price = quantity * size.price
                     total += total_price
                     inventory_item_count += quantity
                     cart_items.append({
                         'item_id': item_id,
+                        'size_id': size_id,
                         'size': size.get_size_display(),
                         'quantity': quantity,
                         'inventory_item': inventory_item,
                         'size_price': size.price,
                         'total_price': total_price,
                     })
-                except (ValueError, Size.DoesNotExist) as e:
-                    logging.error(f"Error processing size_id {size_id}: {e}")
-                    continue
         else:
             cart_items.append({
                 'item_id': item_id,
+                'size_id': None,
                 'size': None,
                 'quantity': item_data,
                 'inventory_item': inventory_item,
