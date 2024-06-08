@@ -32,10 +32,8 @@ def add_to_cart(request, item_id):
     size = get_object_or_404(Size, pk=size_id)
     cart = request.session.get('cart', {})
 
-    # item_id = int(item_id)
-    # size_id = int(size_id)
+    item_id = str(item_id)
 
-    
     if item_id in cart:
         if not isinstance(cart[item_id], dict):
             cart[item_id] = {'items_by_size': {}}
@@ -46,8 +44,8 @@ def add_to_cart(request, item_id):
     else:
         cart[item_id] = {'items_by_size': {size_id: quantity}}
 
-    # Print the cart structure after adding
-    print(f"Received add request - Item ID ({type(item_id).__name__}): {item_id}, Size ID ({type(size_id).__name__}): {size_id}")
+    # Print the add to cart event
+    print(f"Received add request - Item ID ({type(item_id).__name__}): {item_id}, Size ID ({type(size_id).__name__}): {size_id}, Quantity ({type(quantity).__name__}): {quantity}")
 
     request.session['cart'] = cart
 
@@ -65,11 +63,10 @@ def update_cart(request, item_id):
     size = get_object_or_404(Size, pk=size_id)
     cart = request.session.get('cart', {})
 
-    # item_id = int(item_id)
-    # size_id = int(size_id)
+    item_id = str(item_id)
 
     # Log form data
-    print(f"Received update request - Item ID ({type(item_id).__name__}): {item_id}, Size ID ({type(size_id).__name__}): {size_id}")
+    print(f"Received update request - Item ID ({type(item_id).__name__}): {item_id}, Size ID ({type(size_id).__name__}): {size_id}, Quantity ({type(quantity).__name__}): {quantity}")
 
     if item_id in cart:
         if size_id in cart[item_id]['items_by_size']:
@@ -95,11 +92,7 @@ def update_cart(request, item_id):
 def remove_from_cart(request, item_id):
     """Remove the item from the shopping cart."""
     try:
-        # Log start of the process
-        print("Starting remove_from_cart process")
-
         size_id = request.POST.get('size')
-
         size = get_object_or_404(Size, pk=size_id)
         cart = request.session.get('cart', {})
 
