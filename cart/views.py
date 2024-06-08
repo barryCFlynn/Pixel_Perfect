@@ -32,6 +32,7 @@ def add_to_cart(request, item_id):
     size = get_object_or_404(Size, pk=size_id)
     cart = request.session.get('cart', {})
 
+    # required to prevent item_id type as int
     item_id = str(item_id)
 
     if item_id in cart:
@@ -63,6 +64,7 @@ def update_cart(request, item_id):
     size = get_object_or_404(Size, pk=size_id)
     cart = request.session.get('cart', {})
 
+    # required to prevent item_id type as int which breaks update cart
     item_id = str(item_id)
 
     # Log form data
@@ -96,6 +98,7 @@ def remove_from_cart(request, item_id):
         size = get_object_or_404(Size, pk=size_id)
         cart = request.session.get('cart', {})
 
+        # required to prevent item_id type as int which breaks remove with 500 errors
         item_id = str(item_id)
 
         # Log received data
