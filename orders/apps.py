@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class CheckoutConfig(AppConfig):
+class OrdersConfig(AppConfig):
     name = 'orders'
 
     def ready(self):

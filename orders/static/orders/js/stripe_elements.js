@@ -44,6 +44,7 @@ card.addEventListener('change', function (event) {
     }
 });
 
+
 // Handle form submit
 var form = document.getElementById('payment-form');
 
@@ -62,7 +63,7 @@ form.addEventListener('submit', function(ev) {
         'client_secret': clientSecret,
         'save_info': saveInfo,
     };
-    var url = '/orders/cache_checkout_data/';
+    var url = '/orders/cache_order_data/';
 
     $.post(url, postData).done(function () {
         stripe.confirmCardPayment(clientSecret, {

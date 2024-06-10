@@ -5,8 +5,7 @@ from django.conf import settings
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
-
-from inventory.models import InventoryItem
+from inventory.models import InventoryItem, Size
 # from profiles.models import UserProfile
 # from profiles.forms import UserProfileForm
 from cart.contexts import cart_contents
@@ -16,7 +15,7 @@ import json
 
 
 @require_POST
-def cache_checkout_data(request):
+def cache_order_data(request):
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -61,23 +60,15 @@ def orders(request):
             for item_id, item_data in cart.items():
                 try:
                     inventory_item = InventoryItem.objects.get(id=item_id)
-                    if isinstance(item_data, int):
+                    for size_id, quantity in item_data['items_by_size'].items():
+                        size = get_object_or_404(Size, pk=size_id)
                         order_line_item = OrderLineItem(
                             order=order,
                             inventory_item=inventory_item,
-                            quantity=item_data,
+                            quantity=quantity,
+                            size=size,
                         )
                         order_line_item.save()
-                    else:
-                        for size_id, quantity in item_data['items_by_size'].items():
-                            size = get_object_or_404(Size, pk=size_id)
-                            order_line_item = OrderLineItem(
-                                order=order,
-                                inventory_item=inventory_item,
-                                quantity=quantity,
-                                size=size,
-                            )
-                            order_line_item.save()
                 except InventoryItem.DoesNotExist:
                     messages.error(request, (
                         "One of the items in your cart wasn't found in our database. "
@@ -88,7 +79,7 @@ def orders(request):
 
             # Save the info to the user's profile if all is well
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('order_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
@@ -106,7 +97,6 @@ def orders(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-
 
         # Attempt to prefill the form with any info the user maintains in their profile
         if request.user.is_authenticated:
@@ -142,9 +132,9 @@ def orders(request):
     return render(request, template, context)
 
 
-def checkout_success(request, order_number):
+def order_success(request, order_number):
     """
-    Handle successful checkouts
+    Handle successful orders
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
@@ -177,7 +167,7 @@ def checkout_success(request, order_number):
     if 'cart' in request.session:
         del request.session['cart']
 
-    template = 'checkout/checkout_success.html'
+    template = 'orders/order_success.html'
     context = {
         'order': order,
     }

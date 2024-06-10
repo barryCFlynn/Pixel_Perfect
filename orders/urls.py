@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.orders, name='orders'),
-    # path('checkout_success/<order_number>', views.checkout_success, name='checkout_success'),
-    # path('cache_checkout_data/', views.cache_checkout_data, name='cache_checkout_data'),
+    path('order_success/<order_number>', views.order_success, name='order_success'),
+    path('cache_order_data/', views.cache_order_data, name='cache_order_data'),
     # path('wh/', webhook, name='webhook'),
 ]
