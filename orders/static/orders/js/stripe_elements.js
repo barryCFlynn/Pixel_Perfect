@@ -65,7 +65,7 @@ form.addEventListener('submit', function(ev) {
     };
     var url = '/orders/cache_order_data/';
 
-    $.post(url, postData).done(function () {
+    $.post(url, postData).done(function() {
         stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
