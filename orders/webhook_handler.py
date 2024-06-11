@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from .models import Order, OrderLineItem
 from inventory.models import InventoryItem, Size
 
+import stripe
 import json
 import time
 
