@@ -1,5 +1,5 @@
 from django.db import models
-# from django_countries.fields import CountryField
+from django_countries.fields import CountryField
 import uuid
 from django.conf import settings
 from django.db.models import Sum
@@ -13,8 +13,7 @@ class Order(models.Model):
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=True, blank=False)
-    # country = CountryField(blank_label='Country *', null=False, blank=False)
-    country = models.CharField(max_length=40, null=True, blank=True)
+    country = CountryField(blank_label='Country *', null=False, blank=False)
     postcode = models.CharField(max_length=20, null=True, blank=True)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
