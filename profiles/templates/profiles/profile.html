@@ -58,7 +58,7 @@
                                         <ul class="list-unstyled">
                                             {% for item in order.lineitems.all %}
                                                 <li class="small">
-                                                    Size {{ item.size.size_display|upper }} {{ item.inventory_item.name }} x{{ item.quantity }}
+                                                    Size {{ item.size.get_size_display|upper }} - {{ item.inventory_item.name }} x{{ item.quantity }}
                                                 </li>
                                             {% endfor %}
                                         </ul>
