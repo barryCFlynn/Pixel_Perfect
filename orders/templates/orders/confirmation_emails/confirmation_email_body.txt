@@ -1,0 +1,28 @@
+Hello {{ order.full_name }}!
+
+Thank you for shopping with us at Pixel Perfect. We are pleased to confirm your order. Below are the details:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Total: ${{ order.order_total }}
+Delivery: ${{ order.delivery_cost }}
+Grand Total: ${{ order.grand_total }}
+
+Your order will be shipped to:
+{{ order.street_address1 }},
+{{ order.street_address2 }},
+{{ order.town_or_city }},
+{{ order.county }},
+{{ order.country }},
+{{ order.postcode }}.
+
+Phone Number: {{ order.phone_number }}
+
+If you have any questions or need further assistance, please contact us at {{ contact_email }}.
+
+Thank you for your order and we hope to serve you again soon!
+
+Sincerely,
+The Pixel Perfect Team
+
