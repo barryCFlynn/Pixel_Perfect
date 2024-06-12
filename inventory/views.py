@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.db.models import Q, Min
 from django.db.models.functions import Lower
 from .models import InventoryItem, Category, Franchise
+from .forms import InventoryForm
 from decimal import Decimal
 
 def inventory_items(request):
@@ -110,3 +111,27 @@ def inventory_detail(request, inventoryitem_id):
     }
 
     return render(request, 'inventory/inventory_detail.html', context)
+
+def add_item(request):
+    """ Add a item to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only store owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = InventoryForm(request.POST, request.FILES)
+        if form.is_valid():
+            inventoryitem = form.save()
+            messages.success(request, 'Successfully added item!')
+            return redirect(reverse('inventory_detail', args=[InventoryItem.id]))
+        else:
+            messages.error(request, 'Failed to add item. Please ensure the form is valid.')
+    else:
+        form = InventoryForm()
+
+    template = 'inventory/add_item.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
