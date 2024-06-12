@@ -172,4 +172,4 @@ def order_success(request, order_number):
         'order': order,
     }
 
-    return render(request, 'orders/order_success.html', context)
+    return render(request, template, context)
