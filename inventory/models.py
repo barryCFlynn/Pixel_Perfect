@@ -1,4 +1,6 @@
+import uuid
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 
 class Category(models.Model):
@@ -97,7 +99,7 @@ class InventoryItem(models.Model):
         image (ImageField): Image of the item.
     """
     name = models.CharField(max_length=254)
-    sku = models.CharField(max_length=254, null=True, blank=True)
+    sku = models.CharField(max_length=8, unique=True, editable=False)
     description = models.TextField()
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     franchise = models.ForeignKey('Franchise', null=True, blank=True, on_delete=models.SET_NULL)
@@ -107,7 +109,18 @@ class InventoryItem(models.Model):
     stock = models.PositiveIntegerField()
     available = models.BooleanField(default=True)
     rating = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
+    image = CloudinaryField('image', default='placeholder')
+
+    def save(self, *args, **kwargs):
+        if not self.sku:
+            self.sku = self.generate_sku()
+        super().save(*args, **kwargs)
+
+    def generate_sku(self):
+        """
+        Generate a unique SKU using UUID.
+        """
+        return str(uuid.uuid4()).replace("-", "").upper()[:8]
 
     def __str__(self):
         return self.name
