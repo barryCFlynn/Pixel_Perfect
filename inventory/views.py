@@ -112,6 +112,7 @@ def inventory_detail(request, inventoryitem_id):
 
     return render(request, 'inventory/inventory_detail.html', context)
 
+
 def add_item(request):
     """ Add a item to the store """
     if not request.user.is_superuser:
@@ -123,7 +124,7 @@ def add_item(request):
         if form.is_valid():
             inventoryitem = form.save()
             messages.success(request, 'Successfully added item!')
-            return redirect(reverse('inventory_detail', args=[InventoryItem.id]))
+            return redirect(reverse('inventory_detail', args=[inventoryitem.id]))
         else:
             messages.error(request, 'Failed to add item. Please ensure the form is valid.')
     else:
