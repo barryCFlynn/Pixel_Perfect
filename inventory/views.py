@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q, Min
 from django.db.models.functions import Lower
 from .models import InventoryItem, Category, Franchise
@@ -113,7 +114,7 @@ def inventory_detail(request, item_id):
 
     return render(request, 'inventory/inventory_detail.html', context)
 
-
+@ login_required
 def add_item(request):
     """ Add a item to the store """
     if not request.user.is_superuser:
@@ -139,7 +140,7 @@ def add_item(request):
 
     return render(request, template, context)
 
-
+@ login_required
 def edit_item(request, item_id):
     """ Edit an item in the store """
     if not request.user.is_superuser:
@@ -168,9 +169,9 @@ def edit_item(request, item_id):
 
     return render(request, template, context)
 
+@ login_required
 def delete_item(request, item_id):
     """ delete item in the store not viewable """
-
     if not request.user.is_superuser:
         messages.error(request, 'Sorry only store owners can do that.')
         return redirect(reverse('home'))
