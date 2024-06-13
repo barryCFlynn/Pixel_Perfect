@@ -1,4 +1,5 @@
 from django import forms
+from .widgets import CustomClearableFileInput
 from .models import InventoryItem, Category, Franchise, Size
 
 
@@ -7,6 +8,8 @@ class InventoryForm(forms.ModelForm):
     class Meta:
         model = InventoryItem
         fields = '__all__'
+
+    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
     sizes = forms.ModelMultipleChoiceField(
         queryset=Size.objects.all(),
