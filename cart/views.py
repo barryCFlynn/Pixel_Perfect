@@ -14,7 +14,7 @@ def view_cart(request):
 
 def add_to_cart(request, item_id):
     """
-    Add a specified quantity of a product, including its selected size, to the shopping cart.
+    Add a specified quantity of a item, including its selected size, to the shopping cart.
 
     Args:
         request (HttpRequest): The HTTP request object containing POST data with 'quantity', 'size', and 'redirect_url'.
@@ -56,7 +56,7 @@ def add_to_cart(request, item_id):
 
 def update_cart(request, item_id):
     """
-    Update a specified quantity of a product, including its selected size, in the shopping cart.
+    Update a specified quantity of a item, including its selected size, in the shopping cart.
     """
     inventory_item = get_object_or_404(InventoryItem, pk=item_id)
     quantity = int(request.POST.get('quantity'))

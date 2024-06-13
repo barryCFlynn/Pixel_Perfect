@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 from django.contrib import messages
 from django.db.models import Q, Min
 from django.db.models.functions import Lower
@@ -89,18 +90,18 @@ def inventory_items(request):
 
     return render(request, 'inventory/inventory.html', context)
 
-def inventory_detail(request, inventoryitem_id):
+def inventory_detail(request, item_id):
     """
     Display the details of a specific inventory item.
 
     Args:
         request (HttpRequest): The HTTP request object.
-        inventoryitem_id (int): The ID of the InventoryItem to display.
+        item_id (int): The ID of the InventoryItem to display.
 
     Returns:
         HttpResponse: The rendered inventory item detail page.
     """
-    inventoryitem = get_object_or_404(InventoryItem, pk=inventoryitem_id)
+    inventoryitem = get_object_or_404(InventoryItem, pk=item_id)
     sizes = inventoryitem.sizes.all()
     # Check if any size contains 'Sale'
     has_sale_size = any('Sale' in size.get_size_display() for size in sizes)
@@ -119,6 +120,7 @@ def add_item(request):
         messages.error(request, 'Sorry only store owners can do that.')
         return redirect(reverse('home'))
 
+
     if request.method == 'POST':
         form = InventoryForm(request.POST, request.FILES)
         if form.is_valid():
@@ -133,6 +135,35 @@ def add_item(request):
     template = 'inventory/add_item.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def edit_item(request, item_id):
+    """ Edit an item in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only store owners can do that.')
+        return redirect(reverse('home'))
+
+    inventoryitem = get_object_or_404(InventoryItem, pk=item_id)
+
+    if request.method == 'POST':
+        form = InventoryForm(request.POST, request.FILES, instance=inventoryitem)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated item!')
+            return redirect(reverse('inventory_detail', args=[inventoryitem.id]))
+        else:
+            messages.error(request, 'Failed to update item. Please ensure the form is valid.')
+    else:
+        form = InventoryForm(instance=inventoryitem)
+        messages.info(request, f'You are editing {inventoryitem.name}')
+
+    template = 'inventory/edit_item.html'
+    context = {
+        'form': form,
+        'inventoryitem': inventoryitem,
     }
 
     return render(request, template, context)
