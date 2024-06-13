@@ -167,3 +167,15 @@ def edit_item(request, item_id):
     }
 
     return render(request, template, context)
+
+def delete_item(request, item_id):
+    """ delete item in the store not viewable """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only store owners can do that.')
+        return redirect(reverse('home'))
+
+    inventoryitem = get_object_or_404(InventoryItem, pk=item_id)
+    inventoryitem.delete()
+    messages.success(request, 'Successfully deleted item!')
+    return redirect(reverse('inventoryitems'))
