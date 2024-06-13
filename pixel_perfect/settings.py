@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+import dj_database_url
 
 # Load environment variables from .env file
 load_dotenv()
@@ -31,8 +32,8 @@ SECRET_KEY = 'django-insecure-e!ux^-r9ozhq5bg=zqw#z9)+&j##5-&vyst@3@uzjvb+q9e3da
 DEBUG = True
 
 ALLOWED_HOSTS = [
-                '8000-barrycflynn-pixelperfec-l2vi9tav0ah.ws-eu114.gitpod.io',
                 '8000-barrycflynn-pixelperfec-txa16ud0xsf.ws-eu114.gitpod.io',
+                '*.herokuapp.com',
                 ]
 
 
@@ -126,12 +127,17 @@ WSGI_APPLICATION = 'pixel_perfect.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
@@ -189,4 +195,4 @@ STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-DEFAULT_FROM_EMAIL = 'pixelperfect@example.com'
+DEFAULT_FROM_EMAIL = 'mypixelperfectofficial@gmail.com'
