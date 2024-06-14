@@ -3,16 +3,17 @@ This is a migration from an old project that i am re using, i will be updated as
 
 
 todo features
+must have
+404 page
 carouseld of high rated and sale items
-cookie popup
 with pillow when have 3 backgrounds that will overlay the poster onto when loading the product detail
 
-main site for inspiration and images displate.com, email send to them on 27/05/24 requesting permission to use site assets
-
-might have features
+might have
+cookie popup
 stock item reduced after sale confirmed
 rating system so calculates new rating and writes it
 
+main site for inspiration and images displate.com, email send to them on 27/05/24 requesting permission to use site assets
 
 # Pixel Perfect
 
