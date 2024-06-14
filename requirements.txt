@@ -19,3 +19,4 @@ requests-oauthlib==2.0.0
 sqlparse==0.5.0
 stripe==9.10.0
 urllib3==1.26.18
+whitenoise==5.3.0
