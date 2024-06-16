@@ -4,7 +4,7 @@ from .models import InventoryItem, Category, Franchise, Size
 
 # Register your models here.
 
-class IventoryAdmin(admin.ModelAdmin):
+class InventoryAdmin(admin.ModelAdmin):
     list_display = (
         'sku',
         'name',
@@ -19,6 +19,7 @@ class IventoryAdmin(admin.ModelAdmin):
     )
 
     ordering = ('sku',)
+
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
@@ -41,7 +42,8 @@ class SizeAdmin(admin.ModelAdmin):
     list_filter = ('size',)
     search_fields = ('size',)
 
-admin.site.register(InventoryItem, IventoryAdmin)
+
+admin.site.register(InventoryItem, InventoryAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Franchise, FranchiseAdmin)
 admin.site.register(Size, SizeAdmin)

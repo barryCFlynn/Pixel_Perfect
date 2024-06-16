@@ -237,7 +237,34 @@ input[name='q']::placeholder {
 	color: #17a2b8; /* text-info */
 }
 
-/* Product Form */
+/* Iventory details background */
+
+.image-container {
+    position: relative;
+    width: auto;
+    height: 100%;
+}
+
+.background-img {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
+.overlay-img {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    height: 200px;
+}
+
+/* Inventory Form */
 
 .btn-file {
     position: relative;
@@ -284,6 +311,7 @@ input[name='q']::placeholder {
         z-index: 1030;
     }
 
+/* TODO is this necessary */
     .header-container {
         padding-top: 164px;
     }
