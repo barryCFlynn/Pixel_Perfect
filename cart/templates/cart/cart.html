@@ -19,11 +19,46 @@
                 <hr>
             </div>
         </div>
-
         <div class="row">
             <div class="col">
                 {% if cart_items %}
-                    <div class="table-responsive rounded">
+                <div class="d-block d-md-none">
+                    <div class="row">
+                        <div class="col">
+                            {% include "cart/cart-total.html" %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {% include "cart/checkout-button.html" %}
+                            <p class="text-muted mb-5">A summary of your cart contents is below</p>
+                        </div>
+                    </div>
+                    {% for item in cart_items %}
+                        <div class="row">
+                            <div class="col-12 col-sm-6 mb-2">
+                                {% include "cart/inventory-image.html" %}
+                            </div>
+                            <div class="col-12 col-sm-6 mb-2">
+                                {% include "cart/inventory-info.html" %}
+                            </div>
+                            <div class="col-12 col-sm-6 order-sm-last">
+                                <p class="my-0">Each: ${{ item.size_price|floatformat:2 }}</p>
+                                <p><strong>Subtotal: </strong>${{ item.total_price|floatformat:2 }}</p>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                {% include "cart/quantity-form.html" %}
+                            </div>
+                        </div>
+                        <div class="row"><div class="col"><hr></div></div>
+                    {% endfor %}
+                    <div class="btt-button shadow-sm rounded-0 border border-black">
+                        <a class="btt-link d-flex h-100">
+                            <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+                        </a>
+                    </div>
+                </div>
+                    <div class="table-responsive rounded d-none d-md-block">
                         <table class="table table-sm table-borderless">
                             <thead class="text-black">
                                 <tr>
@@ -38,60 +73,16 @@
                             {% for item in cart_items %}
                                 <tr>
                                     <td class="p-3 w-25">
-                                        {% if item.inventory_item.image %}
-                                            <img class="img-fluid rounded" src="{{ item.inventory_item.image.url }}" alt="{{ item.inventory_item.name }}">
-                                        {% else %}
-                                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.inventory_item.name }}">
-                                        {% endif %}
+                                        {% include "cart/inventory-image.html" %}
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">
-                                            <strong>
-                                                <a class="text-decoration-none text-body" href="{% url 'inventory_detail' item.inventory_item.id %}">
-                                                    {{ item.inventory_item.name }}
-                                                </a>
-                                            </strong>
-                                        </p>
-                                        <p class="my-0 small text-muted">SKU: {{ item.inventory_item.sku|upper }}</p>
-                                        <p class="my-0 small text-muted">Size: {{ item.size }}</p>
+                                        {% include "cart/inventory-info.html" %}
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ item.size_price|floatformat:2 }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <form class="form update-form" method="POST" action="{% url 'update_cart' item.item_id %}">
-                                            {% csrf_token %}
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <button class="decrement-qty btn btn-black btn-sm rounded-0"
-                                                            data-item-id="{{ item.item_id }}"
-                                                            id="decrement-qty_{{ item.item_id }}">
-                                                            <span>
-                                                                <i class="fas fa-minus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                    <input class="form-control form-control-sm qty_input" type="number" name="quantity" value="{{ item.quantity }}"
-                                                        min="1" max="99" data-item_id="{{ item.item_id }}"
-                                                        id="id_qty_{{ item.item_id }}">
-                                                    <div class="input-group-append">
-                                                        <button class="increment-qty btn btn-black btn-sm rounded-0"
-                                                            data-item-id="{{ item.item_id }}"
-                                                            id="increment-qty_{{ item.item_id }}">
-                                                            <span>
-                                                                <i class="fas fa-plus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                    <input type="hidden" name="size" value="{{ item.size_id }}">
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <a class="update-link text-info"><small>Update</small></a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size_id }}">
-                                            <small>Remove</small>
-                                        </a>
+                                        {% include "cart/quantity-form.html" %}
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ item.total_price|floatformat:2 }}</p>
@@ -100,36 +91,12 @@
                             {% endfor %}
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
-                                    <h6><strong>Cart Total: ${{ total|floatformat:2 }}</strong></h6>
-                                    <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
-                                    <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
-                                    {% if free_delivery_delta > 0 %}
-                                        <p class="mb-1 text-danger">
-                                            You could get free delivery by spending just <strong>${{ free_delivery_delta|floatformat:2 }}</strong> more!
-                                        </p>
-                                    {% endif %}
+                                    {% include "cart/cart-total.html" %}
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="5" class="text-right">
-                                    <a href="{% url 'inventoryitems' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span class="text-uppercase">Keep Shopping</span>
-                                    </a>
-                                    <a href="{% url 'orders' %}" class="btn btn-black rounded-0 btn-lg">
-                                        <span class="text-uppercase">Secure Checkout</span>
-                                        <span class="icon">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </a>
-                                    <a href="{% url 'clear_cart' %}" class="btn btn-black rounded-0 btn-lg">
-                                        <span class="text-uppercase">Clear Cart</span>
-                                        <span class="icon">
-                                            <i class="fas fa-trash"></i>
-                                        </span>
-                                    </a>
+                                    {% include "cart/checkout-button.html" %}
                                 </td>
                             </tr>
                         </table>
@@ -150,42 +117,89 @@
 
 {% block postloadjs %}
 {{ block.super }}
-{% include 'inventory/includes/quantity_input_script.html' %}
+<script type="text/javascript">
+    $('.btt-link').click(function(e) {
+        window.scrollTo(0,0)
+    })
+</script>
 
 <script type="text/javascript">
     
     $(document).ready(function() {
-        console.log('jQuery is ready');
-        
         // Update quantity on click
         $('.update-link').click(function(e) {
             e.preventDefault();
-            console.log('Update link clicked');
             var form = $(this).prev('.update-form');
-            console.log('Form:', form);
-            if (form.length) {
-                form.submit();
-            } else {
-                console.log('No form found!');
-            }
+            form.submit();
         });
     });
 
+    // Handle remove item click
     $('.remove-item').click(function(e) {
         e.preventDefault();
         var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
+        var itemId = $(this).data('item-id');
         var sizeId = $(this).data('size');
         var url = `/cart/remove/${itemId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken, 'size': sizeId};
 
-        // Log to see if sizeId is correct
-        console.log(`Item ID: ${itemId}, Size ID: ${sizeId}`);
-
-        $.post(url, data)
-        .done(function() {
+        $.post(url, data).done(function() {
             location.reload();
         });
     });
+
+    $(document).ready(function() {
+    // Handle decrement button click
+    $('.decrement-qty').click(function(e) {
+        e.preventDefault();
+        var input = $(this).closest('.quantity-form').find('.qty_input');
+        var currentVal = parseInt(input.val());
+        if (!isNaN(currentVal) && currentVal > 1) {
+            input.val(currentVal - 1);
+        }
+        updateButtonStates();
+    });
+
+    // Handle increment button click
+    $('.increment-qty').click(function(e) {
+        e.preventDefault();
+        var input = $(this).closest('.quantity-form').find('.qty_input');
+        var currentVal = parseInt(input.val());
+        if (!isNaN(currentVal) && currentVal < 99) {
+            input.val(currentVal + 1);
+        }
+        updateButtonStates();
+    });
+
+    // Handle update link click
+    $('.update-link').click(function(e) {
+        e.preventDefault();
+        var form = $(this).prev('.update-form');
+        form.submit();
+    });
+
+
+
+    // Update button states
+    function updateButtonStates() {
+        $('.qty_input').each(function() {
+            var input = $(this);
+            var decrementBtn = input.closest('.quantity-form').find('.decrement-qty');
+            var incrementBtn = input.closest('.quantity-form').find('.increment-qty');
+            if (parseInt(input.val()) <= 1) {
+                decrementBtn.prop('disabled', true);
+            } else {
+                decrementBtn.prop('disabled', false);
+            }
+            if (parseInt(input.val()) >= 99) {
+                incrementBtn.prop('disabled', true);
+            } else {
+                incrementBtn.prop('disabled', false);
+            }
+        });
+    }
+
+    updateButtonStates();
+});
 </script>
 {% endblock %}
