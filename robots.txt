@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /signup/
+Allow: /
+
+Sitemap: https://pixel-perfect-d96b20ab326d.herokuapp.com/sitemap.xml
