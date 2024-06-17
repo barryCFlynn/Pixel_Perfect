@@ -56,16 +56,6 @@ def newsletter_signup(request):
     if request.method == 'POST':
         form = NewsletterSignupForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('inventoryitems') 
-    else:
-        form = NewsletterSignupForm()
-    return render(request, 'profiles/newsletter_signup.html', {'form': form})
-
-def newsletter_signup(request):
-    if request.method == 'POST':
-        form = NewsletterSignupForm(request.POST)
-        if form.is_valid():
             email = form.cleaned_data['email']
             if NewsletterSignup.objects.filter(email=email).exists():
                 messages.error(request, 'This email is already subscribed.')

@@ -23,6 +23,15 @@ rating system so calculates new rating and writes it
 
 main site for inspiration and images displate.com, email send to them on 27/05/24 requesting permission to use site assets
 
+bugs
+
+email setup, tutor assisted wtih solution downgradint runtime.txt, tried new app passwords, recheching variable names, 
+
+inventory item overlay on background, initial thought i would be able to delivever this bu i proved to require more development time that i had, tried using Pillow to write new images to clouduinary on item creation. tried using css to manage the overlay loading on demand, but responsivenes requirements need more time to finish.
+
+size costing implementation to link to inventory served to provide chanlenges to overcome, like fully udnerstanding the interactions of models and to a Many to many field.
+
+
 # Pixel Perfect
 
 Pixel Perfect is an exclusive digital haven tailored for the aficionados of game franchises, offering a marketplace that celebrates the art and craft of high-quality posters. This platform is not just a website; it's a dynamic community for both sellers and buyers to engage in the passionate exchange of exquisite game-themed artwork. From vintage classics to contemporary marvels, Pixel Perfect is dedicated to connecting art enthusiasts around the globe.
@@ -241,6 +250,13 @@ Benefits
 Increased Awareness: Customers are immediately informed of any ongoing discounts, which can lead to increased sales.
 User-Friendly: The notification is prominently displayed, ensuring that users do not miss out on any potential savings.
 By incorporating this feature, the platform enhances user experience and promotes sales by clearly communicating discounts to potential buyers.
+
+
+
+### Newsletter Signup Feature
+#### Overview
+
+The Newsletter Signup feature allows users to subscribe to our newsletter directly from the site. This feature ensures users stay updated with the latest news, updates, and special offers from Pixel Perfect. The signup form is easily accessible from the navigation menu under "My Account," making it convenient for both new and existing users to subscribe. It uses the built in email featrue of Django to send a custom email in templates/emails.
 
 # Models
 

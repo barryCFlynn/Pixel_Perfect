@@ -3,9 +3,10 @@ html {
 }
 
 body {
-    background: url('/static/img/homepage_background.webp') no-repeat center center fixed;
+    background: url('/static/img/hero_bg_1.webp') no-repeat center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
+    margin: 0;
     color: #555;
     font-family: 'Lato';
 }

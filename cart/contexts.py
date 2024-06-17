@@ -2,12 +2,12 @@ from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from inventory.models import InventoryItem, Size
-import logging
+
 
 def cart_contents(request):
     """
-    Retrieves the shopping cart contents from the session, calculates totals and delivery costs, 
-    and prepares context data for templates.
+    Retrieves the shopping cart contents from the session, calculates totals
+    and delivery costs, and prepares context data for templates.
 
     Args:
         request (HttpRequest): The HTTP request object containing session data.
@@ -75,3 +75,4 @@ def cart_contents(request):
     }
 
     return context
+

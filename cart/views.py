@@ -2,8 +2,6 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render, reverse, get_object_or_404
 from django.contrib import messages
 from inventory.models import InventoryItem, Size
-import logging
-
 
 
 def view_cart(request):
@@ -17,8 +15,9 @@ def add_to_cart(request, item_id):
     Add a specified quantity of a item, including its selected size, to the shopping cart.
 
     Args:
-        request (HttpRequest): The HTTP request object containing POST data with 'quantity', 'size', and 'redirect_url'.
-        item_id (int): The ID of the InventoryItem to add to the cart.
+        request (HttpRequest): The HTTP request object containing POST 
+        data with 'quantity', 'size', and 'redirect_url'.item_id (int):
+        The ID of the InventoryItem to add to the cart.
 
     Returns:
         HttpResponseRedirect: Redirects to the URL specified in 'redirect_url'.
@@ -45,12 +44,11 @@ def add_to_cart(request, item_id):
     else:
         cart[item_id] = {'items_by_size': {size_id: quantity}}
 
-    # Print the add to cart event
-    print(f"Received add request - Item ID ({type(item_id).__name__}): {item_id}, Size ID ({type(size_id).__name__}): {size_id}, Quantity ({type(quantity).__name__}): {quantity}")
-
     request.session['cart'] = cart
 
-    messages.success(request, f'Added {quantity} x {inventory_item.name} (Size: {size.get_size_display()}) to your cart')
+    messages.success(
+            request,
+            f'Added {quantity} x {inventory_item.name} (Size: {size.get_size_display()}) to your cart')
     return redirect(request.POST.get('redirect_url'))
 
 
@@ -67,14 +65,12 @@ def update_cart(request, item_id):
     # required to prevent item_id type as int which breaks update cart
     item_id = str(item_id)
 
-    # Log form data
-    print(f"Received update request - Item ID ({type(item_id).__name__}): {item_id}, Size ID ({type(size_id).__name__}): {size_id}, Quantity ({type(quantity).__name__}): {quantity}")
-
     if item_id in cart:
         if size_id in cart[item_id]['items_by_size']:
             if quantity > 0:
                 cart[item_id]['items_by_size'][size_id] = quantity
-                messages.success(request, f'Updated {size.get_size_display()} {inventory_item.name} quantity to {cart[item_id]["items_by_size"][size_id]}')
+                messages.success(
+                    request, f'Updated {size.get_size_display()} {inventory_item.name} quantity to {cart[item_id]["items_by_size"][size_id]}')
             else:
                 del cart[item_id]['items_by_size'][size_id]
                 if not cart[item_id]['items_by_size']:
@@ -100,9 +96,6 @@ def remove_from_cart(request, item_id):
 
         # required to prevent item_id type as int which breaks remove with 500 errors
         item_id = str(item_id)
-
-        # Log received data
-        print(f"Received remove request - Item ID ({type(item_id).__name__}): {item_id}, Size ID ({type(size_id).__name__}): {size_id}")
 
         if item_id in cart:
             if size_id in cart[item_id]['items_by_size']:
