@@ -4,11 +4,19 @@ This is a migration from an old project that i am re using, i will be updated as
 
 todo features
 must have
-404 page
-carouseld of high rated and sale items
-with pillow when have 3 backgrounds that will overlay the poster onto when loading the product detail
+404 page - done
+seo
+social media page
+email thanking for signing up for newsletter
+
+
 
 might have
+
+
+wont have
+with pillow when have 3 backgrounds that will overlay the poster onto when loading the product detail
+carouseld of high rated and sale items
 cookie popup
 stock item reduced after sale confirmed
 rating system so calculates new rating and writes it
