@@ -2,6 +2,10 @@ User-agent: *
 Disallow: /admin/
 Disallow: /login/
 Disallow: /signup/
+Disallow: /inventory/
+Disallow: /accounts/
+Disallow: /profile/
+Disallow: /cart/
 Allow: /
 
 Sitemap: https://pixel-perfect-d96b20ab326d.herokuapp.com/sitemap.xml
