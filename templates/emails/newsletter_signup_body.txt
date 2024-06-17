@@ -1,0 +1,10 @@
+{% load i18n %}
+{% blocktrans %}Hello,
+
+Thank you for signing up for our newsletter!
+
+This feature is still under construction, 
+but you will be one of the first to know when it is up and running.
+
+Best regards,
+The Pixel Perfect Team{% endblocktrans %}

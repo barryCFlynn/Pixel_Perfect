@@ -69,6 +69,14 @@ def newsletter_signup(request):
             else:
                 form.save()
                 messages.success(request, 'You have successfully signed up for the newsletter.')
+                # Send confirmation email
+                send_mail(
+                    'Newsletter Signup Confirmation',
+                    'Thank you for signing up for our newsletter!',
+                    settings.DEFAULT_FROM_EMAIL,
+                    [form.cleaned_data['email']],
+                    fail_silently=False,
+                )
                 return redirect('home')
     else:
         form = NewsletterSignupForm()
