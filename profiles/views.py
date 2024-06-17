@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
 from .models import UserProfile, NewsletterSignup
 from .forms import UserProfileForm, NewsletterSignupForm
 
@@ -69,10 +72,16 @@ def newsletter_signup(request):
             else:
                 form.save()
                 messages.success(request, 'You have successfully signed up for the newsletter.')
-                # Send confirmation email
+                # Render email templates
+                subject = render_to_string('emails/newsletter_signup_subject.txt').strip()
+                message = render_to_string('emails/newsletter_signup_body.txt', {
+                    'email': form.cleaned_data['email'],
+                })
+
+                # Send email
                 send_mail(
-                    'Newsletter Signup Confirmation',
-                    'Thank you for signing up for our newsletter!',
+                    subject,
+                    message,
                     settings.DEFAULT_FROM_EMAIL,
                     [form.cleaned_data['email']],
                     fail_silently=False,
