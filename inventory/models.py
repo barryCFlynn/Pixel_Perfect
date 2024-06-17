@@ -80,14 +80,6 @@ class Size(models.Model):
         return f"{self.get_size_display()} - ${self.price}"
 
 
-class CompositeImage(models.Model):
-    inventory_item = models.ForeignKey('InventoryItem', on_delete=models.CASCADE, related_name='composite_images')
-    background_type = models.CharField(max_length=20)
-    composite_image_url = CloudinaryField('image')
-
-    def __str__(self):
-        return f"{self.inventory_item.name} - {self.background_type}"
-
 
 class InventoryItem(models.Model):
     """

@@ -30,3 +30,10 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
         UserProfile.objects.create(user=instance)
     # Existing users: just save the profile
     instance.userprofile.save()
+
+class NewsletterSignup(models.Model):
+    email = models.EmailField(unique=True)
+    date_signed_up = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email
