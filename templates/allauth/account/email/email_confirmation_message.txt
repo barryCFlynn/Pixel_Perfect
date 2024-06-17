@@ -1,7 +1,11 @@
-{% extends "account/email/base_message.txt" %}
-{% load account %}
-{% load i18n %}
+Hello {{ user.username }},
 
-{% block content %}{% autoescape off %}{% user_display user as user_display %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}You're receiving this email because user {{ user_display }} has given your email address to register an account on {{ site_domain }}.
+Thank you for registering at Pixel Perfect! To activate your account, please click the link below:
 
-To confirm this is correct, go to {{ activate_url }}{% endblocktrans %}{% endautoescape %}{% endblock content %}
+{{ activate_url }}
+
+If you did not make this request, please ignore this email.
+
+Best regards,
+The Pixel Perfect Team
+
