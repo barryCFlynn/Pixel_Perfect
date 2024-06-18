@@ -27,6 +27,7 @@ class CategoryAdmin(admin.ModelAdmin):
         'name',
     )
 
+
 class FranchiseAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',

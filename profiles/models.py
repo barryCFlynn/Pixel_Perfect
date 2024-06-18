@@ -4,6 +4,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django_countries.fields import CountryField
 
+
 class UserProfile(models.Model):
     """
     A user profile model for storing additional information related to users.
@@ -85,6 +86,7 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     else:
         instance.userprofile.save()
 
+
 class NewsletterSignup(models.Model):
     """
     Model representing an email address signed up for a newsletter.
@@ -101,3 +103,4 @@ class NewsletterSignup(models.Model):
 
     def __str__(self):
         return self.email
+    

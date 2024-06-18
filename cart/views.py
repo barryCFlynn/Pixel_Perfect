@@ -15,7 +15,7 @@ def add_to_cart(request, item_id):
     Add a specified quantity of a item, including its selected size, to the shopping cart.
 
     Args:
-        request (HttpRequest): The HTTP request object containing POST 
+        request (HttpRequest): The HTTP request object containing POST
         data with 'quantity', 'size', and 'redirect_url'.item_id (int):
         The ID of the InventoryItem to add to the cart.
 
@@ -150,6 +150,7 @@ def remove_from_cart(request, item_id):
         # Log the error
         print(f"Error removing item {item_id}: {e}")
         return HttpResponse(status=500)
+
 
 def clear_cart(request):
     """
