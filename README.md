@@ -335,32 +335,7 @@ Contrast Grid - Only AA and AAA options used.
 
  <img src="assets\img\README_images\contrast grid.jpg" alt="Description" width= 600px>
 
-#### Before User Logs In:
 
-- **Home Page Featuring Top Listings:** Users land on a dynamic homepage that highlights the most liked and recent watch listings. The page features a sleek, modern design with high-quality images of watches, inviting users to explore the offerings. Navigation is streamlined through a top menu bar that includes links to various site sections, including 'Sell Your Watch,' 'Top Liked Watches,' and 'About Us.' For new visitors, clear calls to action for registration or login are prominently placed, ensuring easy access to the platform's full features.
-
-- **About Us:** This page provides insightful information about the platform, its mission, and what new members can expect upon joining. It serves as an introduction to the site's ethos, focusing on creating a secure and user-friendly environment for watch enthusiasts and collectors to buy and sell luxury watches.
-
-- **Register:** The 'Register' page invites new users to easily register, unlocking access to exclusive site features such as creating their own watch listings and managing their collections through 'My Listings'. This step is the gateway to actively participating in the watch enthusiast community, allowing users to buy, sell, and connect with others who share their passion.
-
-
-#### After User Logs In:
-
-Post-login, users gain access to a range of interactive and personalized features:
-
-- **Create Listings:** A cornerstone feature of the platform, the 'Create Listings' page empowers users to become sellers in their own right. Here, members can list their watches for sale, providing detailed descriptions, setting prices, and uploading high-quality images to showcase their timepieces. This user-friendly interface is designed to guide sellers through the listing process, ensuring that each watch is presented in the best possible light to potential buyers. Whether you're a seasoned collector or looking to sell a single cherished piece, this feature makes it straightforward to connect with interested parties.
-
-
-- **View My Listings:** Designed for user convenience, the 'View My Listings' page is a personalized dashboard where sellers can manage their active listings. This section allows users to track the status of each watch they have put up for sale, including current bids, and direct messages from interested buyers. It's a central hub for all selling activities, offering tools to edit listings, update prices, or remove items if necessary. This feature ensures sellers have full control over their sales process, making it easy to manage their offerings in a structured and efficient manner.
-
-
-- **Edit Your Listings:** The 'Edit Your Listings' feature provides sellers with the flexibility to update their watch listings at any time. Whether it's adjusting the price, updating the description, or adding new images, sellers can ensure their listings are always accurate and appealing. This section is accessible directly from the 'View My Listings' dashboard, offering an intuitive interface for making changes. By supporting ongoing adjustments, this feature empowers sellers to respond to market demand, feedback from potential buyers, or changes in the condition or availability of their watches, maintaining the relevance and attractiveness of their offerings.
-
-
-- **Delete Your Listing:** This functionality allows sellers to remove their watch listings from the platform with ease. Whether the watch has been sold, withdrawn from sale, or for any other reason, sellers can quickly and securely delete their listings from their 'View My Listings' dashboard. This ensures that the platform remains up-to-date with only available watches being displayed, enhancing the buying experience for potential buyers. The deletion process is designed to be straightforward, with confirmation prompts to prevent accidental deletions, ensuring that sellers have full control over their listings on the site.
-
-
-- **Comment:** The comment feature enhances the interactive experience on the platform, allowing users to engage with listings in a meaningful way. Whether you're interested in learning more about a watch, seeking further details from the seller, or simply want to express admiration for a particular timepiece, the comment section is your space to communicate. This feature fosters a community atmosphere, enabling users to share insights, ask questions, and offer feedback directly on the listing page. It's an invaluable tool for both buyers and sellers to interact, clarify details, and build connections within the watch enthusiast community.
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
@@ -435,49 +410,186 @@ Transforming user stories into GitHub issues captures user-centric functionaliti
 
 ---
 
-# Features
-### Login Landing Page:
+# The Site Pages
+### Landing Page:
 - Description: Main page with Hero image of a poster in a lounge environment, Nav Links to the rest of the site.
+<center>
+<img src="docs/README/index.jpg" width= 900px>
+</center>
 
-<details><summary>See Screenshot **Landingpage, large**</summary>
-<img src="docs/README/index.jpg" width= 900px></details>
-<details><summary>See Screenshot **Landingpage, mobile**</summary>
+---
+
+<details><summary>See Screenshot Mobile Main Page</summary>
 <center>
 <img src="docs/README/mobile index.jpg" width= 300px>
 </center>
-
 </details>
 
-### About Us:
-- Description: A detailed section about the company and services. 
-<details><summary>See Screenshot **About us, large**</summary><img src="assets\img\README_images\about.jpg" width= 600px></details>
-<details><summary>See Screenshot **About us, mobile**</summary><img src="assets\img\README_images\about mobile.jpg" width= 300px></details>
+---
 
-### Create Listing:
-- Description: A form to create a new listing to host on the site.
-<details><summary>See Screenshot **Sign Up, large**</summary><img src="assets\img\README_images\create listing.jpg" width= 600px></details>
-<details><summary>See Screenshot **Sign Up, mobile**</summary><img src="assets\img\README_images\create listing mobile.jpg" width= 300px></details>
+### Nav Bar:
+- Description: Navbar handles the Logo, search bar, links to inventory views, my Account and Cart. 
+<center>
+<img src="docs/README/navbar.jpg" width= 900px>
+</center>
 
-### Liked Listings:
-- Description: A filtered view of all the watch listings by most liked.
-<details><summary>See Screenshot **Sign Up, large**</summary><img src="assets\img\README_images\liked listings.jpg" width= 600px></details>
-<details><summary>See Screenshot **Sign Up, mobile**</summary><img src="assets\img\README_images\liked listings mobile.jpg" width= 300px></details>
+---
 
-### My Listings:
-- Description: A view for a seller of their listings to manage them.
-<details><summary>See Screenshot **Sign Up, large**</summary><img src="assets\img\README_images\my listings.jpg" width= 600px></details>
-<details><summary>See Screenshot **Sign Up, mobile**</summary><img src="assets\img\README_images\my listings mobile.jpg" width= 300px></details>
+<details><summary>See Screenshot Mobile Nav Bar Page</summary>
+<center>
+<img src="docs/README/mobile navbar.jpg" width= 300px>
+</center>
+</details>
 
-### Future Features
-Here are some exciting features that I would like to add to the site in the future:
+---
 
-| Feature | Description |
-| --- | --- |
-| **Restrict Likes to one per site user** | Implement the restriction to limit the times a person can like a post. |
-| **Nested Comments** | Implement nested comments to all for greater depth in engagement |
-| **Bid Timer** | Allow a seller to set a timer on the listing |
-| **Comment Editing and Deletion** | Enable users to edit and delete their comments for better content control. |
-|  |  |
+### Inventory:
+- Description: List of Inventory, can be filtered by the links for Category, Franchise and sorted numerous ways. 
+<center>
+<img src="docs/README/inventory.jpg" width= 900px>
+</center>
+
+---
+
+<details><summary>See Screenshot Mobile Inventory Page</summary>
+<center>
+<img src="docs/README/mobile inventory.jpg" width= 300px>
+</center>
+</details>
+
+---
+
+### Inventory Item:
+- Description: Inventory Item view, here you can see details on the poster such as artist, description, keywords, select size, adjsut quantity and add to cart.
+<center>
+<img src="docs/README/inventory item.jpg" width= 900px>
+</center>
+
+---
+
+<details><summary>See Screenshot Mobile Inventory Item Page</summary>
+<center>
+<img src="docs/README/mobile inventory item.jpg" width= 300px>
+</center>
+</details>
+
+---
+
+
+### Cart:
+- Description: Cart view, where you can view your selected items, update the quantity or remove them. There are buttons at the bottom of the page to continue to checkout or keep shopping.
+<center>
+<img src="docs/README/cart.jpg" width= 900px>
+</center>
+
+---
+
+<details><summary>See Screenshot Mobile Cart Page</summary>
+<center>
+<img src="docs/README/mobile cart.jpg" width= 300px>
+</center>
+</details>
+
+---
+
+### Orders:
+- Description: Orders view, where you are able to enter delivery details (can be pre populated if logged in user), confirm the order details and submit card information, the payment scheme uses Stripe and will manage a number of circumstance with messages.
+<center>
+<img src="docs/README/checkout.jpg" width= 900px>
+</center>
+
+---
+
+<details><summary>See Screenshot Mobile Orders Page</summary>
+<center>
+<img src="docs/README/mobile checkout.jpg" width= 300px>
+</center>
+</details>
+
+---
+
+### Order Confirmation:
+- Description: If the payment is successful the user will be taken to a order confirmation page to summarise their order. This can later be viewed again from the Profiles page.
+<center>
+<img src="docs/README/order item.jpg" width= 900px>
+</center>
+
+---
+
+<details><summary>See Screenshot Mobile Orders Page</summary>
+<center>
+<img src="docs/README/mobile order item.jpg" width= 300px>
+</center>
+</details>
+
+---
+
+### Profiles:
+- Description: Accessing the Profile page from the My Account menu on the navbar you will be able to add or update Delivery information and see a list of your order hostory, clicking the order number will take you to the past order confirmation page and message to confirm.
+<center>
+<img src="docs/README/profile.jpg" width= 900px>
+</center>
+
+---
+
+<details><summary>See Screenshot Mobile Profile Page</summary>
+<center>
+<img src="docs/README/mobile profile.jpg" width= 300px>
+</center>
+</details>
+
+---
+
+### Order History:
+- Description: From the Profiles page you can load any past order registered to your account, you will see a new message at the top right confirming that this is a past order. And you have a link back to profile.
+<center>
+<img src="docs/README/order history item.jpg" width= 900px>
+</center>
+
+### Register:
+- Description: Accessing the Register page from the My Account menu on the navbar you will be able to create an account to log into the site. Aconfirmation email willl be send the the email addressed that must be followed to Verify.
+<center>
+<img src="docs/README/register.jpg" width= 900px>
+</center>
+
+### Sign In:
+- Description: Accessing the Sign In page from the My Account menu on the navbar you will be able to log into the site, you will gain access to your profile and have your saved delivery information pre populate the Order form.
+<center>
+<img src="docs/README/sign in.jpg" width= 900px>
+</center>
+
+### Newsletter Sign up:
+- Description: Accessing the Newsletter Sign up page from the My Account menu on the navbar you will be able to register yoru email to receive newsletters. You will receive an email stating you are registered. There are checks to prevent an email already in list from registering.
+<center>
+<img src="docs/README/newsletter signup.jpg" width= 900px>
+</center>
+
+### Custom 404 page:
+- Description: If a user enters an invalid URL they will be directed to a Custom 404 page informing them of the error and providing links to keep shopping.
+<center>
+<img src="docs/README/404.jpg" width= 900px>
+</center>
+
+
+## Features
+
+| Feature                        | Description                                                                                  |
+|------------------------------- |----------------------------------------------------------------------------------------------|
+| User Authentication            | Secure sign-up, login, and logout functionality for users.                                   |
+| User Profiles                  | Users can manage their profiles, including updating personal information and preferences.    |
+| Inventory Listings               | Display a list of inventory items with images.                                   |
+| Inventory Filterings               | Options on the Navbar links to filter by Price, Category, Franchise and New Arrivals.        |
+| Inventory Sorting               | Options to sort by price, category, franchise, rating and name.                                   |
+| Inventory Detail Page            | Detailed view of each inventory item, including images, descriptions, and pricing.           |
+| Shopping Cart                  | Users can add items to their cart, update quantities, and remove items.                      |
+| Checkout Process               | Secure checkout process, including payment integration with Stripe.                          |
+| Order Management               | Users can view their order history and details of each order.                                |
+| Admin Panel                    | Admins can manage products, orders, and user accounts.                                       |
+| Newsletter Signup              | Users can sign up for a newsletter to receive updates and promotions.                        |
+| Custom 404 Page                | Custom error page for when a user navigates to a non-existent page.                          |
+| Sitemap and Robots.txt         | Sitemap for SEO and robots.txt to manage search engine indexing.                             |
+| Responsive Design              | The website is fully responsive and works well on all device sizes.                          |
+
 
 <br>
 
@@ -485,68 +597,13 @@ Here are some exciting features that I would like to add to the site in the futu
 
 ---
 
+
 # Testing
+Testing was an integral part of the development process for Pixel Perfect, ensuring that the platform functions as intended and meets user requirements effectively. The testing process involves manual testing.
 
-WatchBidCentral underwent extensive testing to ensure its functionality, accessibility, and performance were up to standard. This rigorous process included code validation, accessibility checks, performance evaluation, cross-device compatibility testing, browser compatibility confirmation, reviewing user stories, and incorporating user feedback to improve the overall experience.
+See testing documentation here
 
-## Automated testing
-
-### Python Testing
-
-The files are located in each app, in a folder called "Tests". to run the test run "python manage.py test" from a terminal.Extensive unit tests were written for the Python code in Django.
-
-<img src="assets\img\README_images\django test.jpg" width="550" height="150">
-
-## Manual Testing
-
-- The website was tested on Google Chrome and Microsoft Edge.
-- The website was viewed on various monitors and resolutions and on a Pixel 7 mobile phone.
-- Chrome Dev Tools was used to test how the site looks on various screen sizes.
-
-<details>
-<summary>Linter - PASS</summary>
-
-  - Javascript tested on both sites with no significant errors
-
-    - [JSHint](https://jshint.com/)
-    - [JSLint](https://www.jslint.com/)
-</details>
-
-<details>
-<summary>Lighthouse  -  PASS</summary>
-
-- Desktop
-
-    <img src="assets\img\README_images\lighthouse.jpg">
-
-- Mobile
-
-    <img src="assets\img\README_images\lighthouse mobile.jpg">
-</details>
-W3C Markup Validtor - PASS
-W3C CSS Validator - PASS
-<detailS>
-<summary>Responsive - PASS</summary>
-
-- Resolutions checked
-
-    - 320x568: Used by small smartphones or devices in portrait mode.
-    - 375x667: Used by smartphones like iPhone 6/7/8 in portrait mode.
-    - 360x640: Common resolution for many budget and mid-range smartphones.
-    - 414x896: Found on various iPhone models like iPhone X, XS, 11 Pro, and 12 Pro.
-    - 768x1024: Common resolution for tablets in portrait mode, such as the iPad.
-    - 1024x768: Another common resolution for tablets, especially in landscape mode.
-    - 1280x800: Common resolution for smaller laptops and tablets.
-    - 1366x768: Common for laptops and desktop monitors.
-    - 1920x1080: Full HD resolution, used on larger monitors, laptops, and some mobile   devices.
-    
-</details>
-
-#### Manual Testing
-
-- The website was tested on Google Chrome and Microsoft Edge.
-- The website was viewed on various monitors and resolutions and on a Pixel 7 mobile phone.
-- Chrome Dev Tools was used to test how the site looks on various screen sizes.
+https://github.com/TerraBite147/echo-chamber/blob/main/testing.md
 
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
@@ -573,17 +630,7 @@ The bug description section have been linked with the bug issues in my documenta
 
 ### Fixed bugs ✅
 
-### Django Flatpages, 
-- When implementing Django's flatpages for static content, like an "About" page, you faced significant setup challenges. Initially, you attempted to bypass URL pattern requirements with middleware, but issues arose. Switching strategies, you directly added a URL pattern and set APPEND_SLASH = True for troubleshooting, also configuring flatpages admin for various environments (Gitpod, Heroku, localhost).
 
-- Persistent difficulties almost led to abandoning flatpages. However, a fresh start—removing all initial setups and reconfiguring from scratch—resolved the issues. This experience highlighted the effectiveness of resetting configurations and the value of methodical troubleshooting in successfully integrating Django features.
-
-### Listing images not loading on watch_detail page
-- Fixed, the issue was the iteration was incorrect
-	
-
-### Price showing as "{{ listing.price }}" instead of integer
-- Fixed by removing the if statment to show either the price of the bid, these should be shown seperately
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
