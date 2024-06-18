@@ -615,20 +615,101 @@ The bug description section have been linked with the bug issues in my documenta
 
 ### Known bugs ❌ 
 
+1. Cloudinary Circular Import Error
+Bug: ImportError: cannot import name 'CompositeImage' from partially initialized module 'inventory.models'.
+Solution: Removed from site and opted to have a single image on Inventory Detail.
 
-<details>
-<summary>Likes Button no longer working:</summary>
+2. Newsletter Signup KeyError
+Bug: KeyError: 'receive_newsletter' when accessing the profile page.
+Solution: Removed the boolean from UserProfile and managed newsletter subscriptions in the NewsletterSignup model only.
 
-- Error
-
-    <img src="assets\img\README_images\likes bug.jpg">
-    <img src="assets\img\README_images\likes bug 2.jpg" width="600" height="150">
-  At some point in Development it stoped working and ran out of time to fix it.
-
-</details>
 
 
 ### Fixed bugs ✅
+
+Cloudinary images were loading in under HTTP protocol and browser was showing warning and upgrading to HTTPS, resolved by adding Cloudinary Config to settings
+
+1. Error in Heroku after adding Cloudinary settings
+Bug: NameError: name 'cloudinary' is not defined
+Solution: Ensure Cloudinary was properly imported in settings.py:
+
+        import cloudinary
+        import cloudinary.uploader
+        import cloudinary.api
+
+2. Mixed Content Warnings
+Bug: Mixed Content: The page was loaded over HTTPS, but requested an insecure element from HTTP.
+Solution: Ensure all Cloudinary URLs use HTTPS:
+
+        CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL', 'cloudinary://API_KEY:API_SECRET@CLOUD_NAME')
+        cloudinary.config(
+            secure=True
+        )
+
+
+
+3. Duplicate SKU Key Error
+Bug: duplicate key value violates unique constraint "inventory_inventoryitem_sku_uniq".
+Solution: Ensure SKU is generated uniquely if not provided:
+
+        def save(self, *args, **kwargs):
+            if not self.sku:
+                self.sku = self.generate_sku()
+            super().save(*args, **kwargs)
+
+4. SMTP Email Sending Issue
+Bug: SMTP.starttls() got an unexpected keyword argument 'keyfile'.
+Solution: Downgrade Python version to 3.10.14 in Heroku by adjusting runtime.txt.
+
+5. Quantity Input Not Updating on Desktop
+Bug: Quantity not greyed out at 1 on desktop view.
+Solution: Change quantity-form ID to a class and update the corresponding JavaScript to use class selectors.
+
+6. Custom 404 Error Handling
+Bug: 500 Error when trying to load a non-existent page.
+Solution: Create custom 404 handler in views.py and reference it in urls.py:
+
+        def handler404(request, exception):
+            return render(request, 'errors/404.html', status=404)
+
+        handler404 = 'boutique_ado.views.handler404'
+
+7. OrderLineItem AttributeError
+Bug: 'OrderLineItem' object has no attribute 'InventoryItem'.
+Solution: Correct typo in OrderLineItem model __str__ method:
+
+
+          def __str__(self):
+              return f'SKU {self.inventory_item.sku} on order {self.order.order_number}'
+
+8. Signup Email Template Issue
+Bug: Confirmation email subject includes [example.com] instead of the actual domain.
+Solution: Update email domain and display name in Django admin site settings.
+
+9. Background Image Clipping
+Bug: Background image being clipped by the navigation bar.
+Solution: Create 3 background images for different screen sizes.
+
+10. URL-Encoding Issue with Franchise Names
+Bug: Navigation menu links for franchises containing spaces (e.g., "Half Life") caused syntax issues in the W3C validator due to illegal characters in URLs.
+Solution: Template: 
+    - URL-encode franchise names using the urlencode filter
+
+          "{% url 'inventoryitems' %}?franchise={{ 'Half Life'|urlencode }}"
+
+    - Decode the URL-encoded franchise names
+
+          from urllib.parse import unquote
+          if 'franchise' in request.GET:
+          franchises = request.GET['franchise'].split(',')
+          franchises = [unquote(f) for f in franchises]
+          inventoryitems = inventoryitems.filter(franchise__friendly_name__in=franchises)
+          franchises = Franchise.objects.filter(friendly_name__in=franchises)
+
+
+
+
+These are some of the key bugs encountered and the solutions implemented to resolve them. If you need more details or additional assistance, please let me know!
 
 
 

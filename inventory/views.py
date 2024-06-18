@@ -6,6 +6,8 @@ from django.db.models import Q, Min
 from django.db.models.functions import Lower
 from .models import InventoryItem, Category, Franchise
 from .forms import InventoryForm
+from urllib.parse import unquote
+
 # TODO report not used, commenting out for now
 # from decimal import Decimal
 
@@ -54,8 +56,15 @@ def inventory_items(request):
             inventoryitems = inventoryitems.filter(category__friendly_name__in=categories)
             categories = Category.objects.filter(friendly_name__in=categories)
 
+        # TODO delete if no bugs found
+        # if 'franchise' in request.GET:
+        #     franchises = request.GET['franchise'].split(',')
+        #     inventoryitems = inventoryitems.filter(franchise__friendly_name__in=franchises)
+        #     franchises = Franchise.objects.filter(friendly_name__in=franchises)
+
         if 'franchise' in request.GET:
             franchises = request.GET['franchise'].split(',')
+            franchises = [unquote(f) for f in franchises]
             inventoryitems = inventoryitems.filter(franchise__friendly_name__in=franchises)
             franchises = Franchise.objects.filter(friendly_name__in=franchises)
 

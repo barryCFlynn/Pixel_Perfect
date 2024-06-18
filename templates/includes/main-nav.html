@@ -33,14 +33,14 @@
                 Franchise
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="franchise-link">
-                <a href="{% url 'inventoryitems' %}?franchise=Fallout" class="dropdown-item">Fallout</a>
-                <a href="{% url 'inventoryitems' %}?franchise=Half Life" class="dropdown-item">Half Life</a>
-                <a href="{% url 'inventoryitems' %}?franchise=Halo" class="dropdown-item">Halo</a>
-                <a href="{% url 'inventoryitems' %}?franchise=Left for Dead 2" class="dropdown-item">Left for Dead 2</a>
-                <a href="{% url 'inventoryitems' %}?franchise=Mass Effect" class="dropdown-item">Mass Effect</a>
-                <a href="{% url 'inventoryitems' %}?franchise=Sanctum 2" class="dropdown-item">Sanctum 2</a>
-                <a href="{% url 'inventoryitems' %}?franchise=World of Warcraft" class="dropdown-item">World of Warcraft</a>
-                <a href="{% url 'inventoryitems' %}?franchise=World of Warcraft,Sanctum 2,Mass Effect,Left for Dead 2,Helldivers 2,Halo,Half Life,Fallout" class="dropdown-item">All Franchises</a>
+                <a href="{% url 'inventoryitems' %}?franchise={{ 'Fallout'|urlencode }}" class="dropdown-item">Fallout</a>
+                <a href="{% url 'inventoryitems' %}?franchise={{ 'Half Life'|urlencode }}" class="dropdown-item">Half Life</a>
+                <a href="{% url 'inventoryitems' %}?franchise={{ 'Halo'|urlencode }}" class="dropdown-item">Halo</a>
+                <a href="{% url 'inventoryitems' %}?franchise={{ 'Left for Dead 2'|urlencode }}" class="dropdown-item">Left for Dead 2</a>
+                <a href="{% url 'inventoryitems' %}?franchise={{ 'Mass Effect'|urlencode }}" class="dropdown-item">Mass Effect</a>
+                <a href="{% url 'inventoryitems' %}?franchise={{ 'Sanctum 2'|urlencode }}" class="dropdown-item">Sanctum 2</a>
+                <a href="{% url 'inventoryitems' %}?franchise={{ 'World of Warcraft'|urlencode }}" class="dropdown-item">World of Warcraft</a>
+                <a href="{% url 'inventoryitems' %}?franchise={{ 'Fallout'|urlencode }},{{ 'Half Life'|urlencode }},{{ 'Halo'|urlencode }},{{ 'Left for Dead 2'|urlencode }},{{ 'Mass Effect'|urlencode }},{{ 'Sanctum 2'|urlencode }},{{ 'World of Warcraft'|urlencode }}" class="dropdown-item">All Franchises</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -48,7 +48,7 @@
                 Latest
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="{% url 'inventoryitems' %}?category=New Arrival" class="dropdown-item">New Arrivals</a>
+                <a href="{% url 'inventoryitems' %}?category=New-Arrival" class="dropdown-item">New Arrivals</a>
             </div>
         </li>
     </ul>
