@@ -59,6 +59,7 @@ class UserProfile(models.Model):
         blank=True,
         help_text='The country of the user\'s address.'
     )
+    
     def __str__(self):
         return self.user.username
 
@@ -103,4 +104,3 @@ class NewsletterSignup(models.Model):
 
     def __str__(self):
         return self.email
-    

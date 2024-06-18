@@ -9,6 +9,7 @@ from .forms import UserProfileForm, NewsletterSignupForm
 
 from orders.models import Order
 
+
 @ login_required
 def profile(request):
     """
