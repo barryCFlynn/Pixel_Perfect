@@ -5,9 +5,9 @@ This is a migration from an old project that i am re using, i will be updated as
 todo features
 must have
 404 page - done
-seo
+seo - done, althouth refor sitemap as still adding content
 social media page
-email thanking for signing up for newsletter
+email thanking for signing up for newsletter - done
 
 
 
