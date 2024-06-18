@@ -14,6 +14,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 import dj_database_url
+import cloudinary
 
 # Load environment variables from .env file
 load_dotenv()
@@ -191,15 +192,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 
-# TODO remove, leaving for now to see if any issue arises, media is now stored in static if not in cloudinary
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 # Cloudinary Configuration       
 cloudinary.config( 
@@ -209,6 +207,7 @@ cloudinary.config(
     secure=True
 )
 CLOUDINARY_URL = os.getenv('CLOUDINARY_URL', '')
+
 
 # Stripe
 FREE_DELIVERY_THRESHOLD = 50
