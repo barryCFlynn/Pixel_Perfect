@@ -4,7 +4,25 @@ from .models import InventoryItem, Category, Franchise, Size
 
 
 class InventoryForm(forms.ModelForm):
+    """
+    Form for creating or updating an inventory item.
 
+    Attributes:
+    - model: InventoryItem (defines the model for the form)
+    - fields: '__all__' (includes all fields of the InventoryItem model)
+
+    Additional Fields:
+    - image: ImageField for uploading images of the item, using CustomClearableFileInput widget
+    - sizes: ModelMultipleChoiceField for selecting sizes using CheckboxSelectMultiple widget
+
+    Initialization:
+    - Initializes the form with choices for 'category' and 'franchise' fields retrieved from Category
+    and Franchise models respectively. Sets CSS classes for all form fields.
+
+    Parameters:
+    *args, **kwargs: Variable length argument list and keyword arguments passed to the parent class initializer.
+
+    """
     class Meta:
         model = InventoryItem
         fields = '__all__'

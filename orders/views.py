@@ -16,6 +16,15 @@ import json
 
 @require_POST
 def cache_order_data(request):
+    """
+    Cache order data for Stripe PaymentIntent.
+
+    This function modifies a Stripe PaymentIntent object to cache order
+    data including cart contents, user save preference, and username.
+
+    Returns:
+    - HttpResponse: HTTP response indicating the status of the operation.
+    """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -32,6 +41,25 @@ def cache_order_data(request):
 
 
 def orders(request):
+    """
+    Handle orders processing and form submission.
+
+    This view function manages the processing of orders, including validating
+    order form data, saving orders to the database, handling cart items,
+    and integrating with Stripe for payment processing.
+
+    If the request method is POST:
+    - Validates the order form data.
+    - Saves the order to the database with associated cart items.
+    - Handles errors if items in the cart are not found in the database.
+
+    If the request method is GET:
+    - Retrieves cart contents and calculates total.
+    - Initializes the order form with user profile data if user is authenticated.
+
+    Returns:
+    - HttpResponse: Renders the order form template with necessary context data.
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -134,7 +162,18 @@ def orders(request):
 
 def order_success(request, order_number):
     """
-    Handle successful orders
+    Handle successful orders.
+
+    This view function processes successful orders by attaching the user's profile
+    to the order if authenticated, saving user information if requested,
+    sending a confirmation message, and clearing the cart session data.
+
+    Args:
+    - request: HttpRequest object.
+    - order_number: The order number for the successful order.
+
+    Returns:
+    - HttpResponse: Renders the order success template with order details.
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)

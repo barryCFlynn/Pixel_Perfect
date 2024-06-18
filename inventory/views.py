@@ -142,7 +142,16 @@ def add_item(request):
 
 @ login_required
 def edit_item(request, item_id):
-    """ Edit an item in the store """
+    """
+    Edit an item in the store.
+
+    Parameters:
+    - request: HttpRequest object
+    - item_id: ID of the InventoryItem to be edited
+
+    Returns:
+    - HttpResponse: Renders the edit_item.html template with form and context data
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry only store owners can do that.')
         return redirect(reverse('home'))
@@ -171,7 +180,15 @@ def edit_item(request, item_id):
 
 @ login_required
 def delete_item(request, item_id):
-    """ delete item in the store not viewable """
+    """Delete an item from the store (not viewable).
+
+    Parameters:
+    - request: HttpRequest object
+    - item_id: ID of the InventoryItem to be deleted
+
+    Returns:
+    - HttpResponse: Redirects to the inventory items list page after deletion
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry only store owners can do that.')
         return redirect(reverse('home'))

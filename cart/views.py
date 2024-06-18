@@ -54,7 +54,21 @@ def add_to_cart(request, item_id):
 
 def update_cart(request, item_id):
     """
-    Update a specified quantity of a item, including its selected size, in the shopping cart.
+    Update the quantity and size of an item in the shopping cart based on user input.
+
+    Parameters:
+    - request: HTTP request object containing POST data with 'quantity' and 'size' parameters.
+    - item_id: ID of the InventoryItem to update in the cart.
+
+    Returns:
+    - Redirects to the view cart page after updating the session cart data.
+
+    Behavior:
+    - Retrieves the InventoryItem and size based on item_id and size_id.
+    - Updates the quantity of the selected size for the item in the cart session.
+    - Handles addition, removal, or updating of item quantities in the cart based on user actions.
+    - Displays success messages for each action performed (update quantity, remove item).
+
     """
     inventory_item = get_object_or_404(InventoryItem, pk=item_id)
     quantity = int(request.POST.get('quantity'))
@@ -88,7 +102,26 @@ def update_cart(request, item_id):
     return redirect(reverse('view_cart'))
 
 def remove_from_cart(request, item_id):
-    """Remove the item from the shopping cart."""
+    """
+    Remove an item from the shopping cart based on user input.
+
+    Parameters:
+    - request: HTTP request object containing POST data with 'size' parameter.
+    - item_id: ID of the InventoryItem to remove from the cart.
+
+    Returns:
+    - HTTP response with status 200 if successful, otherwise status 500 on error.
+
+    Behavior:
+    - Retrieves the size based on size_id from the request.
+    - Retrieves the cart data from the session.
+    - Removes the specified size of the item from the cart.
+    - Handles cases where the item or size is not found in the cart with appropriate error messages.
+    - Updates the cart session data after removal.
+    - Displays success message upon successful removal or error message upon failure.
+    - Logs errors encountered during the removal process.
+
+    """
     try:
         size_id = request.POST.get('size')
         size = get_object_or_404(Size, pk=size_id)
@@ -118,6 +151,16 @@ def remove_from_cart(request, item_id):
         return HttpResponse(status=500)
 
 def clear_cart(request):
-    """Clear all items from the cart"""
+    """
+    Clear all items from the shopping cart.
+
+    Parameters:
+    - request: HTTP request object.
+
+    Behavior:
+    - Clears the 'cart' session data by setting it to an empty dictionary.
+    - Redirects the user to the 'view_cart' URL after clearing the cart.
+
+    """
     request.session['cart'] = {}
     return redirect('view_cart')
