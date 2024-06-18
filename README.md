@@ -42,26 +42,26 @@ Embracing the legacy and innovation of game art, Pixel Perfect is a confluence o
 
 <center> 
 
-![Mockup image](/assets/img/README_images/index.jpg) 
+<img src="docs/README/am i responsive.jpg" alt="Am I responsive site image" width=900px> 
 
 </center>
 
 Developer: [Barry Flynn](https://github.com/barryCFlynn/) <br>
-[Live webpage](https://watch-bid-central-95b83adfb641.herokuapp.com/)<br>
-[Project Repository](https://github.com/barryCFlynn/WatchBidCentral)<br>
+[Live webpage](https://pixel-perfect-d96b20ab326d.herokuapp.com/)<br>
+[Project Repository](https://github.com/barryCFlynn/Pixel_Perfect)<br>
 
 ## Badges
-![GitHub Badge](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=fff&style=for-the-badge)
+
 ![Gitpod Badge](https://img.shields.io/badge/Gitpod-FFAE33?logo=gitpod&logoColor=fff&style=for-the-badge)
 ![Git Badge](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=fff&style=for-the-badge)
 ![Heroku Badge](https://img.shields.io/badge/Heroku-430098?logo=heroku&logoColor=fff&style=for-the-badge)
 ![PostgreSQL Badge](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=fff&style=for-the-badge)
-
 ![HTML5 Badge](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=fff&style=for-the-badge)
+
 ![CSS3 Badge](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=fff&style=for-the-badge)
 ![JSS Badge](https://img.shields.io/badge/JSS-F7DF1E?logo=jss&logoColor=000&style=for-the-badge)
 ![Python Badge](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff&style=for-the-badge)
-
+![GitHub Badge](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=fff&style=for-the-badge)
 ![Bootstrap Badge](https://img.shields.io/badge/Bootstrap-7952B3?logo=bootstrap&logoColor=fff&style=for-the-badge)
 ![Django Badge](https://img.shields.io/badge/Django-092E20?logo=django&logoColor=fff&style=for-the-badge)
 
@@ -122,9 +122,7 @@ Pixel Perfect is a Django-based web application dedicated to game franchise enth
 
 3. Implement a Transparent Verification Process: Ensure the authenticity and quality of posters listed on the platform through a clear and trustworthy verification process.
 
-4. Provide Comprehensive User Profiles: Offer detailed user profiles that allow sellers to showcase their collections and buyers to express their preferences and interests in game-themed art.
-
-5. Enable a Seamless User Experience: Focus on providing a smooth and intuitive user experience from listing posters to making purchases, with an emphasis on high-quality images and detailed descriptions.
+4. Enable a Seamless User Experience: Focus on providing a smooth and intuitive user experience from listing posters to making purchases, with an emphasis on high-quality images and detailed descriptions.
 
 ### User Goals
 - Discover a Wide Selection of Game-Themed Posters: Explore an extensive collection of high-quality posters from reputable sellers and verified listings.
@@ -170,6 +168,7 @@ User stories and tasks Grouped below.
 
 
 
+
 <br>
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
@@ -181,29 +180,49 @@ When creating the database structure schema for this project, I utilized the [db
 
 <center> 
 
- <img src="assets/img/README_images/database.jpg" alt="Description" width= 600px> 
+ <img src="docs/README/pixel_perfect_model_diagram.png" alt="Description" width= 900px> 
 
 </center>
 
 ## Database Schema Summary
 
-### `Django User Auth` Table
-- Represents the basic user information according to Django's built-in User model.
-- Fields: `username`, `email`, `password`.
+### `Category` Table
+- Way to categorize posters, including flagging New Arrival.
+- Fields: `name`, `friendly_name`.
 
-### `Listing` Table
-- Extends the User model to store additional information and personal preferences.
-- Fields: `title`, `status`, `slug`, `author`, `manufacturer`, `body`, `created_on`, `updated_on`, `bid_timer`, `price`, `current_bid`, `reserve`, `likes`.
+### `Franchise` Table
+- Way to categorize items under different franchises.
+- Fields: `name`, `friendly_name`.
 
-### `Image` Table
-- Stores the watch images so that each listing can have mutiple images.
-- Fields: `image`
+### `Inventory Item` Table
+- Represents individual items available in the store.
+- Fields: `name`, `sku`, `description`, `category_id > Category.id`, `franchise_id > Franchise.id`, `artist`, `keywords`, `stock`, `available`, `rating`, `image`.
 
-### `Comment` Table
-- Stores comments made by users on blog posts.
-- Fields: `listing`, `author`, `parent_comment`, `body`, `created_on`.
+### `Order Line Item` Table
+- Represents each line item within an order.
+- Fields: `order_id > Order.id`, `inventory_item_id > InventoryItem.id`, `size_id > Size.id`, `quantity`.
 
-This database schema outlines the structure for WatchBidCentral, enabling user engagement with watch listings, personalization of user profiles, categorization of watches by manufacturer, and community interaction through bids, comments and likes.
+### `Order` Table
+- Represents a customer's order.
+- Fields: `order_number`, ` user_profile_id > UserProfile.id`, `contact_details`, `delivery_cost`, `order_total`, `order_total`,`stripe_pid`.
+
+### `Size` Table
+- Represents different sizes available for items.
+- Fields: `size`, `price`.
+
+### `User Profile` Table
+- Stores additional information about a user.
+- Fields: `user_id > User.id`, `contact_details`.
+
+### `User` Table
+- Represents a registered user of the system.
+- Fields: `username`, `role`.
+
+### `Newsletter Signup` Table
+- Represents users who have signed up for newsletters.
+- Fields: `email`.
+
+This database schema outlines the structure for Pixel Perfect, enabling user engagement with art listings, personalization of user profiles, categorization of art by franchises, and secure payment options.
 
 <br>
 
@@ -251,8 +270,6 @@ Increased Awareness: Customers are immediately informed of any ongoing discounts
 User-Friendly: The notification is prominently displayed, ensuring that users do not miss out on any potential savings.
 By incorporating this feature, the platform enhances user experience and promotes sales by clearly communicating discounts to potential buyers.
 
-
-
 ### Newsletter Signup Feature
 #### Overview
 
@@ -266,7 +283,7 @@ The Newsletter Signup feature allows users to subscribe to our newsletter direct
 The `Size` model defines various size options for the posters, each with an associated price. This model allows for flexible pricing based on the size of the poster and is a Many to Many field.
 
 - **Fields:**
-  - `size`: A character field with choices for 'Small', 'Medium', and 'Large'.
+  - `size`: A character field with choices for 'Small', 'Medium', and 'Large' etc.
   - `price`: A decimal field that stores the price for each size option.
 
 ### Product Model
@@ -420,9 +437,16 @@ Transforming user stories into GitHub issues captures user-centric functionaliti
 
 # Features
 ### Login Landing Page:
-- Description: The landing page provides a carousel of most liked listings and a list of watches ordered by created date.
-<details><summary>See Screenshot **Landingpage, large**</summary><img src="assets\img\README_images\index.jpg" width= 600px></details>
-<details><summary>See Screenshot **Landingpage, mobile**</summary><img src="assets\img\README_images\index mobile.jpg" width= 300px></details>
+- Description: Main page with Hero image of a poster in a lounge environment, Nav Links to the rest of the site.
+
+<details><summary>See Screenshot **Landingpage, large**</summary>
+<img src="docs/README/index.jpg" width= 900px></details>
+<details><summary>See Screenshot **Landingpage, mobile**</summary>
+<center>
+<img src="docs/README/mobile index.jpg" width= 300px>
+</center>
+
+</details>
 
 ### About Us:
 - Description: A detailed section about the company and services. 
