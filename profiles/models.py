@@ -12,49 +12,49 @@ class UserProfile(models.Model):
     for maintaining default delivery information and order history.
     """
     user = models.OneToOneField(
-        User, 
+        User,
         on_delete=models.CASCADE,
         help_text='The user associated with this profile.'
     )
     default_phone_number = models.CharField(
-        max_length=20, 
-        null=True, 
+        max_length=20,
+        null=True,
         blank=True,
         help_text='The default phone number of the user.'
     )
     default_street_address1 = models.CharField(
-        max_length=80, 
-        null=True, 
+        max_length=80,
+        null=True,
         blank=True,
         help_text='The first line of the user\'s street address.'
     )
     default_street_address2 = models.CharField(
-        max_length=80, 
-        null=True, 
+        max_length=80,
+        null=True,
         blank=True,
         help_text='The second line of the user\'s street address (optional).'
     )
     default_town_or_city = models.CharField(
-        max_length=40, 
-        null=True, 
+        max_length=40,
+        null=True,
         blank=True,
         help_text='The town or city of the user\'s address.'
     )
     default_county = models.CharField(
-        max_length=80, 
-        null=True, 
+        max_length=80,
+        null=True,
         blank=True,
         help_text='The county or region of the user\'s address.'
     )
     default_postcode = models.CharField(
-        max_length=20, 
-        null=True, 
+        max_length=20,
+        null=True,
         blank=True,
         help_text='The postcode or ZIP code of the user\'s address.'
     )
     default_country = CountryField(
-        blank_label='Country', 
-        null=True, 
+        blank_label='Country',
+        null=True,
         blank=True,
         help_text='The country of the user\'s address.'
     )

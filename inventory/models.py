@@ -80,7 +80,6 @@ class Size(models.Model):
         return f"{self.get_size_display()} - ${self.price}"
 
 
-
 class InventoryItem(models.Model):
     """
     Represents an inventory item available for purchase.

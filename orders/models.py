@@ -149,6 +149,7 @@ class Order(models.Model):
     def __str__(self):
         return self.order_number
 
+
 class OrderLineItem(models.Model):
     """
     Model representing a line item in an order.

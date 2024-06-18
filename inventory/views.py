@@ -6,7 +6,9 @@ from django.db.models import Q, Min
 from django.db.models.functions import Lower
 from .models import InventoryItem, Category, Franchise
 from .forms import InventoryForm
-from decimal import Decimal
+# TODO report not used, commenting out for now
+# from decimal import Decimal
+
 
 def inventory_items(request):
     """
@@ -91,6 +93,7 @@ def inventory_items(request):
 
     return render(request, 'inventory/inventory.html', context)
 
+
 def inventory_detail(request, item_id):
     """
     Display the details of a specific inventory item.
@@ -114,13 +117,13 @@ def inventory_detail(request, item_id):
 
     return render(request, 'inventory/inventory_detail.html', context)
 
+
 @ login_required
 def add_item(request):
     """ Add a item to the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry only store owners can do that.')
         return redirect(reverse('home'))
-
 
     if request.method == 'POST':
         form = InventoryForm(request.POST, request.FILES)
@@ -139,6 +142,7 @@ def add_item(request):
     }
 
     return render(request, template, context)
+
 
 @ login_required
 def edit_item(request, item_id):
@@ -177,6 +181,7 @@ def edit_item(request, item_id):
     }
 
     return render(request, template, context)
+
 
 @ login_required
 def delete_item(request, item_id):

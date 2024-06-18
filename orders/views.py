@@ -126,7 +126,7 @@ def orders(request):
         )
 
         order_form = OrderForm()
-        
+
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
