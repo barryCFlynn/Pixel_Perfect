@@ -201,6 +201,14 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Cloudinary Configuration       
+cloudinary.config( 
+    cloud_name = "dqcinlyfo", 
+    api_key = "161475441873686", 
+    api_secret = os.environ.get('CLOUDINARY_API_SECRET'), 
+    secure=True
+)
+CLOUDINARY_URL = os.getenv('CLOUDINARY_URL', '')
 
 # Stripe
 FREE_DELIVERY_THRESHOLD = 50
@@ -209,10 +217,8 @@ STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-CLOUDINARY_URL = os.getenv('CLOUDINARY_URL', '')
 
-# TODO Email is getting 500 error disabling gmail email setup for now,
-# environment emails still exist in heroku
+
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
