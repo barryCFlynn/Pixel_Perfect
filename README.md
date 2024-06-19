@@ -123,13 +123,13 @@ Pixel Perfect is a Django-based web application dedicated to game franchise enth
 
 4. Enable a Seamless User Experience: Focus on providing a smooth and intuitive user experience from listing posters to making purchases, with an emphasis on high-quality images and detailed descriptions.
 
-### User Goals
+## User Goals
 - Discover a Wide Selection of Game-Themed Posters: Explore an extensive collection of high-quality posters from reputable sellers and verified listings.
 - Find a Specialized Platform: Utilize a platform that caters exclusively to the needs and interests of game franchise enthusiasts and art collectors.
 - Safely Buy and Sell Posters: Engage in buying and selling posters within a secure community that values authenticity, quality, and the artistic elements of game franchises.
 - Connect with Other Enthusiasts: Connect with fellow users to share insights, exchange knowledge, and discuss the historical and artistic significance of various game-themed artworks.
 
-### Site Owner Goals
+## Site Owner Goals
 - Establish Pixel Perfect as a Premier Destination: Position Pixel Perfect as the leading online platform for buying and selling high-quality game-themed posters, recognized for its commitment to quality, authenticity, and community engagement.
 - Create a Sustainable Business Model: Develop a business model that attracts a global audience of game art lovers and collectors, providing them with a reliable platform for their buying and selling needs.
 - Continuously Improve the Platform: Enhance the platform based on user feedback and technological advancements, ensuring a state-of-the-art experience for all community members.
@@ -140,7 +140,7 @@ Pixel Perfect is a Django-based web application dedicated to game franchise enth
 
 # User Experience
 
-### Target Audience
+## Target Audience
 Pixel Perfect is tailored for the following target audience:
 
 - Game franchise enthusiasts and collectors seeking a dedicated platform to buy and sell high-quality game-themed posters.
@@ -148,7 +148,7 @@ Pixel Perfect is tailored for the following target audience:
 - Sellers looking for a trustworthy marketplace to list their game-themed posters and reach a global audience of potential buyers.
 - Buyers in search of a secure and user-friendly environment to discover authentic, high-quality game-themed posters from reputable sellers.
 
-### User Requirements and Expectations
+## User Requirements and Expectations
 When using Pixel Perfect, users can expect the following features and characteristics to fulfill their needs:
 
 - A visually appealing and easy-to-navigate interface that enhances the experience of buying and selling game-themed posters.
@@ -157,16 +157,54 @@ When using Pixel Perfect, users can expect the following features and characteri
 - A personalized user profile where sellers can showcase their posters and buyers can manage their purchases and wishlists.
 - Access to a curated selection of high-quality game-themed posters, with detailed information and images to ensure authenticity and quality.
 
+## User Stories
+
+### Epics 
+For this project, I organized my development tasks into 8 main Epics, each grouping related user stories. Due to time constraints, not all Epics have been fully implemented in this deployment. Future updates will incorporate these remaining features into the site.
+
+#### Development Approach
+Instead of following traditional sprints, I closely followed the structure and methodology outlined in the Code Institute's Boutique Ado walkthrough project. This approach guided the construction of the site, ensuring alignment with best practices and industry standards throughout development.
 
 
-### User Stories
+For detailed information, please refer to the [Link to Epics](https://github.com/barryCFlynn/Pixel_Perfect/milestones) for comprehensive insights into the project's scope and development roadmap.
 
-User stories and tasks Grouped below.
+<center> 
 
-- [As a Site Admin, I can create, edit, and delete advertisements - complete](https://github.com/barryCFlynn/WatchBidCentral/issues/1)
+<img src="docs/README/project user milestone list.jpg" alt="" width=900px> 
+
+</center>
+
+1. [User Authentication and Profile Management - complete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/1)
+2. [Shopping Cart and Checkout - complete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/3)
+3. [Payment Processing - complete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/4)
+4. [Image Management - complete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/5)
+5. [Inventory Search and Grouping - complete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/8)
+6. [Product Management - partial](https://github.com/barryCFlynn/Pixel_Perfect/milestone/2)
+7. [User Consent and Privacy - incomplete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/6)
 
 
+### User Stories and Acceptance Criteria
+I have documented a total of 20 user stories, each accompanied by detailed acceptance criteria. These criteria specify the exact requirements and expected outcomes for each feature, facilitating thorough tracking and validation of results.
 
+#### Documentation
+For detailed information, please refer to the [link to user stories](https://github.com/barryCFlynn/Pixel_Perfect/issues?q=) for comprehensive insights into the project's scope and development roadmap.
+
+<center> 
+
+<img src="docs/README/project user stories list.jpg" alt="" width=900px> 
+
+</center>
+
+
+#### Kanban Board
+For detailed information, please refer to the [link to Kanban board](https://github.com/users/barryCFlynn/projects/5/views/1) for comprehensive insights into the project's scope and development roadmap.
+
+
+<center> 
+
+<img src="docs/README/project user stories board.jpg" alt="" width=900px> 
+
+</center>
 
 <br>
 
@@ -230,80 +268,53 @@ This database schema outlines the structure for Pixel Perfect, enabling user eng
 ---
 # Features
 
-### Using Keywords to Enhance Search Functionality
-#### Overview
-In our inventory system, each inventory item can have a set of keywords associated with it. These keywords play a crucial role in improving the searchability of items, allowing users to quickly find what they are looking for based on specific terms related to the product. Keywords can include various descriptors such as genre, style, color, theme, and other relevant attributes.
+## Using Keywords to Enhance Search Functionality
 
-How It Works
-Keyword Field in Inventory Item Model:
-Each inventory item includes a keywords field where multiple keywords can be stored. These keywords are typically comma-separated strings that describe the item in various ways.
+Our inventory system utilizes keywords to enhance item searchability, enabling users to quickly locate products based on specific descriptors like genre, style, color, and more. Keywords are stored in each item's model as comma-separated strings, contributing to a comprehensive search functionality that extends beyond item names and descriptions.
 
-User Experience:
-Users can enter terms related to their interests or needs into the search bar. The system will then look for these terms within the keywords, name, and description fields of inventory items, providing a comprehensive set of results that are more likely to match user expectations.
+### How It Works:
 
-Benefits
-Improved Search Accuracy: By leveraging keywords, the search functionality becomes more accurate and relevant, as it considers various aspects of an item beyond its name and description.
-Enhanced User Experience: Users can find items more easily, making their interaction with the platform more enjoyable and efficient.
-Flexible Categorization: Keywords allow for flexible and dynamic categorization of items, which can adapt to various search patterns and user preferences.
-Example
-For an inventory item representing a poster of a popular game franchise, keywords might include terms like "fantasy", "dragon", "RPG", and "adventure". This allows users searching for any of these terms to find the poster even if these terms are not explicitly mentioned in the item's name or description.
+- Keyword Field: Each inventory item features a keywords field where multiple descriptors are stored.
+- User Experience: Users input terms into the search bar, and the system scans keywords, names, and descriptions to deliver accurate results.
 
-By integrating keywords into the search functionality, we enhance the discoverability of inventory items and provide users with a more powerful and intuitive search experience.
+### Benefits:
 
-### Discount Notification Feature
-#### Overview
-The discount notification feature is designed to inform users when a product has sizes available at a discounted price. This feature ensures that customers are aware of any ongoing sales and can take advantage of the reduced prices.
+- Improved Search Accuracy: Keywords refine search results by considering diverse item attributes.
+- Enhanced User Experience: Simplifies item discovery, enhancing user interaction efficiency.
+- Flexible Categorization: Adapts to varying search patterns and user preferences dynamically.
 
-Implementation Details
-The feature works by checking if any of the available sizes for an inventory item includes the term "Sale." If a sale size is detected, a message indicating the discount is displayed on the product detail page.
+### Example:
 
-How It Works
-Inventory Detail View Update:
-The view function inventory_detail is updated to include a check for sale sizes. It iterates through all the sizes of an inventory item and sets a flag (has_sale_size) if any size contains the term "Sale."
+Keywords like "fantasy", "dragon", "RPG", and "adventure" associated with a game franchise poster ensure users find it even if those terms aren't explicitly in the item's name or description.
 
-Template Update:
-The template inventory_detail.html is updated to conditionally display a message if the has_sale_size flag is set. This informs users that a 25% discount is available on any size.
+By integrating keywords into our search system, we optimize item discoverability, offering users an intuitive and robust search experience.
 
-Benefits
-Increased Awareness: Customers are immediately informed of any ongoing discounts, which can lead to increased sales.
-User-Friendly: The notification is prominently displayed, ensuring that users do not miss out on any potential savings.
-By incorporating this feature, the platform enhances user experience and promotes sales by clearly communicating discounts to potential buyers.
+## Discount Notification Feature
 
-### Newsletter Signup Feature
-#### Overview
+The discount notification feature alerts users to available product sizes at reduced prices, ensuring they are informed of ongoing sales and can capitalize on discounts.
 
-The Newsletter Signup feature allows users to subscribe to our newsletter directly from the site. This feature ensures users stay updated with the latest news, updates, and special offers from Pixel Perfect. The signup form is easily accessible from the navigation menu under "My Account," making it convenient for both new and existing users to subscribe. It uses the built in email featrue of Django to send a custom email in templates/emails.
+### Implementation:
 
-# Models
+- Functionality: The feature identifies if any sizes of an inventory item are marked as "Sale."
+- Update to Inventory Detail View: The inventory_detail view function checks each size for the "Sale" term, setting a flag (has_sale_size) accordingly.
+- Template Adjustment: The inventory_detail.html template is adjusted to display a message when the has_sale_size flag is true, notifying users of a 25% discount on applicable sizes.
 
-## Models Description
+### Benefits:
 
-### Size Model
-The `Size` model defines various size options for the posters, each with an associated price. This model allows for flexible pricing based on the size of the poster and is a Many to Many field.
+Enhanced Awareness: Immediate notification of discounts encourages increased purchases.
+User-Focused: Prominent display ensures users are aware of potential savings.
+By integrating this feature, the platform enhances user experience and promotes sales by effectively communicating discounts to customers.
 
-- **Fields:**
-  - `size`: A character field with choices for 'Small', 'Medium', and 'Large' etc.
-  - `price`: A decimal field that stores the price for each size option.
+## Newsletter Signup Feature
 
-### Product Model
-The `Product` model represents individual posters in the inventory. This model includes comprehensive details about each product and utilizes a `ManyToManyField` to link to multiple `Size` entries. This setup enables each product to have various size and price options.
+The Newsletter Signup feature enables users to easily subscribe to Pixel Perfect's newsletter directly from the site, ensuring they receive the latest news, updates, and special offers.
 
-- **Fields:**
-  - `title`: The name of the product.
-  - `description`: A detailed description of the product.
-  - `artist`: The name of the artist who created the poster.
-  - `rating`: A decimal field to store product ratings.
-  - `keywords`: A text field for comma-separated keywords to facilitate search functionality.
-  - `category`: A foreign key linking to the `Category` model.
-  - `franchise`: A foreign key linking to the `Franchise` model.
-  - `sizes`: A many-to-many field linking to the `Size` model, allowing for multiple size and price options per product.
-  - `stock`: The quantity of the product available in stock.
-  - `available`: A boolean field indicating if the product is available for sale.
-  - `created`: The timestamp when the product was created.
-  - `updated`: The timestamp when the product was last updated.
-  - `image`: An image field to store the product image.
+### Key Features:
 
-This structure provides a robust framework for managing the inventory, supporting detailed product information, and flexible pricing based on size.
+- Accessibility: Located conveniently in the navigation menu under "My Account," accessible to new and existing users.
+- Functionality: Utilizes Django's built-in email capabilities to send custom newsletters.
+- Implementation: Email templates are customized and stored in templates/emails, ensuring consistent branding and communication.
+This feature enhances user engagement by providing a straightforward method for users to stay informed about Pixel Perfect's updates and promotions.
 
 <br>
 
@@ -313,9 +324,9 @@ This structure provides a robust framework for managing the inventory, supportin
 
 # Design
 
-The design of WatchBidCentral is meticulously crafted to resonate with the sophistication and elegance associated with luxury watches. The choice of colors, fonts, and layout are carefully selected to provide an upscale and professional feel, inviting users into a world of high-end watch collecting. The interface combines modern design principles with intuitive navigation, ensuring that both seasoned collectors and new enthusiasts can easily explore, bid, and list watches. The design aims to evoke trust and reliability, mirroring the quality and authenticity of the timepieces featured on the platform.
+I followed the Boutique Ado prject closely as it was a great example of a E Commerce site in choosing simple colours and have a white background to make the products stand out. Especially as the Posters provide so much colour already.
 
-### Color
+## Color
 
 For colour the template I used "https://startbootstrap.com/template/shop-homepage" had a very simple colour scheme that I opted to not chnang:
 
@@ -326,14 +337,18 @@ Primary Background Colour
 
 Secondary Background Colour
 
-![#212529](https://placehold.it/150x40/212529/FFFFFF?text=212529)
+![#000000](https://placehold.it/150x40/000000/FFFFFF?text=000000)
 
 
 
-Contrast Grid - Only AA and AAA options used.
+### Contrast Grid 
+For the contrast grid in the design system, I have chosen to display every color used throughout the site. This includes colors utilised in various elements such as messaging, Stripe integrations, and other components. The contrast grid ensures that all colors are tested for accessibility and visual harmony.
 
- <img src="assets\img\README_images\contrast grid.jpg" alt="Description" width= 600px>
+<center> 
 
+ <img src="docs/README/contrast grid.jpg" alt="" width= 900px> 
+
+</center>
 
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
@@ -342,35 +357,36 @@ Contrast Grid - Only AA and AAA options used.
 
 # Technologies Used
 
-### Languages
+## Languages
 - HTML
 - CSS
 - Python
 - JavaScript
 
-### Frameworks
-- **Django**: A high-level Python web framework that encourages rapid development and clean, pragmatic design, used for building the Culture Club web application.
-- **Crispy Forms**: A Django package that simplifies form layout and styling, making forms more efficient and customizable.
-- **Bootstrap v5.0**: The latest version of the popular CSS framework, used for creating responsive and visually appealing user interfaces.
+## Frameworks
+- `Django`: A high-level Python web framework that encourages rapid development and clean, pragmatic design, used for building the Culture Club web application.
+- `Crispy Forms`: A Django package that simplifies form layout and styling, making forms more efficient and customizable.
+- `Bootstrap v5.0`: The latest version of the popular CSS framework, used for creating responsive and visually appealing user interfaces.
 
-### Database
-- **ElephantSQL**: A cloud-hosted PostgreSQL database service, offering a reliable and scalable storage solution for the application's data.
+## Database
+- `ElephantSQL`: A cloud-hosted PostgreSQL database service, offering a reliable and scalable storage solution for the application's data.
 
-### Media Management Platform
-- **Cloudinary**: A cloud-based platform for media upload, storage, optimization, and delivery, used for managing images in the Culture Club project.
+## Media Management Platform
+- `Cloudinary`: A cloud-based platform for media upload, storage, optimization, and delivery, used for managing images in the Culture Club project.
 
-### Tools
-- **Git**: A version control system for tracking changes in source code during software development.
-- **GitHub**: A platform for hosting and managing Git repositories, enabling collaboration and version control for the project's codebase.
-- **Gitpod**: A cloud-based IDE that provides a consistent and pre-configured development environment for the Culture Club project.
-- **Heroku**: A cloud application platform used for deploying and hosting the Culture Club web application.
-- **Adobe Photoshop**: A graphic design software used for editing and refining images for the website.
-- **DB Diagram**: A tool for visualizing and creating database schemas, used for planning the database structure of Culture Club.
-- **Google Fonts**: A library of free, open-source fonts, used to enhance typography on the website.
-- **Font Awesome**: A library of icons and social logos, used for adding graphical elements to the Culture Club interface.
-- **ChatGPT**: An AI to help troubleshoot issues.
+## Tools
+- `Stripe`: Python library for Stripe API, used to handle payment processing
+- `Git`: A version control system for tracking changes in source code during software development.
+- `GitHub`: A platform for hosting and managing Git repositories, enabling collaboration and version control for the project's codebase.
+- `Gitpod`: A cloud-based IDE that provides a consistent and pre-configured development environment for the Culture Club project.
+- `Heroku`: A cloud application platform used for deploying and hosting the Culture Club web application.
+- `DB Diagram`: A tool for visualizing and creating database schemas, used for planning the database structure of Culture Club.
+- `Google Fonts`: A library of free, open-source fonts, used to enhance typography on the website.
+- `Font Awesome`: A library of icons and social logos, used for adding graphical elements to the Culture Club interface.
+- `ChatGPT`: An AI to help troubleshoot issues.
+- `Dall-E`: An AI for image generation, produced all posters on site.
 
-### Supporting Libraries and Packages
+## Supporting Libraries and Packages
 
 - `asgiref==3.7.2`: foundational package for Django to support asynchronous web protocols like WebSockets.
 - `cloudinary==1.36.0`: integration library for Cloudinary - cloud service for storing and managing media files and assets.
@@ -629,26 +645,22 @@ Solution: Removed the boolean from UserProfile and managed newsletter subscripti
 
 ### Fixed bugs ✅
 
-Cloudinary images were loading in under HTTP protocol and browser was showing warning and upgrading to HTTPS, resolved by adding Cloudinary Config to settings
+1. Mixed Content Warnings
+  Bug: Mixed Content: The page was loaded over HTTPS, but requested an insecure element from HTTP.
+  Solution: Ensure all Cloudinary URLs use HTTPS:
 
-1. Error in Heroku after adding Cloudinary settings
-Bug: NameError: name 'cloudinary' is not defined
-Solution: Ensure Cloudinary was properly imported in settings.py:
+          CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL', 'cloudinary://API_KEY:API_SECRET@CLOUD_NAME')
+          cloudinary.config(
+              secure=True
+          )
 
-        import cloudinary
-        import cloudinary.uploader
-        import cloudinary.api
+2. Error in Heroku after adding Cloudinary settings
+  Bug: NameError: name 'cloudinary' is not defined
+  Solution: Ensure Cloudinary was properly imported in settings.py:
 
-2. Mixed Content Warnings
-Bug: Mixed Content: The page was loaded over HTTPS, but requested an insecure element from HTTP.
-Solution: Ensure all Cloudinary URLs use HTTPS:
-
-        CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL', 'cloudinary://API_KEY:API_SECRET@CLOUD_NAME')
-        cloudinary.config(
-            secure=True
-        )
-
-
+          import cloudinary
+          import cloudinary.uploader
+          import cloudinary.api
 
 3. Duplicate SKU Key Error
 Bug: duplicate key value violates unique constraint "inventory_inventoryitem_sku_uniq".
@@ -724,8 +736,7 @@ These are some of the key bugs encountered and the solutions implemented to reso
 ### App Deployment
 For deploying Your app, Heroku is used. Follow these steps:
 
- **Create a New App:**
-   - Create a new app on Heroku dashboard.
+ **Create a New App:** Create a new app on Heroku dashboard.
 
  **Configure Settings:**
    - Navigate to "Settings" in new app.
