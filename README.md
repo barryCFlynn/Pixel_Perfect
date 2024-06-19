@@ -1,37 +1,3 @@
-
-This is a migration from an old project that i am re using, i will be updated as the projects is worked on and ref to WatchBidCentral will be changed to PixelPerfect
-
-
-todo features
-must have
-404 page - done
-seo - done, althouth refor sitemap as still adding content
-social media page
-email thanking for signing up for newsletter - done
-
-
-
-might have
-
-
-wont have
-with pillow when have 3 backgrounds that will overlay the poster onto when loading the product detail
-carouseld of high rated and sale items
-cookie popup
-stock item reduced after sale confirmed
-rating system so calculates new rating and writes it
-
-main site for inspiration and images displate.com, email send to them on 27/05/24 requesting permission to use site assets
-
-bugs
-
-email setup, tutor assisted wtih solution downgradint runtime.txt, tried new app passwords, recheching variable names, 
-
-inventory item overlay on background, initial thought i would be able to delivever this bu i proved to require more development time that i had, tried using Pillow to write new images to clouduinary on item creation. tried using css to manage the overlay loading on demand, but responsivenes requirements need more time to finish.
-
-size costing implementation to link to inventory served to provide chanlenges to overcome, like fully udnerstanding the interactions of models and to a Many to many field.
-
-
 # Pixel Perfect
 
 Pixel Perfect is an exclusive digital haven tailored for the aficionados of game franchises, offering a marketplace that celebrates the art and craft of high-quality posters. This platform is not just a website; it's a dynamic community for both sellers and buyers to engage in the passionate exchange of exquisite game-themed artwork. From vintage classics to contemporary marvels, Pixel Perfect is dedicated to connecting art enthusiasts around the globe.
@@ -41,14 +7,14 @@ Here, users can craft listings for their cherished posters, purchase a diverse c
 Embracing the legacy and innovation of game art, Pixel Perfect is a confluence of history, artistry, and technology. It's a community where every design, print, and story behind the artwork matters, offering a unique space for enthusiasts to share, discover, and elevate their passion for game-inspired posters. Join the journey at Pixel Perfect, where every piece is a celebration of artistic expression and gaming culture.
 
 <center> 
-
 <img src="docs/README/am i responsive.jpg" alt="Am I responsive site image" width=900px> 
-
 </center>
 
-Developer: [Barry Flynn](https://github.com/barryCFlynn/) <br>
+[Developer Barry Flynn](https://github.com/barryCFlynn/) <br>
 [Live webpage](https://pixel-perfect-d96b20ab326d.herokuapp.com/)<br>
 [Project Repository](https://github.com/barryCFlynn/Pixel_Perfect)<br>
+
+
 
 ## Badges
 
@@ -65,52 +31,24 @@ Developer: [Barry Flynn](https://github.com/barryCFlynn/) <br>
 ![Bootstrap Badge](https://img.shields.io/badge/Bootstrap-7952B3?logo=bootstrap&logoColor=fff&style=for-the-badge)
 ![Django Badge](https://img.shields.io/badge/Django-092E20?logo=django&logoColor=fff&style=for-the-badge)
 
----
-
-## Table of Content
-
-# Table of Contents
-
+## Table of Contents
 1. [Project Goals](#project-goals)
-    - [User Goals](#user-goals)
-    - [Site Owner Goals](#site-owner-goals)
-2. [User Experience (UX)](#user-experience)
-    - [Target Audience](#target-audience)
-    - [User Requirements and Expectations](#user-requirements-and-expectations)
-    - [User Stories](#user-stories)
-3. [Database](#database)
-    - [Database Schema Summary](#database-schema-summary)
-4. [Design](#design)
-    - [Color](#color)
-5. [Technologies Used](#technologies-used)
-    - [Languages](#languages)
-    - [Frameworks](#frameworks)
-    - [Tools](#tools)
-    - [Supporting Libraries and Packages](#supporting-libraries-and-packages)
-6. [Methodology](#methodology)
-7. [Features](#features)
-    - [Login Landing Page](#login-landing-page)
-    - [About Us](#about-us)
-    - [Create Listing](#create-listing)
-    - [Liked Listings](#liked-listings)
-    - [My Listings](#my-listings)
-    - [Future Features](#future-features)
-8. [Testing](#testing)
-    - [Manual Testing](#manual-testing)
-9. [Bugs](#bugs)
-    - [Known Bugs](#known-bugs)
-    - [Fixed Bugs](#fixed-bugs)
-10. [Deployment](#deployment)
-    - [App Deployment](#app-deployment)
-    - [Version Control](#version-control)
-11. [Credits](#credits)
-    - [Django Documentation](#django-documentation)
-    - [Bootstrap Docs](#bootstrap-docs)
-    - [Media](#media)
-    - [Content](#content)
-12. [Acknowledgments](#acknowledgments)
+2. [User Goals](#user-goals)
+3. [Site Owner Goals](#site-owner-goals)
+4. [User Experience (UX)](#user-experience-ux)
+5. [Database](#database)
+6. [Features](#features)
+7. [SEO Implementation](#seo-implementation)
+8. [Design](#design)
+9. [Technologies Used](#technologies-used)
+10. [Social Media](#social-media)
+11. [Testing](#testing)
+12. [Bugs](#bugs)
+13. [Deployment](#deployment)
+14. [Credits](#credits)
+15. [Acknowledgments](#acknowledgments)
 
----
+
 
 # Project Goals
 Pixel Perfect is a Django-based web application dedicated to game franchise enthusiasts and collectors, offering a sophisticated platform for the buying and selling of high-quality posters. The main goals of the project include:
@@ -136,8 +74,6 @@ Pixel Perfect is a Django-based web application dedicated to game franchise enth
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
----
-
 # User Experience
 
 ## Target Audience
@@ -156,274 +92,6 @@ When using Pixel Perfect, users can expect the following features and characteri
 - Interactive features such as the ability to create listings, purchase posters, and engage with other users through comments and reviews.
 - A personalized user profile where sellers can showcase their posters and buyers can manage their purchases and wishlists.
 - Access to a curated selection of high-quality game-themed posters, with detailed information and images to ensure authenticity and quality.
-
-## User Stories
-
-### Epics 
-For this project, I organized my development tasks into 8 main Epics, each grouping related user stories. Due to time constraints, not all Epics have been fully implemented in this deployment. Future updates will incorporate these remaining features into the site.
-
-#### Development Approach
-Instead of following traditional sprints, I closely followed the structure and methodology outlined in the Code Institute's Boutique Ado walkthrough project. This approach guided the construction of the site, ensuring alignment with best practices and industry standards throughout development.
-
-
-For detailed information, please refer to the [Link to Epics](https://github.com/barryCFlynn/Pixel_Perfect/milestones) for comprehensive insights into the project's scope and development roadmap.
-
-<center> 
-
-<img src="docs/README/project user milestone list.jpg" alt="" width=900px> 
-
-</center>
-
-1. [User Authentication and Profile Management - complete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/1)
-2. [Shopping Cart and Checkout - complete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/3)
-3. [Payment Processing - complete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/4)
-4. [Image Management - complete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/5)
-5. [Inventory Search and Grouping - complete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/8)
-6. [Product Management - partial](https://github.com/barryCFlynn/Pixel_Perfect/milestone/2)
-7. [User Consent and Privacy - incomplete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/6)
-
-
-### User Stories and Acceptance Criteria
-I have documented a total of 20 user stories, each accompanied by detailed acceptance criteria. These criteria specify the exact requirements and expected outcomes for each feature, facilitating thorough tracking and validation of results.
-
-#### Documentation
-For detailed information, please refer to the [link to user stories](https://github.com/barryCFlynn/Pixel_Perfect/issues?q=) for comprehensive insights into the project's scope and development roadmap.
-
-<center> 
-
-<img src="docs/README/project user stories list.jpg" alt="" width=900px> 
-
-</center>
-
-
-#### Kanban Board
-For detailed information, please refer to the [link to Kanban board](https://github.com/users/barryCFlynn/projects/5/views/1) for comprehensive insights into the project's scope and development roadmap.
-
-
-<center> 
-
-<img src="docs/README/project user stories board.jpg" alt="" width=900px> 
-
-</center>
-
-<br>
-
-<p align="right">(<a href="#table-of-content">back to top</a>)</p>
-
----
-
-# Database
-When creating the database structure schema for this project, I utilized the [dbdiagram.io](https://dbdiagram.io/) website. This online tool allowed me to visually design and document the database schema, making it easier to plan and implement the database for the blog application.
-
-<center> 
-
- <img src="docs/README/pixel_perfect_model_diagram.png" alt="Description" width= 900px> 
-
-</center>
-
-## Database Schema Summary
-
-### `Category` Table
-- Way to categorize posters, including flagging New Arrival.
-- Fields: `name`, `friendly_name`.
-
-### `Franchise` Table
-- Way to categorize items under different franchises.
-- Fields: `name`, `friendly_name`.
-
-### `Inventory Item` Table
-- Represents individual items available in the store.
-- Fields: `name`, `sku`, `description`, `category_id > Category.id`, `franchise_id > Franchise.id`, `artist`, `keywords`, `stock`, `available`, `rating`, `image`.
-
-### `Order Line Item` Table
-- Represents each line item within an order.
-- Fields: `order_id > Order.id`, `inventory_item_id > InventoryItem.id`, `size_id > Size.id`, `quantity`.
-
-### `Order` Table
-- Represents a customer's order.
-- Fields: `order_number`, ` user_profile_id > UserProfile.id`, `contact_details`, `delivery_cost`, `order_total`, `order_total`,`stripe_pid`.
-
-### `Size` Table
-- Represents different sizes available for items.
-- Fields: `size`, `price`.
-
-### `User Profile` Table
-- Stores additional information about a user.
-- Fields: `user_id > User.id`, `contact_details`.
-
-### `User` Table
-- Represents a registered user of the system.
-- Fields: `username`, `role`.
-
-### `Newsletter Signup` Table
-- Represents users who have signed up for newsletters.
-- Fields: `email`.
-
-This database schema outlines the structure for Pixel Perfect, enabling user engagement with art listings, personalization of user profiles, categorization of art by franchises, and secure payment options.
-
-<br>
-
-<p align="right">(<a href="#table-of-content">back to top</a>)</p>
-
----
-# Features
-
-## Using Keywords to Enhance Search Functionality
-
-Our inventory system utilizes keywords to enhance item searchability, enabling users to quickly locate products based on specific descriptors like genre, style, color, and more. Keywords are stored in each item's model as comma-separated strings, contributing to a comprehensive search functionality that extends beyond item names and descriptions.
-
-### How It Works:
-
-- Keyword Field: Each inventory item features a keywords field where multiple descriptors are stored.
-- User Experience: Users input terms into the search bar, and the system scans keywords, names, and descriptions to deliver accurate results.
-
-### Benefits:
-
-- Improved Search Accuracy: Keywords refine search results by considering diverse item attributes.
-- Enhanced User Experience: Simplifies item discovery, enhancing user interaction efficiency.
-- Flexible Categorization: Adapts to varying search patterns and user preferences dynamically.
-
-### Example:
-
-Keywords like "fantasy", "dragon", "RPG", and "adventure" associated with a game franchise poster ensure users find it even if those terms aren't explicitly in the item's name or description.
-
-By integrating keywords into our search system, we optimize item discoverability, offering users an intuitive and robust search experience.
-
-## Discount Notification Feature
-
-The discount notification feature alerts users to available product sizes at reduced prices, ensuring they are informed of ongoing sales and can capitalize on discounts.
-
-### Implementation:
-
-- Functionality: The feature identifies if any sizes of an inventory item are marked as "Sale."
-- Update to Inventory Detail View: The inventory_detail view function checks each size for the "Sale" term, setting a flag (has_sale_size) accordingly.
-- Template Adjustment: The inventory_detail.html template is adjusted to display a message when the has_sale_size flag is true, notifying users of a 25% discount on applicable sizes.
-
-### Benefits:
-
-Enhanced Awareness: Immediate notification of discounts encourages increased purchases.
-User-Focused: Prominent display ensures users are aware of potential savings.
-By integrating this feature, the platform enhances user experience and promotes sales by effectively communicating discounts to customers.
-
-## Newsletter Signup Feature
-
-The Newsletter Signup feature enables users to easily subscribe to Pixel Perfect's newsletter directly from the site, ensuring they receive the latest news, updates, and special offers.
-
-### Key Features:
-
-- Accessibility: Located conveniently in the navigation menu under "My Account," accessible to new and existing users.
-- Functionality: Utilizes Django's built-in email capabilities to send custom newsletters.
-- Implementation: Email templates are customized and stored in templates/emails, ensuring consistent branding and communication.
-This feature enhances user engagement by providing a straightforward method for users to stay informed about Pixel Perfect's updates and promotions.
-
-<br>
-
-<p align="right">(<a href="#table-of-content">back to top</a>)</p>
-
----
-
-# Design
-
-I followed the Boutique Ado prject closely as it was a great example of a E Commerce site in choosing simple colours and have a white background to make the products stand out. Especially as the Posters provide so much colour already.
-
-## Color
-
-For colour the template I used "https://startbootstrap.com/template/shop-homepage" had a very simple colour scheme that I opted to not chnang:
-
-
-Primary Background Colour
-
- ![#FFFFFF](https://placehold.it/150x40/FFFFFF/000000?text=FFFFFF)
-
-Secondary Background Colour
-
-![#000000](https://placehold.it/150x40/000000/FFFFFF?text=000000)
-
-
-
-### Contrast Grid 
-For the contrast grid in the design system, I have chosen to display every color used throughout the site. This includes colors utilised in various elements such as messaging, Stripe integrations, and other components. The contrast grid ensures that all colors are tested for accessibility and visual harmony.
-
-<center> 
-
- <img src="docs/README/contrast grid.jpg" alt="" width= 900px> 
-
-</center>
-
-
-<p align="right">(<a href="#table-of-content">back to top</a>)</p>
-
----
-
-# Technologies Used
-
-## Languages
-- HTML
-- CSS
-- Python
-- JavaScript
-
-## Frameworks
-- `Django`: A high-level Python web framework that encourages rapid development and clean, pragmatic design, used for building the Culture Club web application.
-- `Crispy Forms`: A Django package that simplifies form layout and styling, making forms more efficient and customizable.
-- `Bootstrap v5.0`: The latest version of the popular CSS framework, used for creating responsive and visually appealing user interfaces.
-
-## Database
-- `ElephantSQL`: A cloud-hosted PostgreSQL database service, offering a reliable and scalable storage solution for the application's data.
-
-## Media Management Platform
-- `Cloudinary`: A cloud-based platform for media upload, storage, optimization, and delivery, used for managing images in the Culture Club project.
-
-## Tools
-- `Stripe`: Python library for Stripe API, used to handle payment processing
-- `Git`: A version control system for tracking changes in source code during software development.
-- `GitHub`: A platform for hosting and managing Git repositories, enabling collaboration and version control for the project's codebase.
-- `Gitpod`: A cloud-based IDE that provides a consistent and pre-configured development environment for the Culture Club project.
-- `Heroku`: A cloud application platform used for deploying and hosting the Culture Club web application.
-- `DB Diagram`: A tool for visualizing and creating database schemas, used for planning the database structure of Culture Club.
-- `Google Fonts`: A library of free, open-source fonts, used to enhance typography on the website.
-- `Font Awesome`: A library of icons and social logos, used for adding graphical elements to the Culture Club interface.
-- `ChatGPT`: An AI to help troubleshoot issues.
-- `Dall-E`: An AI for image generation, produced all posters on site.
-
-## Supporting Libraries and Packages
-
-- `asgiref==3.7.2`: foundational package for Django to support asynchronous web protocols like WebSockets.
-- `cloudinary==1.36.0`: integration library for Cloudinary - cloud service for storing and managing media files and assets.
-- `dj-database-url==0.5.0`: utility to help you configure your Django application's database from the DATABASE_URL environment variable.
-- `dj3-cloudinary-storage==0.0.6`: Django storage backend for Cloudinary to handle media and static files.
-- `Django==4.2.10`: Django web framework; the core framework for the web application.
-- `django-allauth==0.57.2`: integrated set of Django applications addressing authentication, registration, account management, and third-party (social) account authentication.
-- `django-crispy-forms==2.1`: Django app that provides a way to render Django forms in a DRY, configurable, and reusable way.
-- `django-summernote==0.8.20.0`: Django app that integrates the Summernote WYSIWYG editor for text fields.
-- `gunicorn==20.1.0`: Python WSGI HTTP Server for UNIX - robust and performant server to serve the Django application.
-- `oauthlib==3.2.2`: generic, spec-compliant implementation of OAuth for use as a foundation for OAuth consumers and providers.
-- `psycopg2==2.9.9`: PostgreSQL database adapter for Python, a prerequisite for using PostgreSQL with Django.
-- `PyJWT==2.8.0`: Python library to encode and decode JSON Web Tokens (JWT), often used in authentication mechanisms.
-- `python3-openid==3.2.0`: Python 3 port of the Python OpenID library, used for OpenID authentication.
-- `PyJWT==2.8.0`: Python library that allows accurate and cross-platform timezone calculations.
-- `requests-oauthlib==1.3.1`: An OAuthlib authentication support for Requests, which allows you to use OAuth to authenticate with APIs.
-- `sqlparse==0.4.4`: non-validating SQL parser for Python, useful for parsing and splitting SQL statements.
-- `urllib3==1.26.15`: powerful HTTP client for Python. Used by Requests internally.
-- `whitenoise==5.3.0`: efficiently serves static files in Django applications, enhancing performance.
-
-<p align="right">(<a href="#table-of-content">back to top</a>)</p>
-
----
-
-# Methodology
-
-The WatchBidCentral project adheres to an agile-inspired methodology, promoting teamwork, adaptability, and incremental development. This strategy has steered the project's progress:
-
-### Agile Project Management with GitHub Projects
-To streamline project management, GitHub Projects is employed as a central hub. User stories and tasks are structured as GitHub issues, creating an organized workflow. The GitHub project board serves as a visual representation, tracking progress effectively.
-
-### User Stories as GitHub Issues
-Transforming user stories into GitHub issues captures user-centric functionalities. These issues interlink with respective user stories, simplifying access to criteria, tasks, and comments.
-
-<p align="right">(<a href="#table-of-content">back to top</a>)</p>
-
----
 
 # The Site Pages
 ### Landing Page:
@@ -585,69 +253,309 @@ Transforming user stories into GitHub issues captures user-centric functionaliti
 <img src="docs/README/404.jpg" width= 900px>
 </center>
 
+---
 
-## Features
+# User Stories
+
+## Methodology
+
+The **Pixel Perfect** project follows an agile-inspired methodology, emphasizing collaboration, adaptability, and iterative development. This approach has guided the project's advancement:
+
+### Agile Project Management Using GitHub Projects
+
+GitHub Projects serves as the central hub for project management, facilitating an organized workflow. User stories and tasks are structured as GitHub issues, enabling efficient tracking of progress. The GitHub project board provides a visual overview, ensuring transparency and effective management.
+
+### User Stories Transformed into GitHub Issues
+
+User stories are translated into GitHub issues to capture user-centric functionalities. These issues are linked to their respective user stories, providing easy access to criteria, tasks, and discussions. This integration streamlines development and enhances clarity throughout the project lifecycle.
+
+## Epics 
+For this project, I organized my development tasks into 8 main Epics, each grouping related user stories. Due to time constraints, not all Epics have been fully implemented in this deployment. Future updates will incorporate these remaining features into the site.
+
+### Development Approach
+Instead of following traditional sprints, I closely followed the structure and methodology outlined in the Code Institute's Boutique Ado walkthrough project. This approach guided the construction of the site, ensuring alignment with best practices and industry standards throughout development.
+
+For detailed information, please refer to the [Link to Epics](https://github.com/barryCFlynn/Pixel_Perfect/milestones) for comprehensive insights into the project's scope and development roadmap.
+
+<center> 
+
+<img src="docs/README/project user milestone list.jpg" alt="" width=900px> 
+
+</center>
+
+1. [User Authentication and Profile Management - complete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/1)
+2. [Shopping Cart and Checkout - complete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/3)
+3. [Payment Processing - complete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/4)
+4. [Image Management - complete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/5)
+5. [Inventory Search and Grouping - complete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/8)
+6. [Product Management - partial](https://github.com/barryCFlynn/Pixel_Perfect/milestone/2)
+7. [User Consent and Privacy - incomplete](https://github.com/barryCFlynn/Pixel_Perfect/milestone/6)
+
+
+## User Stories and Acceptance Criteria
+I have documented a total of 20 user stories, each accompanied by detailed acceptance criteria. These criteria specify the exact requirements and expected outcomes for each feature, facilitating thorough tracking and validation of results.
+
+### Documentation
+For detailed information, please refer to the [link to user stories](https://github.com/barryCFlynn/Pixel_Perfect/issues?q=) for comprehensive insights into the project's scope and development roadmap.
+
+<center> 
+
+<img src="docs/README/project user stories list.jpg" alt="" width=900px> 
+
+</center>
+
+
+### Kanban Board
+For detailed information, please refer to the [link to Kanban board](https://github.com/users/barryCFlynn/projects/5/views/1) for comprehensive insights into the project's scope and development roadmap.
+
+
+<center> 
+
+<img src="docs/README/project user stories board.jpg" alt="" width=900px> 
+
+</center>
+
+<br>
+
+<p align="right">(<a href="#table-of-content">back to top</a>)</p>
+
+
+
+# Database
+When creating the database structure schema for this project, I utilized the [dbdiagram.io](https://dbdiagram.io/) website. This online tool allowed me to visually design and document the database schema, making it easier to plan and implement the database for the blog application.
+
+<center> 
+
+ <img src="docs/README/pixel_perfect_model_diagram.png" alt="Description" width= 900px> 
+
+</center>
+
+## Database Schema Summary
+
+### `Category` Table
+- Way to categorize posters, including flagging New Arrival.
+- Fields: `name`, `friendly_name`.
+
+### `Franchise` Table
+- Way to categorize items under different franchises.
+- Fields: `name`, `friendly_name`.
+
+### `Inventory Item` Table
+- Represents individual items available in the store.
+- Fields: `name`, `sku`, `description`, `category_id > Category.id`, `franchise_id > Franchise.id`, `artist`, `keywords`, `stock`, `available`, `rating`, `image`.
+
+### `Order Line Item` Table
+- Represents each line item within an order.
+- Fields: `order_id > Order.id`, `inventory_item_id > InventoryItem.id`, `size_id > Size.id`, `quantity`.
+
+### `Order` Table
+- Represents a customer's order.
+- Fields: `order_number`, ` user_profile_id > UserProfile.id`, `contact_details`, `delivery_cost`, `order_total`, `order_total`,`stripe_pid`.
+
+### `Size` Table
+- Represents different sizes available for items.
+- Fields: `size`, `price`.
+
+### `User Profile` Table
+- Stores additional information about a user.
+- Fields: `user_id > User.id`, `contact_details`.
+
+### `User` Table
+- Represents a registered user of the system.
+- Fields: `username`, `role`.
+
+### `Newsletter Signup` Table
+- Represents users who have signed up for newsletters.
+- Fields: `email`.
+
+This database schema outlines the structure for Pixel Perfect, enabling user engagement with art listings, personalization of user profiles, categorization of art by franchises, and secure payment options.
+
+<br>
+
+<p align="right">(<a href="#table-of-content">back to top</a>)</p>
+
+
+
+# Features
+
+
+## Implemented Features
 
 | Feature                        | Description                                                                                  |
-|------------------------------- |----------------------------------------------------------------------------------------------|
-| User Authentication            | Secure sign-up, login, and logout functionality for users.                                   |
-| User Profiles                  | Users can manage their profiles, including updating personal information and preferences.    |
-| Inventory Listings               | Display a list of inventory items with images.                                   |
-| Inventory Filterings               | Options on the Navbar links to filter by Price, Category, Franchise and New Arrivals.        |
-| Inventory Sorting               | Options to sort by price, category, franchise, rating and name.                                   |
-| Inventory Detail Page            | Detailed view of each inventory item, including images, descriptions, and pricing.           |
-| Shopping Cart                  | Users can add items to their cart, update quantities, and remove items.                      |
-| Checkout Process               | Secure checkout process, including payment integration with Stripe.                          |
-| Order Management               | Users can view their order history and details of each order.                                |
-| Admin Panel                    | Admins can manage products, orders, and user accounts.                                       |
-| Newsletter Signup              | Users can sign up for a newsletter to receive updates and promotions.                        |
-| Custom 404 Page                | Custom error page for when a user navigates to a non-existent page.                          |
-| Sitemap and Robots.txt         | Sitemap for SEO and robots.txt to manage search engine indexing.                             |
-| Responsive Design              | The website is fully responsive and works well on all device sizes.                          |
+|--------------------------------|----------------------------------------------------------------------------------------------|
+| User Authentication            | Implements secure sign-up, login, and logout functionality for users, ensuring data protection and access control.                                   |
+| User Profiles                  | Allows users to manage their profiles, including updating personal information, preferences, and viewing order history.    |
+| Inventory Listings             | Displays a comprehensive list of inventory items, complete with images and essential details for easy browsing.                                   |
+| Inventory Filtering            | Provides navigation options in the Navbar to filter inventory items by Price, Category, Franchise, and New Arrivals, enhancing user search capabilities.        |
+| Inventory Sorting              | Enables users to sort inventory items by price, category, franchise, rating, and name for streamlined browsing and selection.                                   |
+| Inventory Keywords             | Associates each product with keywords to facilitate effective search functionality across the site, improving user experience.                    |
+| Inventory Detail Page          | Offers a detailed view of each inventory item, showcasing images, descriptions, pricing, and other relevant information.           |
+| Inventory Sale Items           | Allows administrators to manage sale items with special pricing, notifying users of discounts during browsing and checkout.           |
+| Shopping Cart                  | Enables users to add, update quantities, and remove items from their shopping cart seamlessly, enhancing shopping convenience.                      |
+| Checkout Process               | Facilitates a secure checkout process integrated with Stripe for seamless payment processing and order completion.                          |
+| Order Management               | Provides users with access to their order history and detailed order information for transparency and tracking.                                |
+| Admin Panel                    | Empowers administrators to manage products, orders, and user accounts efficiently through a centralized administrative interface.                    |
+| Newsletter Signup              | Allows users to opt-in for newsletters to receive updates and promotions, enhancing engagement and communication.                        |
+| Custom 404 Page                | Displays a custom error page when users navigate to non-existent pages, improving user experience and site navigation.                         |
+| Sitemap and Robots.txt         | Implements a sitemap for SEO optimization and manages robots.txt for controlling search engine indexing, enhancing site visibility.             |
+| Responsive Design              | Ensures the website is fully responsive, delivering optimal user experience across all devices and screen sizes.                               |
+
+
+
+## Deferred Features
+
+| Feature                        | Description                                                                                  |
+|--------------------------------|----------------------------------------------------------------------------------------------|
+| Poster overlay on background image on details page | Planned to use Pillow to generate overlay images of products on background, similar to home screen setup. Deferred to future site update. |
+| Newsletter sign-up linking to profile | Planned integration allowing profile page users to manage newsletter subscriptions. Deferred to future site update. |
+| Stock count reduction post-purchase | Intended to dynamically update inventory stock upon purchase, but added complexity for cart quantity checks. Deferred to future site update. |
+| Rating system implementation | Planned feature involving a like button for product ratings. Deferred to future site update. |
+| Cookie consent banner | Planned pop-up for new user site access with complete configuration. Deferred to future site update. |
+| Landing page carousel | Planned slideshow for showcasing products on the home screen. Deferred to future site update. |
+
+
+# SEO Implementation
+To enhance the visibility of the Pixel Perfect website on search engines, we have implemented several SEO best practices, including the use of common HTML elements, and the inclusion of robots.txt and sitemap.xml files.
+
+## HTML Best Practices
+Title Tags: Each page has a unique and descriptive title tag that includes relevant keywords. This helps search engines understand the content of the page and rank it appropriately.
+Meta Descriptions: Descriptive meta tags are added to each page to provide a summary of the content. These descriptions appear in search engine results and can improve click-through rates.
+Header Tags: We use header tags (H1, H2, H3, etc.) to structure the content on each page. Proper use of header tags helps search engines understand the hierarchy and importance of the content.
+Alt Text for Images: All images have descriptive alt text to ensure that search engines can index them properly. Alt text also improves accessibility for users who rely on screen readers.
+
+## Robots.txt
+The robots.txt file is used to manage and restrict the access of search engine crawlers to certain parts of the website. This helps in:
+
+Preventing the indexing of sensitive or duplicate content.
+Guiding search engines to the important sections of the site that should be indexed.
+
+## Sitemap.xml
+The sitemap.xml file provides a structured list of all pages on the website, helping search engines discover and index the content more efficiently. It includes URLs of all important pages along with metadata such as the last modification date, change frequency, and priority.
 
 
 <br>
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
----
+
+
+# Design
+
+I followed the Boutique Ado project closely as it served as an excellent example of an e-commerce site with a clean and effective design. By choosing simple colors and a white background, the products are allowed to stand out, particularly because the posters themselves are vibrant and colorful. This approach ensures that the focus remains on the products, enhancing the overall shopping experience.
+
+## Color
+
+### Primary Background Colour
+
+ ![#FFFFFF](https://placehold.it/150x40/FFFFFF/000000?text=FFFFFF)
+
+### Secondary Background Colour
+
+![#000000](https://placehold.it/150x40/000000/FFFFFF?text=000000)
+
+
+### Contrast Grid 
+For the contrast grid in the design system, I have chosen to display every color used throughout the site. This includes colors utilised in various elements such as messaging, Stripe integrations, and other components. The contrast grid ensures that all colors are tested for accessibility and visual harmony.
+
+<center> 
+
+ <img src="docs/README/contrast grid.jpg" alt="" width= 900px> 
+
+</center>
+
+
+<p align="right">(<a href="#table-of-content">back to top</a>)</p>
+
+
+
+# Technologies Used
+
+## Languages
+- `HTML`
+- `CSS`
+- `Python`
+- `JavaScript`
+
+## Frameworks
+- `Django`: A high-level Python web framework that encourages rapid development and clean, pragmatic design, used for building the Culture Club web application.
+- `Crispy Forms`: A Django package that simplifies form layout and styling, making forms more efficient and customizable.
+- `Bootstrap v5.0`: The latest version of the popular CSS framework, used for creating responsive and visually appealing user interfaces.
+
+## Database
+- `ElephantSQL`: A cloud-hosted PostgreSQL database service, offering a reliable and scalable storage solution for the application's data.
+
+## Media Management Platform
+- `Cloudinary`: A cloud-based platform for media upload, storage, optimization, and delivery, used for managing images in the Culture Club project.
+
+## Tools
+- `Stripe`: Python library for Stripe API, used to handle payment processing
+- `Git`: A version control system for tracking changes in source code during software development.
+- `GitHub`: A platform for hosting and managing Git repositories, enabling collaboration and version control for the project's codebase.
+- `Gitpod`: A cloud-based IDE that provides a consistent and pre-configured development environment for the Culture Club project.
+- `Heroku`: A cloud application platform used for deploying and hosting the Culture Club web application.
+- `DB Diagram`: A tool for visualizing and creating database schemas, used for planning the database structure of Culture Club.
+- `Google Fonts`: A library of free, open-source fonts, used to enhance typography on the website.
+- `Font Awesome`: A library of icons and social logos, used for adding graphical elements to the Culture Club interface.
+- `ChatGPT`: An AI to help troubleshoot issues.
+- `Dall-E`: An AI for image generation, produced all posters on site.
+
+## Supporting Libraries and Packages
+
+- `asgiref==3.7.2`: foundational package for Django to support asynchronous web protocols like WebSockets.
+- `cloudinary==1.36.0`: integration library for Cloudinary - cloud service for storing and managing media files and assets.
+- `dj-database-url==0.5.0`: utility to help you configure your Django application's database from the DATABASE_URL environment variable.
+- `dj3-cloudinary-storage==0.0.6`: Django storage backend for Cloudinary to handle media and static files.
+- `Django==4.2.10`: Django web framework; the core framework for the web application.
+- `django-allauth==0.57.2`: integrated set of Django applications addressing authentication, registration, account management, and third-party (social) account authentication.
+- `django-crispy-forms==2.1`: Django app that provides a way to render Django forms in a DRY, configurable, and reusable way.
+- `gunicorn==20.1.0`: Python WSGI HTTP Server for UNIX - robust and performant server to serve the Django application.
+- `oauthlib==3.2.2`: generic, spec-compliant implementation of OAuth for use as a foundation for OAuth consumers and providers.
+- `psycopg2==2.9.9`: PostgreSQL database adapter for Python, a prerequisite for using PostgreSQL with Django.
+- `PyJWT==2.8.0`: Python library to encode and decode JSON Web Tokens (JWT), often used in authentication mechanisms.
+- `python3-openid==3.2.0`: Python 3 port of the Python OpenID library, used for OpenID authentication.
+- `requests-oauthlib==1.3.1`: An OAuthlib authentication support for Requests, which allows you to use OAuth to authenticate with APIs.
+- `sqlparse==0.4.4`: non-validating SQL parser for Python, useful for parsing and splitting SQL statements.
+- `urllib3==1.26.15`: powerful HTTP client for Python. Used by Requests internally.
+- `whitenoise==5.3.0`: efficiently serves static files in Django applications, enhancing performance.
+- `stripe==9.10.0`: A Python library for integrating Stripe's payment processing services into applications, enabling secure handling of payments, subscriptions, and other financial transactions.
+
+<p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
 # Social Media
 
 See Social documentation <a href="https://github.com/barryCFlynn/Pixel_Perfect/blob/main/docs/README/SOCIAL.md">Social Readme</a>
-
----
 
 # Testing
 Testing was an integral part of the development process for Pixel Perfect, ensuring that the platform functions as intended and meets user requirements effectively. The testing process involves manual testing.
 
 See testing documentation <a href="https://github.com/barryCFlynn/Pixel_Perfect/blob/main/docs/README/TESTING.md">Testing Readme</a>
 
-
-<p align="right">(<a href="#table-of-content">back to top</a>)</p>
-
----
-
 # Bugs
 The bug description section have been linked with the bug issues in my documentation for better visibility. The issue numbers are clickable to get a more comprehensive bug report.
 
-### Known bugs ❌ 
+## Known bugs ❌ 
 
-1. Cloudinary Circular Import Error
-Bug: ImportError: cannot import name 'CompositeImage' from partially initialized module 'inventory.models'.
-Solution: Removed from site and opted to have a single image on Inventory Detail.
+1. **Cloudinary Circular Import Error**
+
+   **Bug**: ImportError: cannot import name 'CompositeImage' from partially initialized module 'inventory.models'.
+   
+   **Solution**: Removed from site and opted to have a single image on Inventory Detail.
 
 2. Newsletter Signup KeyError
-Bug: KeyError: 'receive_newsletter' when accessing the profile page.
-Solution: Removed the boolean from UserProfile and managed newsletter subscriptions in the NewsletterSignup model only.
+  
+    **Bug**: KeyError: 'receive_newsletter' when accessing the profile page.
+
+    **Solution**: Removed the boolean from UserProfile and managed newsletter subscriptions in the NewsletterSignup model only.
 
 
 
-### Fixed bugs ✅
+## Fixed bugs ✅
 
 1. Mixed Content Warnings
-  Bug: Mixed Content: The page was loaded over HTTPS, but requested an insecure element from HTTP.
-  Solution: Ensure all Cloudinary URLs use HTTPS:
+
+    **Bug**: Mixed Content: The page was loaded over HTTPS, but requested an insecure element from HTTP.
+
+    **Solution**: Ensure all Cloudinary URLs use HTTPS:
 
           CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL', 'cloudinary://API_KEY:API_SECRET@CLOUD_NAME')
           cloudinary.config(
@@ -655,16 +563,20 @@ Solution: Removed the boolean from UserProfile and managed newsletter subscripti
           )
 
 2. Error in Heroku after adding Cloudinary settings
-  Bug: NameError: name 'cloudinary' is not defined
-  Solution: Ensure Cloudinary was properly imported in settings.py:
+
+    **Bug**: NameError: name 'cloudinary' is not defined
+    
+    **Solution**: Ensure Cloudinary was properly imported in settings.py:
 
           import cloudinary
           import cloudinary.uploader
           import cloudinary.api
 
 3. Duplicate SKU Key Error
-Bug: duplicate key value violates unique constraint "inventory_inventoryitem_sku_uniq".
-Solution: Ensure SKU is generated uniquely if not provided:
+
+    **Bug**: duplicate key value violates unique constraint "inventory_inventoryitem_sku_uniq".
+    
+    **Solution**: Ensure SKU is generated uniquely if not provided:
 
         def save(self, *args, **kwargs):
             if not self.sku:
@@ -672,16 +584,22 @@ Solution: Ensure SKU is generated uniquely if not provided:
             super().save(*args, **kwargs)
 
 4. SMTP Email Sending Issue
-Bug: SMTP.starttls() got an unexpected keyword argument 'keyfile'.
-Solution: Downgrade Python version to 3.10.14 in Heroku by adjusting runtime.txt.
+
+    **Bug**: SMTP.starttls() got an unexpected keyword argument 'keyfile'.
+
+    **Solution**: Downgrade Python version to 3.10.14 in Heroku by adjusting runtime.txt.
 
 5. Quantity Input Not Updating on Desktop
-Bug: Quantity not greyed out at 1 on desktop view.
-Solution: Change quantity-form ID to a class and update the corresponding JavaScript to use class selectors.
+
+    **Bug**: Quantity not greyed out at 1 on desktop view.
+
+    **Solution**: Change quantity-form ID to a class and update the corresponding JavaScript to use class selectors.
 
 6. Custom 404 Error Handling
-Bug: 500 Error when trying to load a non-existent page.
-Solution: Create custom 404 handler in views.py and reference it in urls.py:
+
+    **Bug**: 500 Error when trying to load a non-existent page.
+
+    **Solution**: Create custom 404 handler in views.py and reference it in urls.py:
 
         def handler404(request, exception):
             return render(request, 'errors/404.html', status=404)
@@ -689,24 +607,32 @@ Solution: Create custom 404 handler in views.py and reference it in urls.py:
         handler404 = 'boutique_ado.views.handler404'
 
 7. OrderLineItem AttributeError
-Bug: 'OrderLineItem' object has no attribute 'InventoryItem'.
-Solution: Correct typo in OrderLineItem model __str__ method:
 
+    **Bug**: 'OrderLineItem' object has no attribute 'InventoryItem'.
+
+    **Solution**: Correct typo in OrderLineItem model `__str__` method:
 
           def __str__(self):
               return f'SKU {self.inventory_item.sku} on order {self.order.order_number}'
 
 8. Signup Email Template Issue
-Bug: Confirmation email subject includes [example.com] instead of the actual domain.
-Solution: Update email domain and display name in Django admin site settings.
+
+    **Bug**: Confirmation email subject includes [example.com] instead of the actual domain.
+
+    **Solution**: Update email domain and display name in Django admin site settings.
 
 9. Background Image Clipping
-Bug: Background image being clipped by the navigation bar.
-Solution: Create 3 background images for different screen sizes.
+
+    **Bug**: Background image being clipped by the navigation bar.
+
+    **Solution**: Create 3 background images for different screen sizes.
 
 10. URL-Encoding Issue with Franchise Names
-Bug: Navigation menu links for franchises containing spaces (e.g., "Half Life") caused syntax issues in the W3C validator due to illegal characters in URLs.
-Solution: Template: 
+
+    **Bug**: Navigation menu links for franchises containing spaces (e.g., "Half Life") caused syntax 
+    issues in the W3C validator due to illegal characters in URLs.
+
+    **Solution**: Template: 
     - URL-encode franchise names using the urlencode filter
 
           "{% url 'inventoryitems' %}?franchise={{ 'Half Life'|urlencode }}"
@@ -720,16 +646,9 @@ Solution: Template:
           inventoryitems = inventoryitems.filter(franchise__friendly_name__in=franchises)
           franchises = Franchise.objects.filter(friendly_name__in=franchises)
 
-
-
-
 These are some of the key bugs encountered and the solutions implemented to resolve them. If you need more details or additional assistance, please let me know!
 
-
-
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
-
----
 
 # Deployment
 
@@ -831,40 +750,32 @@ To manage version control and push code to the main repository on GitHub using G
  **Migrate Models:**
     - In the terminal, migrate the models to the new database connection.
 
-
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
----
-
 # Credits
-### Here's a collection of sites that were helpful in creating this website:
+ Here's a collection of sites that were helpful in creating this website:
 
-### Django Documentation:
+## Django Documentation:
 The official Django documentation with guidance on models, forms, templates, and various aspects of Django development.
 
 - [Models](https://docs.djangoproject.com/en/4.2/topics/db/models/)
-- [DeleteView](https://docs.djangoproject.com/en/3.2/ref/class-based-views/generic-editing/)
-generic-editing/)
 - [Authentication System](https://docs.djangoproject.com/en/3.2/topics/auth/default/)
 - [URL patterns](https://docs.djangoproject.com/en/5.0/topics/http/urls/)
 - [Messages](https://docs.djangoproject.com/en/5.0/ref/contrib/messages/)
 - [Automated testing](https://docs.djangoproject.com/en/5.0/topics/testing/overview/)
 
-### Bootstrap docs:
+
+## Bootstrap docs:
 - [Increase knowledge of Bootstrap framework](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 - [Bootstrap Template used](https://startbootstrap.com/template/shop-homepage)
 
-### Media
+## Media
 
 - All Posters where created by Open AI [Dalle-E](https://openai.com/index/dall-e-3/)
 
-### Content
+## Content
 - Content for the webpage and readme-file was written together with [ChatGPT](https://chat.openai.com/)
-
-
-<p align="right">(<a href="#table-of-content">back to top</a>)</p>
-
----
+- Structure and backend influences by [Boutique Ado Code Institute](https://github.com/ckz8780/boutique_ado_v1)
 
 # Acknowledgments
  I'd like to give recognition to the ones who have supported me in creating this project:
@@ -873,4 +784,3 @@ My mentor Mitko Bachvarov for his help in guiding me through this project
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
----

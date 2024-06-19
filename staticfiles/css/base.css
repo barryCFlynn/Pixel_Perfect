@@ -49,7 +49,7 @@ body {
 .btn-outline-black:hover,
 .btn-outline-black:active,
 .btn-outline-black:focus {
-    background: black;
+    background: #000000;
     color: white !important;
 }
 
@@ -60,7 +60,7 @@ body {
 .btn-black:active,
 .btn-black:focus {
     background: #222;
-    color: white;
+    color: #ffffff;
 }
 
 .text-black {
