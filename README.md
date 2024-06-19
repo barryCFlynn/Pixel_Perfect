@@ -523,12 +523,12 @@ For the contrast grid in the design system, I have chosen to display every color
 
 # Social Media
 
-See Social documentation <a href="https://github.com/barryCFlynn/Pixel_Perfect/blob/main/docs/README/SOCIAL.md">Social Readme</a>
+See Social documentation <a href="https://github.com/barryCFlynn/Pixel_Perfect/blob/main/SOCIAL.md">Social Readme</a>
 
 # Testing
 Testing was an integral part of the development process for Pixel Perfect, ensuring that the platform functions as intended and meets user requirements effectively. The testing process involves manual testing.
 
-See testing documentation <a href="https://github.com/barryCFlynn/Pixel_Perfect/blob/main/docs/README/TESTING.md">Testing Readme</a>
+See testing documentation <a href="https://github.com/barryCFlynn/Pixel_Perfect/blob/main/TESTING.md">Testing Readme</a>
 
 # Bugs
 The bug description section have been linked with the bug issues in my documentation for better visibility. The issue numbers are clickable to get a more comprehensive bug report.
