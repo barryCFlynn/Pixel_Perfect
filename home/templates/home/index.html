@@ -2,24 +2,48 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-12 col-md-6 my-auto content-center">
-                <div class="my-5">
-                    <h4>
-                        <a href="{% url 'inventoryitems' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a>
-                    </h4>
-                </div>
+<div class="container h-100">
+    <div class="row h-100">
+        <div class="col-12 col-md-6 my-auto content-center">
+            <div class="my-5">
+                <h4>
+                    <a href="{% url 'inventoryitems' %}"
+                        class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a>
+                </h4>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
 
+{% block footer %}
+    <footer class="bg-black text-white pt-2">
+        <div class="container">
+            <div class="row mb-2">
+                <div class="col-12 text-center">
+                    <div class="d-flex justify-content-center my-auto">
+                        <a href="https://www.facebook.com/profile.php?id=61560898122922" class="text-white mr-3" aria-label="Facebook"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="https://www.instagram.com/pixelperfectposters/" class="text-white" aria-label="Instagram"><i class="fab fa-instagram fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-2">
+                    <h5 class="text-uppercase">About Us</h5>
+                    <p>Pixel Perfect is your go-to destination for unique and artistic posters. Explore our collections and find the perfect piece to adorn your walls.</p>
+                </div>
+                <div class="col-md-6 mb-4 text-md-right text-center">
+                    <p class="mb-0">&copy; 2024 Pixel Perfect. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

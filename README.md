@@ -96,7 +96,6 @@ Developer: [Barry Flynn](https://github.com/barryCFlynn/) <br>
     - [My Listings](#my-listings)
     - [Future Features](#future-features)
 8. [Testing](#testing)
-    - [Automated Testing](#automated-testing)
     - [Manual Testing](#manual-testing)
 9. [Bugs](#bugs)
     - [Known Bugs](#known-bugs)
@@ -597,13 +596,16 @@ Transforming user stories into GitHub issues captures user-centric functionaliti
 
 ---
 
+# Social Media
+
+See Social documentation <a href="https://github.com/barryCFlynn/Pixel_Perfect/blob/main/docs/README/SOCIAL.md">Social Readme</a>
+
+---
 
 # Testing
 Testing was an integral part of the development process for Pixel Perfect, ensuring that the platform functions as intended and meets user requirements effectively. The testing process involves manual testing.
 
-See testing documentation here
-
-https://github.com/TerraBite147/echo-chamber/blob/main/testing.md
+See testing documentation <a href="https://github.com/barryCFlynn/Pixel_Perfect/blob/main/docs/README/TESTING.md">Testing Readme</a>
 
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
@@ -843,7 +845,7 @@ generic-editing/)
 
 ### Media
 
-- All watch images were taken from a number of sites, too many to mention.
+- All Posters where created by Open AI [Dalle-E](https://openai.com/index/dall-e-3/)
 
 ### Content
 - Content for the webpage and readme-file was written together with [ChatGPT](https://chat.openai.com/)
