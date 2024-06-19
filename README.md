@@ -652,6 +652,18 @@ The bug description section have been linked with the bug issues in my documenta
 
     **Solution**: Update all refrences to noimage.png to {% static 'img/noimage.png' %}
 
+12. 500 error on Newsletter signup
+
+    **Bug**: 500 erorr when hitting submit button in chrome
+
+    **Solution**: previous code refactor caused errors, restored to resolve
+
+13. Faile to load {% static 'img/noimage.png' %}
+
+    **Bug**: success_toast could not resolve path
+
+    **Solution**: add {% load static %} to top of template
+
 These are some of the key bugs encountered and the solutions implemented to resolve them. If you need more details or additional assistance, please let me know!
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
