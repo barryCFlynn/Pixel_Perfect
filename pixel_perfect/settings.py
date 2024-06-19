@@ -93,7 +93,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request', # required by allauth
-                'django.contrib.auth.context_processors.auth', 
+                'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'cart.contexts.cart_contents'
@@ -199,11 +199,11 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# Cloudinary Configuration       
-cloudinary.config( 
-    cloud_name = "dqcinlyfo", 
-    api_key = "161475441873686", 
-    api_secret = os.environ.get('CLOUDINARY_API_SECRET'), 
+# Cloudinary Configuration    
+cloudinary.config(
+    cloud_name = "dqcinlyfo",
+    api_key = "161475441873686",
+    api_secret = os.environ.get('CLOUDINARY_API_SECRET'),
     secure=True
 )
 CLOUDINARY_URL = os.getenv('CLOUDINARY_URL', '')
@@ -216,7 +216,6 @@ STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-
 
 
 if 'DEVELOPMENT' in os.environ:
