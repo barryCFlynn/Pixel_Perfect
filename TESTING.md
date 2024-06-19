@@ -30,13 +30,13 @@ Developer: [Barry Flynn](https://github.com/barryCFlynn/) <br>
 
 I conducted performance testing using google chrome light house. The results are as follows:
 
-- index.html, _post_list.html , _post_list_partial.html, 
-    - Performance: 99
-    - Accessibility: 90
-    - Best Practices: 100
-    - SEO: 100
+- index.html - Pass
+    - Performance: 82
+    - Accessibility: 95
+    - Best Practices: 79
+    - SEO: 90
 
-- about.html
+- inventory.html
     - Performance: 100
     - Accessibility: 90
     - Best Practices: 100
