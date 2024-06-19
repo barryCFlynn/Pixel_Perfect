@@ -646,6 +646,12 @@ The bug description section have been linked with the bug issues in my documenta
           inventoryitems = inventoryitems.filter(franchise__friendly_name__in=franchises)
           franchises = Franchise.objects.filter(friendly_name__in=franchises)
 
+11. No Image Placeholder Not Showing
+
+    **Bug**: noimage.png was still referenceing retired location MEDIA_URL
+
+    **Solution**: Update all refrences to noimage.png to {% static 'img/noimage.png' %}
+
 These are some of the key bugs encountered and the solutions implemented to resolve them. If you need more details or additional assistance, please let me know!
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
