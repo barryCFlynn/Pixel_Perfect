@@ -54,7 +54,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <small class="text-muted">Order Details:</small>
+                            <small class="text-muted">Order Items:</small>
                         </div>
                     </div>
 
@@ -73,7 +73,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <small class="text-muted">Delivering To:</small>
+                            <small class="text-muted">Delivery Details:</small>
                         </div>
                     </div>
 
@@ -190,8 +190,9 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
-			<div class="col-12 col-lg-7 text-right">
+            <div class="col-12 col-lg-7 text-right">
                 {% if from_profile %}
                     <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-2">
                         <span class="icon mr-2">
@@ -204,10 +205,10 @@
                         <span class="icon mr-2">
                             <i class="fas fa-gifts"></i>
                         </span>
-                        <span class="text-uppercase">Check out whats available from all Franchises!</span>
+                        <span class="text-uppercase">Check out what's available from all Franchises!</span>
                     </a>
                 {% endif %}
-			</div>
-		</div>
+            </div>
+        </div>
     </div>
 {% endblock %}

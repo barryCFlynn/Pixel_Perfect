@@ -60,39 +60,17 @@
                 </div>
                 <div class="row">
                     {% for inventoryitem in inventoryitems %}
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="card h-100 border-0">
-                                {% if inventoryitem.image %}
-                                <a href="{% url 'inventory_detail' inventoryitem.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ inventoryitem.image.url }}" alt="{{ inventoryitems.name }}">
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3">
+                            <div class="card border-0 h-100">
+                                <a href="{% url 'inventory_detail' inventoryitem.id %}" aria-label="{{ inventoryitem.name }}">
+                                    {% if inventoryitem.image %}
+                                        <img class="card-img-top img-fluid" src="{{ inventoryitem.image.url }}" alt="{{ inventoryitem.name }}" loading="lazy">
+                                    {% else %}
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ inventoryitem.name }}">
+                                    {% endif %}
                                 </a>
-                                {% else %}
-                                <a href="{% url 'inventory_detail' inventoryitem.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ inventoryitems.name }}">
-                                </a>
-                                {% endif %}
                             </div>
                         </div>
-                        {% if forloop.counter|divisibleby:1 %}
-                            <div class="col-12 d-sm-none">
-                                <hr>
-                            </div>
-                        {% endif %}                        
-                        {% if forloop.counter|divisibleby:2 %}
-                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:3 %}
-                            <div class="col-12 d-none d-lg-block d-xl-none">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:4 %}
-                            <div class="col-12 d-none d-xl-block">
-                                <hr>
-                            </div>
-                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
@@ -105,36 +83,33 @@
     </div>
 {% endblock %}
 
-
 {% block postloadjs %}
     {{ block.super }}
     <script type="text/javascript">
-		$('.btt-link').click(function(e) {
-			window.scrollTo(0,0);
-		})
-	</script>
+        $('.btt-link').click(function(e) {
+            e.preventDefault();
+            window.scrollTo(0,0);
+        });
+    </script>
     <!-- Custom JS to handle sort changes -->
     <script type="text/javascript">
         $('#sort-selector').change(function() {
             var selector = $(this);
-            var currentUrl = new URL(window.location);
+            var currentUrl = new URL(window.location.href);
 
             var selectedVal = selector.val();
-            if(selectedVal != "reset"){
+            if(selectedVal != "reset") {
                 var sort = selectedVal.split("_")[0];
                 var direction = selectedVal.split("_")[1];
 
                 currentUrl.searchParams.set("sort", sort);
                 currentUrl.searchParams.set("direction", direction);
-
-                window.location.replace(currentUrl);
             } else {
                 currentUrl.searchParams.delete("sort");
                 currentUrl.searchParams.delete("direction");
-
-                window.location.replace(currentUrl);
             }
+
+            window.location.href = currentUrl.href;
         });
     </script>
 {% endblock %}
-
