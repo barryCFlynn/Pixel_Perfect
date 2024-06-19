@@ -66,7 +66,7 @@
                                     {% if inventoryitem.image %}
                                         <img class="card-img-top img-fluid" src="{{ inventoryitem.image.url }}" alt="{{ inventoryitem.name }}" loading="lazy">
                                     {% else %}
-                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ inventoryitem.name }}">
+                                        <img class="card-img-top img-fluid" src="{% static 'img/noimage.png' %}" alt="{{ inventoryitem.name }}">
                                     {% endif %}
                                 </a>
                             </div>

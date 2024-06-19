@@ -22,7 +22,7 @@
                 </a>
                 {% else %}
                 <a href="">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ inventoryitem.name }}">
+                    <img class="card-img-top img-fluid" src="{% static 'img/noimage.png' %}" alt="{{ inventoryitem.name }}">
                 </a>
                 {% endif %}
             </div>
