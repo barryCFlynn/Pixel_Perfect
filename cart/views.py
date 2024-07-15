@@ -12,7 +12,8 @@ def view_cart(request):
 
 def add_to_cart(request, item_id):
     """
-    Add a specified quantity of a item, including its selected size, to the shopping cart.
+    Add a specified quantity of a item, including its selected size, to the 
+    shopping cart.
 
     Args:
         request (HttpRequest): The HTTP request object containing POST
@@ -54,10 +55,12 @@ def add_to_cart(request, item_id):
 
 def update_cart(request, item_id):
     """
-    Update the quantity and size of an item in the shopping cart based on user input.
+    Update the quantity and size of an item in the shopping cart based on
+    user input.
 
     Parameters:
-    - request: HTTP request object containing POST data with 'quantity' and 'size' parameters.
+    - request: HTTP request object containing POST data with 'quantity' and
+    'size' parameters.
     - item_id: ID of the InventoryItem to update in the cart.
 
     Returns:
@@ -65,9 +68,12 @@ def update_cart(request, item_id):
 
     Behavior:
     - Retrieves the InventoryItem and size based on item_id and size_id.
-    - Updates the quantity of the selected size for the item in the cart session.
-    - Handles addition, removal, or updating of item quantities in the cart based on user actions.
-    - Displays success messages for each action performed (update quantity, remove item).
+    - Updates the quantity of the selected size for the item in the cart
+    session.
+    - Handles addition, removal, or updating of item quantities in the cart
+    based on user actions.
+    - Displays success messages for each action performed
+    (update quantity, remove item).
 
     """
     inventory_item = get_object_or_404(InventoryItem, pk=item_id)
@@ -111,15 +117,18 @@ def remove_from_cart(request, item_id):
     - item_id: ID of the InventoryItem to remove from the cart.
 
     Returns:
-    - HTTP response with status 200 if successful, otherwise status 500 on error.
+    - HTTP response with status 200 if successful, otherwise status 500 on
+    error.
 
     Behavior:
     - Retrieves the size based on size_id from the request.
     - Retrieves the cart data from the session.
     - Removes the specified size of the item from the cart.
-    - Handles cases where the item or size is not found in the cart with appropriate error messages.
+    - Handles cases where the item or size is not found in the cart with
+    appropriate error messages.
     - Updates the cart session data after removal.
-    - Displays success message upon successful removal or error message upon failure.
+    - Displays success message upon successful removal or error message upon
+    failure.
     - Logs errors encountered during the removal process.
 
     """
@@ -128,7 +137,8 @@ def remove_from_cart(request, item_id):
         size = get_object_or_404(Size, pk=size_id)
         cart = request.session.get('cart', {})
 
-        # required to prevent item_id type as int which breaks remove with 500 errors
+        # required to prevent item_id type as int which breaks remove 
+        # with 500 errors
         item_id = str(item_id)
 
         if item_id in cart:

@@ -101,14 +101,17 @@ class InventoryItem(models.Model):
     name = models.CharField(max_length=254)
     sku = models.CharField(max_length=8, unique=True, editable=False)
     description = models.TextField()
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
-    franchise = models.ForeignKey('Franchise', null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey(
+        'Category', null=True, blank=True, on_delete=models.SET_NULL)
+    franchise = models.ForeignKey(
+        'Franchise', null=True, blank=True, on_delete=models.SET_NULL)
     artist = models.CharField(max_length=255)
     keywords = models.TextField(help_text="Comma-separated keywords for search")
     sizes = models.ManyToManyField(Size)
     stock = models.PositiveIntegerField()
     available = models.BooleanField(default=True)
-    rating = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True)
+    rating = models.DecimalField(
+        max_digits=3, decimal_places=2, null=True, blank=True)
     image = CloudinaryField('image')
 
     def save(self, *args, **kwargs):

@@ -21,8 +21,10 @@ class Order(models.Model):
     - postcode (str): Postal code of the customer's address.
     - town_or_city (str): Town or city of the customer's address.
     - street_address1 (str): First line of the customer's street address.
-    - street_address2 (str, optional): Second line of the customer's street address.
-    - county (str, optional): County, state, or locality of the customer's address.
+    - street_address2 (str, optional): Second line of the customer's street
+    address.
+    - county (str, optional): County, state, or locality of the customer's
+    address.
     - date (datetime): Date and time when the order was created.
     - delivery_cost (Decimal): Cost of delivery for the order.
     - order_total (Decimal): Total cost of the order excluding delivery.
@@ -32,9 +34,12 @@ class Order(models.Model):
 
     Methods:
     - _generate_order_number(): Generates a unique order number using UUID.
-    - update_total(): Updates the order total and grand total including delivery costs.
-    - save(*args, **kwargs): Overrides the default save method to set the order number if not already set.
-    - __str__(): Returns a string representation of the order using the order number.
+    - update_total(): Updates the order total and grand total including deliver
+    costs.
+    - save(*args, **kwargs): Overrides the default save method to set the order
+    number if not already set.
+    - __str__(): Returns a string representation of the order using the order
+    number.
     """
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(
@@ -156,14 +161,18 @@ class OrderLineItem(models.Model):
 
     Attributes:
     - order (Order): The order to which the line item belongs.
-    - inventory_item (InventoryItem): The inventory item associated with the line item.
+    - inventory_item (InventoryItem): The inventory item associated with the
+    line item.
     - size (Size): The size of the inventory item in the line item.
     - quantity (int): The quantity of the inventory item in the line item.
-    - lineitem_total (Decimal): Total cost of the line item (quantity * size price).
+    - lineitem_total (Decimal): Total cost of the line item
+    (quantity * size price).
 
     Methods:
-    - save(*args, **kwargs): Overrides the default save method to calculate and set the line item total.
-    - __str__(): Returns a string representation of the line item showing SKU and order number.
+    - save(*args, **kwargs): Overrides the default save method to calculate and
+    set the line item total.
+    - __str__(): Returns a string representation of the line item showing SKU
+    and order number.
     """
     order = models.ForeignKey(
         Order,

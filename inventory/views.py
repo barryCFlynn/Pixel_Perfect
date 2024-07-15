@@ -19,7 +19,8 @@ def inventory_items(request):
     Returns:
         HttpResponse: The rendered inventory page.
     """
-    inventoryitems = InventoryItem.objects.all().annotate(min_price=Min('sizes__price'))
+    inventoryitems = InventoryItem.objects.all().annotate(
+        min_price=Min('sizes__price'))
     query = None
     categories = None
     franchises = None
@@ -33,7 +34,8 @@ def inventory_items(request):
             sort = sortkey
             if sortkey == 'name':
                 sortkey = 'lower_name'
-                inventoryitems = inventoryitems.annotate(lower_name=Lower('name'))
+                inventoryitems = inventoryitems.annotate(
+                    lower_name=Lower('name'))
             if sortkey == 'category':
                 sortkey = 'category__friendly_name'
             if sortkey == 'franchise':
@@ -50,14 +52,18 @@ def inventory_items(request):
 
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
-            inventoryitems = inventoryitems.filter(category__friendly_name__in=categories)
-            categories = Category.objects.filter(friendly_name__in=categories)
+            inventoryitems = inventoryitems.filter(
+                category__friendly_name__in=categories)
+            categories = Category.objects.filter(
+                friendly_name__in=categories)
 
         if 'franchise' in request.GET:
             franchises = request.GET['franchise'].split(',')
             franchises = [unquote(f) for f in franchises]
-            inventoryitems = inventoryitems.filter(franchise__friendly_name__in=franchises)
-            franchises = Franchise.objects.filter(friendly_name__in=franchises)
+            inventoryitems = inventoryitems.filter(
+                franchise__friendly_name__in=franchises)
+            franchises = Franchise.objects.filter(
+                friendly_name__in=franchises)
 
         if 'artist' in request.GET:
             artists = request.GET['artist'].split(',')
@@ -130,9 +136,11 @@ def add_item(request):
         if form.is_valid():
             inventoryitem = form.save()
             messages.success(request, 'Successfully added item!')
-            return redirect(reverse('inventory_detail', args=[inventoryitem.id]))
+            return redirect(reverse(
+                'inventory_detail', args=[inventoryitem.id]))
         else:
-            messages.error(request, 'Failed to add item. Please ensure the form is valid.')
+            messages.error(
+                request, 'Failed to add item. Please ensure the form is valid.')
     else:
         form = InventoryForm()
 
@@ -154,7 +162,8 @@ def edit_item(request, item_id):
     - item_id: ID of the InventoryItem to be edited
 
     Returns:
-    - HttpResponse: Renders the edit_item.html template with form and context data
+    - HttpResponse: Renders the edit_item.html template with form and 
+    context data
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry only store owners can do that.')
@@ -163,13 +172,16 @@ def edit_item(request, item_id):
     inventoryitem = get_object_or_404(InventoryItem, pk=item_id)
 
     if request.method == 'POST':
-        form = InventoryForm(request.POST, request.FILES, instance=inventoryitem)
+        form = InventoryForm(
+            request.POST, request.FILES, instance=inventoryitem)
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated item!')
-            return redirect(reverse('inventory_detail', args=[inventoryitem.id]))
+            return redirect(
+                reverse('inventory_detail', args=[inventoryitem.id]))
         else:
-            messages.error(request, 'Failed to update item. Please ensure the form is valid.')
+            messages.error(
+                request, 'Failed to update item. Please ensure the form is valid.')
     else:
         form = InventoryForm(instance=inventoryitem)
         messages.info(request, f'You are editing {inventoryitem.name}')

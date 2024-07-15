@@ -55,10 +55,12 @@ def orders(request):
 
     If the request method is GET:
     - Retrieves cart contents and calculates total.
-    - Initializes the order form with user profile data if user is authenticated.
+    - Initializes the order form with user profile data if user is
+    authenticated.
 
     Returns:
-    - HttpResponse: Renders the order form template with necessary context data.
+    - HttpResponse: Renders the order form template with necessary
+    context data.
     """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -113,7 +115,8 @@ def orders(request):
     else:
         cart = request.session.get('cart', {})
         if not cart:
-            messages.error(request, "There's nothing in your cart at the moment")
+            messages.error(
+                request, "There's nothing in your cart at the moment")
             return redirect(reverse('inventoryitems'))
 
         current_cart = cart_contents(request)
@@ -164,7 +167,8 @@ def order_success(request, order_number):
     """
     Handle successful orders.
 
-    This view function processes successful orders by attaching the user's profile
+    This view function processes successful orders by attaching the user's
+    profile
     to the order if authenticated, saving user information if requested,
     sending a confirmation message, and clearing the cart session data.
 

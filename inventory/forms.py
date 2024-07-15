@@ -12,22 +12,27 @@ class InventoryForm(forms.ModelForm):
     - fields: '__all__' (includes all fields of the InventoryItem model)
 
     Additional Fields:
-    - image: ImageField for uploading images of the item, using CustomClearableFileInput widget
-    - sizes: ModelMultipleChoiceField for selecting sizes using CheckboxSelectMultiple widget
+    - image: ImageField for uploading images of the item, using 
+    CustomClearableFileInput widget
+    - sizes: ModelMultipleChoiceField for selecting sizes using 
+    CheckboxSelectMultiple widget
 
     Initialization:
-    - Initializes the form with choices for 'category' and 'franchise' fields retrieved from Category
+    - Initializes the form with choices for 'category' and 'franchise' fields 
+    retrieved from Category
     and Franchise models respectively. Sets CSS classes for all form fields.
 
     Parameters:
-    *args, **kwargs: Variable length argument list and keyword arguments passed to the parent class initializer.
+    *args, **kwargs: Variable length argument list and keyword arguments passed
+    to the parent class initializer.
 
     """
     class Meta:
         model = InventoryItem
         fields = '__all__'
 
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    image = forms.ImageField(
+        label='Image', required=False, widget=CustomClearableFileInput)
 
     sizes = forms.ModelMultipleChoiceField(
         queryset=Size.objects.all(),
