@@ -702,11 +702,17 @@ The bug description section have been linked with the bug issues in my documenta
 
     **Solution**: previous code refactor caused errors, restored to resolve
 
-13. Faile to load {% static 'img/noimage.png' %}
+13. Failed to load {% static 'img/noimage.png' %}
 
     **Bug**: success_toast could not resolve path
 
     **Solution**: add {% load static %} to top of template
+
+14. Failed ot load {% static 'img/noimage.png' %}
+
+    **Bug**: 500 error on cart laod
+
+    **Solution**: add add {% load static %} to top of inventory-image.html template
 
 These are some of the key bugs encountered and the solutions implemented to resolve them. If you need more details or additional assistance, please let me know!
 

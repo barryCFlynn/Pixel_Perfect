@@ -35,7 +35,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 
 ALLOWED_HOSTS = [
-                '8000-barrycflynn-pixelperfec-txa16ud0xsf.ws-eu114.gitpod.io',
+                '8000-barrycflynn-pixelperfec-l0fgbacx4bi.ws-eu115.gitpod.io',
                 'pixel-perfect-d96b20ab326d.herokuapp.com',
                 '*.herokuapp.com',
                 ]
