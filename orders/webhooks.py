@@ -19,7 +19,8 @@ def webhook(request):
     the appropriate handler functions.
 
     Returns:
-    - HttpResponse: HTTP response indicating the status of the webhook processing.
+    - HttpResponse: HTTP response indicating the status of the webhook
+    processing.
     """
     # Setup
     wh_secret = settings.STRIPE_WH_SECRET
