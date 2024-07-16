@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from cloudinary.models import CloudinaryField
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class Category(models.Model):
@@ -113,7 +114,10 @@ class InventoryItem(models.Model):
     stock = models.PositiveIntegerField()
     available = models.BooleanField(default=True)
     rating = models.DecimalField(
-        max_digits=3, decimal_places=2, null=True, blank=True)
+        max_digits=3, decimal_places=2,
+        null=True, blank=True,
+        validators=[MinValueValidator(1.0), MaxValueValidator(5.0)]
+    )
     image = CloudinaryField('image')
 
     def save(self, *args, **kwargs):
