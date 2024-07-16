@@ -9,8 +9,8 @@ class UserProfile(models.Model):
     """
     A user profile model for storing additional information related to users.
 
-    This model extends the default User model provided by Django to include fields
-    for maintaining default delivery information and order history.
+    This model extends the default User model provided by Django to include 
+    fields for maintaining default delivery information and order history.
     """
     user = models.OneToOneField(
         User,
@@ -94,10 +94,12 @@ class NewsletterSignup(models.Model):
 
     Attributes:
     - email (EmailField): The email address of the subscriber (unique).
-    - date_signed_up (DateTimeField): The date and time when the email was signed up.
+    - date_signed_up (DateTimeField): The date and time when the email was
+    signed up.
 
     Methods:
-    - __str__: Returns the email address as the string representation of the model instance.
+    - __str__: Returns the email address as the string representation of the
+    model instance.
     """
     email = models.EmailField(unique=True)
     date_signed_up = models.DateTimeField(auto_now_add=True)

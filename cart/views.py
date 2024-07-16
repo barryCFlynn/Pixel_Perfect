@@ -12,7 +12,7 @@ def view_cart(request):
 
 def add_to_cart(request, item_id):
     """
-    Add a specified quantity of a item, including its selected size, to the 
+    Add a specified quantity of a item, including its selected size, to the
     shopping cart.
 
     Args:
@@ -48,8 +48,9 @@ def add_to_cart(request, item_id):
     request.session['cart'] = cart
 
     messages.success(
-            request,
-            f'Added {quantity} x {inventory_item.name} (Size: {size.get_size_display()}) to your cart')
+        request,
+        f'Added {quantity} x {inventory_item.name} (Size: {size.get_size_display()}) '
+        f'to your cart')
     return redirect(request.POST.get('redirect_url'))
 
 
@@ -90,19 +91,24 @@ def update_cart(request, item_id):
             if quantity > 0:
                 cart[item_id]['items_by_size'][size_id] = quantity
                 messages.success(
-                    request, f'Updated {size.get_size_display()} {inventory_item.name} quantity to {cart[item_id]["items_by_size"][size_id]}')
+                    request,
+                    f'Updated {size.get_size_display()} {inventory_item.name} quantity to {cart[item_id]["items_by_size"][size_id]}'
+                )
             else:
                 del cart[item_id]['items_by_size'][size_id]
                 if not cart[item_id]['items_by_size']:
                     cart.pop(item_id)
-                messages.success(request, f'Removed {size.get_size_display()} {inventory_item.name} from your cart')
+                message = f'Removed {size.get_size_display()} {inventory_item.name} from your cart'
+                messages.success(request, message)
     else:
         if quantity > 0:
             cart[item_id] = {'items_by_size': {size_id: quantity}}
-            messages.success(request, f'Updated {inventory_item.name} quantity to {cart[item_id]}')
+            message = f'Updated {inventory_item.name} quantity to {cart[item_id]}'
+            messages.success(request, message)
         else:
             cart.pop(item_id)
-            messages.success(request, f'Removed {inventory_item.name} from your cart')
+            messages.success(request, f'Removed {inventory_item.name} '
+                                      f'from your cart')
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
@@ -146,9 +152,13 @@ def remove_from_cart(request, item_id):
                 del cart[item_id]['items_by_size'][size_id]
                 if not cart[item_id]['items_by_size']:
                     cart.pop(item_id)
-                messages.success(request, f'Removed {size.get_size_display()} item from your cart')
+                messages.success(
+                    request, f'Removed {size.get_size_display()} '
+                    f'item from your cart')
             else:
-                raise ValueError(f"Size ID {size_id} not found in cart for item ID {item_id}")
+                raise ValueError(
+                    f"Size ID {size_id} not found in cart "
+                    f"for item ID {item_id}")
         else:
             raise ValueError(f"Item ID {item_id} not found in cart")
 

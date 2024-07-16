@@ -89,7 +89,8 @@ def orders(request):
             for item_id, item_data in cart.items():
                 try:
                     inventory_item = InventoryItem.objects.get(id=item_id)
-                    for size_id, quantity in item_data['items_by_size'].items():
+                    for size_id, quantity in item_data['items_by_size'].items(
+                    ):
                         size = get_object_or_404(Size, pk=size_id)
                         order_line_item = OrderLineItem(
                             order=order,
@@ -108,7 +109,8 @@ def orders(request):
 
             # Save the info to the user's profile if all is well
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('order_success', args=[order.order_number]))
+            return redirect(reverse('order_success', args=[order.order_number])
+                            )
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')

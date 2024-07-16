@@ -12,13 +12,13 @@ class InventoryForm(forms.ModelForm):
     - fields: '__all__' (includes all fields of the InventoryItem model)
 
     Additional Fields:
-    - image: ImageField for uploading images of the item, using 
+    - image: ImageField for uploading images of the item, using
     CustomClearableFileInput widget
-    - sizes: ModelMultipleChoiceField for selecting sizes using 
+    - sizes: ModelMultipleChoiceField for selecting sizes using
     CheckboxSelectMultiple widget
 
     Initialization:
-    - Initializes the form with choices for 'category' and 'franchise' fields 
+    - Initializes the form with choices for 'category' and 'franchise' fields
     retrieved from Category
     and Franchise models respectively. Sets CSS classes for all form fields.
 

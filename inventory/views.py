@@ -68,12 +68,15 @@ def inventory_items(request):
         if 'artist' in request.GET:
             artists = request.GET['artist'].split(',')
             inventoryitems = inventoryitems.filter(artist__in=artists)
-            artists = list(set(inventoryitems.values_list('artist', flat=True)))
+            artists = list(set(
+                inventoryitems.values_list('artist', flat=True)
+            ))
 
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!")
                 return redirect(request.path)
 
             queries = (
@@ -140,7 +143,8 @@ def add_item(request):
                 'inventory_detail', args=[inventoryitem.id]))
         else:
             messages.error(
-                request, 'Failed to add item. Please ensure the form is valid.')
+                request, 'Failed to add item. Please ensure the form is valid.'
+            )
     else:
         form = InventoryForm()
 
@@ -181,7 +185,8 @@ def edit_item(request, item_id):
                 reverse('inventory_detail', args=[inventoryitem.id]))
         else:
             messages.error(
-                request, 'Failed to update item. Please ensure the form is valid.')
+                request, 'Failed to update item. Please ensure '
+                'the form is valid.')
     else:
         form = InventoryForm(instance=inventoryitem)
         messages.info(request, f'You are editing {inventoryitem.name}')

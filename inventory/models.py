@@ -106,7 +106,9 @@ class InventoryItem(models.Model):
     franchise = models.ForeignKey(
         'Franchise', null=True, blank=True, on_delete=models.SET_NULL)
     artist = models.CharField(max_length=255)
-    keywords = models.TextField(help_text="Comma-separated keywords for search")
+    keywords = models.TextField(
+        help_text="Comma-separated keywords for search"
+    )
     sizes = models.ManyToManyField(Size)
     stock = models.PositiveIntegerField()
     available = models.BooleanField(default=True)
