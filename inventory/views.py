@@ -127,7 +127,7 @@ def inventory_detail(request, item_id):
     return render(request, 'inventory/inventory_detail.html', context)
 
 
-@ login_required
+@login_required
 def add_item(request):
     """ Add a item to the store """
     if not request.user.is_superuser:
@@ -156,7 +156,7 @@ def add_item(request):
     return render(request, template, context)
 
 
-@ login_required
+@login_required
 def edit_item(request, item_id):
     """
     Edit an item in the store.
@@ -166,7 +166,7 @@ def edit_item(request, item_id):
     - item_id: ID of the InventoryItem to be edited
 
     Returns:
-    - HttpResponse: Renders the edit_item.html template with form and 
+    - HttpResponse: Renders the edit_item.html template with form and
     context data
     """
     if not request.user.is_superuser:
@@ -200,7 +200,7 @@ def edit_item(request, item_id):
     return render(request, template, context)
 
 
-@ login_required
+@login_required
 def delete_item(request, item_id):
     """Delete an item from the store (not viewable).
 

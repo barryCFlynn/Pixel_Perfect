@@ -143,7 +143,7 @@ def remove_from_cart(request, item_id):
         size = get_object_or_404(Size, pk=size_id)
         cart = request.session.get('cart', {})
 
-        # required to prevent item_id type as int which breaks remove 
+        # required to prevent item_id type as int which breaks remove
         # with 500 errors
         item_id = str(item_id)
 

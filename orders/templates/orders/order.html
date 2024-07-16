@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_meta %}
+<meta name="description" content="Complete your purchase securely. Enter your delivery information and payment details to finalize your order for high-quality game-themed posters.">
+<meta name="keywords" content="checkout, purchase, game posters, game-themed art, high-quality posters, gaming art, Pixel Perfect, delivery, payment">
+{% endblock %}
+
+{% block extra_title %}- Secure Checkout{% endblock %}
+
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'orders/css/orders.css' %}">
 {% endblock %}
