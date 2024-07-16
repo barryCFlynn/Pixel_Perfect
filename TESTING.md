@@ -8,8 +8,6 @@
 [Live webpage](https://pixel-perfect-d96b20ab326d.herokuapp.com/)<br>
 [Project Repository](https://github.com/barryCFlynn/Pixel_Perfect)<br>
 
-
-
 ## Table of Contents
 
 1. [Code Validation](#code-validation)
@@ -19,11 +17,7 @@
 5. [Manual Testing](#manual-testing)
 6. [Conclusion](#conclusion)
 
-
-
 ## Code Validation
-
-
 
 - **HTML**: Click link to see test results [W3C Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2F8000-barrycflynn-pixelperfec-txa16ud0xsf.ws-eu114.gitpod.io%2F)
     - Error: Element li not allowed as child of element nav - the is linked to the include of mobile-top-header.html, but trying fixes like placing in ul breaks styling and replacing nav with menu gives another error. This does not break the site and can be fixed later.
@@ -54,31 +48,31 @@ One primary factor affecting performance is the use of Cloudinary for hosting im
     - Performance: 85
     - Accessibility: 98
     - Best Practices: 79
-    - SEO: 90
+    - SEO: 100
 
 - **inventory.html**
-    - Performance: 57
+    - Performance: 59
     - Accessibility: 95
     - Best Practices: 79
-    - SEO: 82
+    - SEO: 91
 
 - **inventoryitem.html**
     - Performance: 67
     - Accessibility: 77
     - Best Practices: 79
-    - SEO: 91
+    - SEO: 100
 
 - **cart.html**
     - Performance: 54
     - Accessibility: 82
     - Best Practices: 79
-    - SEO: 82
+    - SEO: 91
 
 - **orders.html**
-    - Performance: 66
+    - Performance: 67
     - Accessibility: 89
     - Best Practices: 79
-    - SEO: 91
+    - SEO: 100
 
 ## Device Compatibility
 
